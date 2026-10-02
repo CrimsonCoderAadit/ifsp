@@ -82,3 +82,16 @@ def test_box_ranking():
     ]
     assert extract_route_candidates(lines)[0] == "21G"
     assert extract_route_candidates([[lines[1]["box"], "21 G", .95]])[0] == "21G"
+
+
+@pytest.mark.parametrize("lines,expected", [(["21", "G"], "21G"), (["M", "70"], "M70")])
+def test_split_route_tokens(lines, expected):
+    assert extract_route_candidates(lines)[0] == expected
+
+
+def test_do_not_join_different_board_rows():
+    lines = [
+        {"text": "21", "box": [[0, 0], [30, 0], [30, 20], [0, 20]]},
+        {"text": "G", "box": [[35, 100], [45, 100], [45, 120], [35, 120]]},
+    ]
+    assert "21G" not in extract_route_candidates(lines)

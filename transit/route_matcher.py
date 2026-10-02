@@ -109,6 +109,7 @@ def extract_route_candidates(ocr_lines: Iterable) -> list[str]:
     shortness, then height and top position. Confidence is not route validity.
     """
     ranked: dict[str, float] = {}
+    fragments = []
     for index, line in enumerate(ocr_lines):
         box = None
         if isinstance(line, str):
@@ -117,6 +118,7 @@ def extract_route_candidates(ocr_lines: Iterable) -> list[str]:
             text, box = line.get("text", ""), line.get("box")
         else:
             box, text = line[:2]
+        fragments.append((text, box))
         height = top = 0.0
         if box is not None:
             ys = [float(point[1]) for point in box]
@@ -138,4 +140,27 @@ def extract_route_candidates(ocr_lines: Iterable) -> list[str]:
             if route:
                 score = 100 - len(route) * 2 + min(height, 100) * .2 - max(top, 0) * .01 - index * .001
                 ranked[route] = max(score, ranked.get(route, float("-inf")))
+    for (left, left_box), (right, right_box) in zip(fragments, fragments[1:]):
+        a, b = _compact(left), _compact(right)
+        # OCR can split a single route board into '21' and 'G', or 'M' and
+        # '70'. Never concatenate arbitrary destination words or full routes.
+        if not ((re.fullmatch(r"[A-Z]{0,2}\d{1,3}", a)
+                 and re.fullmatch(r"[A-Z]{1,2}", b))
+                or (re.fullmatch(r"[A-Z]{1,2}", a)
+                    and re.fullmatch(r"\d{1,3}[A-Z]{0,2}", b))):
+            continue
+        if left_box is not None and right_box is not None:
+            ly = [float(p[1]) for p in left_box]
+            ry = [float(p[1]) for p in right_box]
+            lx = [float(p[0]) for p in left_box]
+            rx = [float(p[0]) for p in right_box]
+            height = max(max(ly)-min(ly), max(ry)-min(ry), 1)
+            if min(max(ly), max(ry)) <= max(min(ly), min(ry)):
+                continue
+            if not 0 <= min(rx)-max(lx) <= height * 3:
+                continue
+        joined = normalize_route(a+b)
+        if joined:
+            ranked[joined] = max(ranked.get(joined, 0),
+                                 max(ranked.get(a, 90), ranked.get(b, 90)) + 1)
     return sorted(ranked, key=lambda route: (-ranked[route], route))
