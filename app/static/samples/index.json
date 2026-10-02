@@ -1,0 +1,32 @@
+[
+  {
+    "file": "000_21G_printed.jpg",
+    "label": "21G printed board",
+    "kind": "image",
+    "board": true
+  },
+  {
+    "file": "005_21G_led.jpg",
+    "label": "21G amber LED board",
+    "kind": "image",
+    "board": true
+  },
+  {
+    "file": "001_23C_led.jpg",
+    "label": "23C LED board (another route)",
+    "kind": "image",
+    "board": true
+  },
+  {
+    "file": "019_M70_led.jpg",
+    "label": "M70 LED, JPEG artefacts (known misread)",
+    "kind": "image",
+    "board": true
+  },
+  {
+    "file": "board_pan.webm",
+    "label": "Moving 21G board, 6 s",
+    "kind": "video",
+    "board": true
+  }
+]

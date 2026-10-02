@@ -1,0 +1,12 @@
+.venv
+.git
+.remember
+.agents
+.codex
+models
+logs
+**/__pycache__
+.pytest_cache
+*.zip
+data/mtc-gtfs.zip
+data/test_overlay.mp4

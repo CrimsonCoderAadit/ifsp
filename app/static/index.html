@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Voice + Transit assistant</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23050505'/%3E%3Ctext x='12' y='17' font-size='13' font-family='monospace' font-weight='700' text-anchor='middle' fill='%23ffb000'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/css/tokens.css">
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/components.css">
+<link rel="stylesheet" href="/static/css/layout.css">
+<script type="module" src="/static/js/main.js"></script>
+</head>
+<body class="locked" data-mode="engineer">
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 4v5h-5M20 12a8 8 0 0 1-14 5.3M4 20v-5h5"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/></symbol>
+  <symbol id="i-ahead" viewBox="0 0 24 24"><path d="M12 20V4M5 11l7-7 7 7"/></symbol>
+  <symbol id="i-cancel" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3M7.5 14.5h.01M16.5 14.5h.01M8 6.5h8"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2-6z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2zM12 10v5M12 18h.01"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M12 21V4M4 11l8-8 8 8"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="icon brand-icon" aria-hidden="true"><use href="#i-bus"/></svg>
+    <span class="brand-name">Voice + Transit</span>
+    <span class="brand-sub">Review 1</span>
+  </div>
+  <div class="topbar-actions">
+    <p id="connection" class="pill" data-state="idle" role="status" aria-live="polite"><span class="pill-dot" aria-hidden="true"></span><span class="pill-text">Not started</span></p>
+    <div class="segmented mode-toggle" role="group" aria-label="Display mode (shortcut M)">
+      <button type="button" data-mode-button="rider" aria-pressed="false">Rider</button>
+      <button type="button" data-mode-button="engineer" aria-pressed="true">Engineer</button>
+    </div>
+    <label class="theme-picker"><span class="visually-hidden">Colour theme</span>
+      <select id="theme"><option value="dark">Dark</option><option value="light">Light</option><option value="hc">High contrast</option></select>
+    </label>
+    <button id="helpButton" type="button" class="button icon-button" aria-label="Keyboard shortcuts" aria-keyshortcuts="?">?</button>
+  </div>
+</header>
+
+<p id="secureNote" class="note" hidden>
+  Microphone and camera are unavailable on this address because it is not localhost or HTTPS.
+  On the laptop run <code>python -m app.server --host 0.0.0.0 --https --cert-host &lt;LAN IP&gt;</code>,
+  trust <code>models/tls/cert.pem</code> on this device, then open <code>https://&lt;LAN IP&gt;:8000</code>.
+  Typed commands, samples and risk controls still work.
+</p>
+
+<main id="main">
+  <section class="hero" aria-label="Target bus and voice">
+    <section class="card led-card" aria-labelledby="ledTitle">
+      <h2 id="ledTitle" class="card-title">Target bus</h2>
+      <div id="ledBoard" class="led-board" data-empty="true" data-found="false">
+        <span class="found-badge" aria-hidden="true">✓</span>
+        <p id="ledRoute" class="led-route" aria-hidden="true">- - -</p>
+        <div class="led-dest" aria-hidden="true">
+          <div id="ledMarquee" class="marquee" data-scroll="false" data-paused="false">
+            <span class="marquee-copy">Say “find bus 21G”</span><span class="marquee-copy" aria-hidden="true">Say “find bus 21G”</span>
+          </div>
+        </div>
+      </div>
+      <p id="ledStatus" class="led-status" data-found="false">No bus selected.</p>
+      <p id="busInfo" class="visually-hidden" aria-live="polite"></p>
+      <div class="led-footer">
+        <p id="ledMore" class="muted"></p>
+        <button id="marqueePause" type="button" class="button small" aria-pressed="false">Pause scrolling</button>
+      </div>
+    </section>
+
+    <section class="card mic-card" aria-labelledby="micTitle">
+      <h2 id="micTitle" class="card-title">Talk to the assistant</h2>
+      <button id="ptt" type="button" class="ptt" aria-pressed="false" aria-keyshortcuts="Space" aria-describedby="pttHint">
+        <svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg>
+        <span class="ptt-label">Hold to talk</span>
+        <span id="micMeter" class="mic-meter" aria-hidden="true"><span></span></span>
+      </button>
+      <p id="pttHint" class="muted">Hold the button or the Space bar, speak, then release. Enter toggles recording.</p>
+      <p id="partial" class="partial" aria-live="polite"></p>
+      <p id="transcript" class="transcript" aria-live="polite"></p>
+      <p id="intentLine" class="intent-line muted"></p>
+      <details class="type-instead">
+        <summary>Type a command instead</summary>
+        <form id="commandForm" class="command-form">
+          <label for="commandInput">Command</label>
+          <div class="input-row">
+            <input id="commandInput" value="find bus 21G" autocomplete="off" spellcheck="false">
+            <button type="submit" class="button primary"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg><span>Send</span></button>
+          </div>
+        </form>
+      </details>
+    </section>
+  </section>
+
+  <section class="card spoken-card" aria-labelledby="spokenTitle">
+    <h2 id="spokenTitle" class="card-title">Last spoken <span id="lastSpokenPriority" class="tag"></span></h2>
+    <p id="lastSpoken" class="caption" aria-live="polite">—</p>
+    <div class="quick-actions">
+      <button type="button" class="button big" data-command="repeat" aria-keyshortcuts="R"><svg class="icon" aria-hidden="true"><use href="#i-repeat"/></svg><span>Repeat</span></button>
+      <button type="button" class="button big" data-command="stop" aria-keyshortcuts="S"><svg class="icon" aria-hidden="true"><use href="#i-stop"/></svg><span>Stop</span></button>
+      <button type="button" class="button big" data-command="what is ahead" aria-keyshortcuts="A"><svg class="icon" aria-hidden="true"><use href="#i-ahead"/></svg><span>What’s ahead?</span></button>
+      <button type="button" class="button big" data-command="cancel bus" aria-keyshortcuts="C"><svg class="icon" aria-hidden="true"><use href="#i-cancel"/></svg><span>Cancel search</span></button>
+    </div>
+  </section>
+
+  <div class="workbench">
+    <section class="card stage-card" aria-labelledby="stageTitle">
+      <div class="card-head">
+        <h2 id="stageTitle" class="card-title">Camera</h2>
+        <p id="sourceLabel" class="muted">No source selected</p>
+      </div>
+      <div class="rider-only">
+        <button id="riderCamera" type="button" class="button"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span>Start camera</span></button>
+      </div>
+      <fieldset class="segmented source-picker eng-only">
+        <legend class="visually-hidden">Video source</legend>
+        <label><input type="radio" name="source" value="webcam"><span>Webcam</span></label>
+        <label><input type="radio" name="source" value="video"><span>Video file</span></label>
+        <label><input type="radio" name="source" value="image"><span>Still image</span></label>
+        <label><input type="radio" name="source" value="samples" checked><span>Samples</span></label>
+      </fieldset>
+      <div class="source-panels eng-only">
+        <div data-source-panel="webcam" hidden>
+          <button id="webcamStart" type="button" class="button"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg><span>Start webcam</span></button>
+        </div>
+        <div data-source-panel="video" hidden>
+          <label class="file-label">Choose a video file <input id="videoFile" type="file" accept="video/*"></label>
+        </div>
+        <div data-source-panel="image" hidden>
+          <label class="file-label">Choose a still image <input id="imageFile" type="file" accept="image/*"></label>
+          <button id="imageApi" type="button" class="button" disabled>Run once through /api/image</button>
+          <a id="annotated" class="button" hidden download="annotated.jpg">Download annotated JPEG</a>
+        </div>
+        <div data-source-panel="samples">
+          <div id="samples" class="samples" role="group" aria-label="Bundled demo samples"></div>
+        </div>
+      </div>
+      <div class="stage-options eng-only">
+        <label class="switch"><input id="boardMode" type="checkbox"><span>Close-up board mode (whole frame is the sign; bypasses YOLO)</span></label>
+        <button id="pauseFrames" type="button" class="button small" aria-pressed="false" aria-keyshortcuts="P"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause frames</span></button>
+      </div>
+      <div id="stage" class="stage">
+        <video id="video" muted playsinline hidden></video>
+        <img id="still" alt="" hidden>
+        <canvas id="stageCanvas" class="stage-canvas" aria-label="Detection overlay. Click a bus box to inspect its OCR attempts."></canvas>
+      </div>
+      <p id="statusStrip" class="status-strip" data-kind="idle" role="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span><span class="status-text">No frames yet. Pick a source.</span>
+      </p>
+      <p class="legend eng-only" aria-label="Overlay legend">
+        <span class="swatch swatch-amber"></span> read, not confirmed
+        <span class="swatch swatch-green"></span> confirmed and your bus ✓
+        <span class="swatch swatch-grey"></span> another route
+        <span class="swatch swatch-ocr"></span> OCR text box
+      </p>
+    </section>
+
+    <div class="side eng-only">
+      <section class="card" aria-labelledby="tracerTitle">
+        <h2 id="tracerTitle" class="card-title">Pipeline tracer</h2>
+        <p class="muted">Latest event through each stage of the Review 1 chain.</p>
+        <ol id="tracer" class="tracer"></ol>
+      </section>
+
+      <section class="card" aria-labelledby="timelineTitle">
+        <h2 id="timelineTitle" class="card-title">Speech timeline · last 30 s</h2>
+        <canvas id="timeline" class="timeline" role="img" aria-labelledby="timelineTitle" aria-describedby="timelineSummary"></canvas>
+        <p id="timelineSummary" class="muted"></p>
+        <p class="timeline-legend"><span class="legend-cut" aria-hidden="true">✕</span> pre-empted · dashed line = requeued replay · ticks = suppressed by cooldown</p>
+      </section>
+
+      <section class="card" aria-labelledby="riskTitle">
+        <h2 id="riskTitle" class="card-title">Risk pad (mock Person 1 events)</h2>
+        <fieldset class="direction-pad">
+          <legend>Direction</legend>
+          <label><input type="radio" name="riskDirection" value="left"><span><svg class="icon arrow-left" aria-hidden="true"><use href="#i-arrow"/></svg>Left</span></label>
+          <label><input type="radio" name="riskDirection" value="ahead"><span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Ahead</span></label>
+          <label><input type="radio" name="riskDirection" value="right" checked><span><svg class="icon arrow-right" aria-hidden="true"><use href="#i-arrow"/></svg>Right</span></label>
+        </fieldset>
+        <fieldset class="segmented level-picker">
+          <legend>Level</legend>
+          <label><input type="radio" name="riskLevel" value="MEDIUM"><span>Medium</span></label>
+          <label><input type="radio" name="riskLevel" value="HIGH" checked><span>High</span></label>
+          <label><input type="radio" name="riskLevel" value="CRITICAL"><span>Critical</span></label>
+        </fieldset>
+        <div class="risk-row">
+          <label for="riskObject">Object</label>
+          <select id="riskObject">
+            <option value="car">Car</option><option value="motorcycle">Motorcycle</option><option value="bus">Bus</option>
+            <option value="person">Person</option><option value="auto-rickshaw">Auto-rickshaw</option>
+          </select>
+          <button id="riskFire" type="button" class="button danger"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg><span>Fire</span></button>
+        </div>
+        <button id="riskSpam" type="button" class="button">Spam HIGH · 30 fps for 5 s</button>
+        <p id="riskStatus" class="muted" role="status"></p>
+      </section>
+
+      <section class="card" aria-labelledby="latencyTitle">
+        <h2 id="latencyTitle" class="card-title">Latency</h2>
+        <div id="latencyGrid" class="latency-grid"></div>
+        <details class="system-card">
+          <summary><svg class="icon" aria-hidden="true"><use href="#i-gear"/></svg>System and budgets</summary>
+          <dl id="healthList" class="health-list"></dl>
+          <fieldset class="budgets">
+            <legend>Latency budgets (ms)</legend>
+            <label>STT <input id="budget-stt" type="number" min="1" step="10" inputmode="numeric"></label>
+            <label>OCR per crop <input id="budget-ocr" type="number" min="1" step="10" inputmode="numeric"></label>
+            <label>TTS event → audio <input id="budget-tts" type="number" min="1" step="10" inputmode="numeric"></label>
+            <label>Detector <input id="budget-detector" type="number" min="1" step="10" inputmode="numeric"></label>
+          </fieldset>
+        </details>
+      </section>
+    </div>
+  </div>
+
+  <section class="drawers eng-only" aria-label="Inspectors">
+    <details id="ocrDrawer" class="card drawer">
+      <summary>OCR inspector</summary>
+      <label for="trackSelect">Track</label>
+      <select id="trackSelect"></select>
+      <div class="table-scroll">
+        <table class="ocr-table">
+          <caption class="visually-hidden">OCR attempts for the selected track; the winning attempt is marked with a check.</caption>
+          <thead><tr><th scope="col">Crop</th><th scope="col">Variant</th><th scope="col">ms</th><th scope="col">Text</th><th scope="col">Route</th><th scope="col">Method</th></tr></thead>
+          <tbody id="ocrRows"></tbody>
+        </table>
+      </div>
+      <p id="ocrEmpty" class="muted">No OCR attempts yet for this track.</p>
+    </details>
+    <details id="logDrawer" class="card drawer">
+      <summary>Event log</summary>
+      <div class="log-columns">
+        <section aria-labelledby="schedulerLogTitle">
+          <h3 id="schedulerLogTitle">Scheduler decisions</h3>
+          <ol id="schedulerLog" class="log-list" tabindex="0" aria-label="Scheduler decisions, newest first"></ol>
+        </section>
+        <section aria-labelledby="wsLogTitle">
+          <h3 id="wsLogTitle">WebSocket messages</h3>
+          <div class="ws-controls">
+            <label for="wsFilter">Filter</label><select id="wsFilter"><option value="">All types</option></select>
+            <label class="switch"><input id="wsPause" type="checkbox"><span>Pause</span></label>
+            <span id="wsCount" class="muted"></span>
+          </div>
+          <pre id="wsLog" class="log-pre" tabindex="0" aria-label="Raw WebSocket messages, newest first"></pre>
+        </section>
+      </div>
+    </details>
+  </section>
+</main>
+
+<div id="riskBanner" class="risk-banner" hidden>
+  <div class="risk-arrow">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+    <span id="riskArrowLabel"></span>
+  </div>
+  <div class="risk-body">
+    <p id="riskLevelLabel" class="risk-level"></p>
+    <p id="riskText" class="risk-text"></p>
+  </div>
+</div>
+<div class="edge-glow edge-left" aria-hidden="true"></div>
+<div class="edge-glow edge-right" aria-hidden="true"></div>
+<div id="riskLive" class="visually-hidden" aria-live="assertive" aria-atomic="true"></div>
+<div id="toasts" class="toasts"></div>
+
+<div id="startOverlay" class="start-overlay" role="dialog" aria-modal="true" aria-labelledby="startTitle" aria-describedby="startText">
+  <div class="start-panel">
+    <svg class="icon start-icon" aria-hidden="true"><use href="#i-bus"/></svg>
+    <h1 id="startTitle">Voice + Transit assistant</h1>
+    <p id="startText">Browsers only allow sound after you press a button. Starting connects to the local server and says “Ready.”</p>
+    <button id="startButton" type="button" class="button start-button">Start assistant</button>
+    <p class="muted">Press <kbd>?</kbd> at any time for keyboard shortcuts.</p>
+  </div>
+</div>
+
+<dialog id="helpDialog" aria-labelledby="helpTitle">
+  <h2 id="helpTitle">Keyboard shortcuts</h2>
+  <table id="shortcutTable" class="shortcut-table"><caption class="visually-hidden">Keyboard shortcuts</caption></table>
+  <button id="helpClose" type="button" class="button primary">Close</button>
+</dialog>
+</body>
+</html>

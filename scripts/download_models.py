@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import os
 import shutil
 import ssl
 import sys
@@ -16,6 +17,7 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ROOT / "models"
 VOICE = "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/"
+VOICE_LOW = "https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/low/"
 GTFS = "https://raw.githubusercontent.com/ungalsoththu/ChennaiGTFS/main/data/mtc-gtfs.zip"
 
 
@@ -109,6 +111,9 @@ def prepare_yolo() -> None:
         print("YOLO export pending. Run .venv/bin/python -m pip install ultralytics onnx\n"
               "Then rerun this script with --only yolo.", flush=True)
         return
+    os.environ.setdefault("YOLO_CONFIG_DIR", str(MODELS / "ultralytics"))
+    (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True,exist_ok=True)
+    os.environ.setdefault("MPLCONFIGDIR", str(MODELS / "matplotlib"))
     from ultralytics import YOLO
     exported = Path(YOLO(str(weights)).export(format="onnx", imgsz=640, opset=17,
                                             simplify=False, dynamic=False))
@@ -116,6 +121,35 @@ def prepare_yolo() -> None:
         shutil.copyfile(exported, output)
     if output.stat().st_size < 1_000_000:
         raise ValueError("YOLO ONNX size check failed")
+
+
+def prepare_yolo_low() -> None:
+    prepare_yolo()
+    output = MODELS / "yolo11n-320.onnx"
+    if output.exists() and output.stat().st_size > 1_000_000:
+        print("Cached: yolo11n-320.onnx", flush=True)
+        return
+    if importlib.util.find_spec("ultralytics") is None:
+        raise RuntimeError("Install optional ultralytics and onnx to export 320px YOLO")
+    source = MODELS / "yolo11n.pt"
+    low_weights = MODELS / "yolo11n-320.pt"
+    shutil.copyfile(source, low_weights)
+    os.environ.setdefault("YOLO_CONFIG_DIR", str(MODELS / "ultralytics"))
+    (Path(os.environ["YOLO_CONFIG_DIR"]) / "Ultralytics").mkdir(parents=True, exist_ok=True)
+    os.environ.setdefault("MPLCONFIGDIR", str(MODELS / "matplotlib"))
+    from ultralytics import YOLO
+    exported = Path(YOLO(str(low_weights)).export(format="onnx", imgsz=320, opset=17,
+                                                  simplify=False, dynamic=False))
+    if exported.resolve() != output.resolve():
+        shutil.copyfile(exported, output)
+    if output.stat().st_size < 1_000_000:
+        raise ValueError("Low-power YOLO ONNX export too small")
+
+
+def prepare_piper_low() -> None:
+    for filename, minimum in (("en_US-lessac-low.onnx", 10_000_000),
+                              ("en_US-lessac-low.onnx.json", 100)):
+        download(VOICE_LOW + filename, MODELS / filename, minimum)
 
 
 def prepare_rapidocr() -> None:
@@ -152,7 +186,8 @@ def prepare_rapidocr() -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--only", nargs="+", choices=["vosk", "piper", "yolo", "rapidocr", "gtfs"])
+    parser.add_argument("--only", nargs="+", choices=["vosk", "piper", "yolo", "rapidocr", "gtfs",
+                                                       "piper_low", "yolo_low"])
     args = parser.parse_args()
     MODELS.mkdir(parents=True, exist_ok=True)
     tasks = {
@@ -161,11 +196,13 @@ def main() -> int:
                            for filename, minimum in [("en_US-lessac-medium.onnx", 10_000_000),
                                                      ("en_US-lessac-medium.onnx.json", 100)]],
         "yolo": prepare_yolo,
+        "yolo_low": prepare_yolo_low,
+        "piper_low": prepare_piper_low,
         "rapidocr": prepare_rapidocr,
         "gtfs": lambda: download(GTFS, ROOT / "data/mtc-gtfs.zip", 1_000),
     }
     failed = []
-    for name in args.only or tasks:
+    for name in args.only or ("vosk", "piper", "yolo", "rapidocr", "gtfs"):
         try:
             tasks[name]()
         except Exception as error:

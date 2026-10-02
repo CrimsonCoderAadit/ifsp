@@ -1,0 +1,144 @@
+/* Self-hosted OFL fonts (see fonts/*-OFL.txt). */
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("../fonts/AtkinsonHyperlegibleNext.ttf") format("truetype");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible Mono";
+  src: url("../fonts/AtkinsonHyperlegibleMono.ttf") format("truetype");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Doto";
+  src: url("../fonts/Doto.ttf") format("truetype");
+  font-weight: 900;
+  font-display: block;
+}
+
+/* Default: dark "transit signage". Every text/background pair is checked for WCAG AA. */
+:root {
+  --font-ui: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+  --font-led: "Doto", var(--font-mono);
+
+  --bg: #0e0f11;
+  --surface: #17191c;
+  --surface-2: #22252a;
+  --border: #3a3f46;
+  --control-border: #7a828c;
+  --text: #f4f4f2;
+  --text-muted: #b9bec6;
+
+  --amber: #ffb000;
+  --green: #3ddc84;
+  --grey: #a3adb9;
+  --red: #ff6b6b;
+  --risk-critical: #ff3d71;
+  --on-chip: #101010;
+
+  --risk-bg: #c0001a;
+  --on-risk: #ffffff;
+  --primary-bg: #ffb000;
+  --on-primary: #101010;
+  --danger-bg: #c0001a;
+  --on-danger: #ffffff;
+  --selected-bg: #ffb000;
+  --on-selected: #101010;
+
+  --led-bg: #050505;
+  --led-on: #ffb000;
+  --led-off: rgb(255 176 0 / 0.13);
+  --led-confirmed: #3ddc84;
+  --led-glow: 0 0 0.35em rgb(255 176 0 / 0.55);
+
+  --focus: #66b3ff;
+  --focus-halo: #000000;
+  --spark-budget: #7a828c;
+  --overlay-line: 3;
+  /* The camera stage is always dark, so overlay colours stay bright in every theme except HC. */
+  --ov-amber: #ffb000;
+  --ov-green: #3ddc84;
+  --ov-grey: #a3adb9;
+  --ov-ocr: #5cc8ff;
+  --ov-on-chip: #101010;
+
+  --radius: 12px;
+  --space: 1rem;
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.04), 0 8px 24px rgb(0 0 0 / 0.35);
+}
+
+:root[data-theme="light"] {
+  --bg: #f1f0ec;
+  --surface: #ffffff;
+  --surface-2: #ecebe6;
+  --border: #c9c7c0;
+  --control-border: #6b6b6b;
+  --text: #121212;
+  --text-muted: #4a4f57;
+
+  --amber: #8a5800;
+  --green: #0b6e35;
+  --grey: #56606b;
+  --red: #b00020;
+  --risk-critical: #8f0034;
+  --on-chip: #ffffff;
+
+  --risk-bg: #b00020;
+  --primary-bg: #8a5800;
+  --on-primary: #ffffff;
+  --danger-bg: #b00020;
+  --selected-bg: #121212;
+  --on-selected: #ffffff;
+
+  --focus: #0047b3;
+  --focus-halo: #ffffff;
+  --spark-budget: #6b6b6b;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 6px 18px rgb(0 0 0 / 0.08);
+}
+
+/* High contrast: pure black, white and yellow only. */
+:root[data-theme="hc"] {
+  --bg: #000000;
+  --surface: #000000;
+  --surface-2: #000000;
+  --border: #ffffff;
+  --control-border: #ffffff;
+  --text: #ffffff;
+  --text-muted: #ffffff;
+
+  --amber: #ffff00;
+  --green: #ffffff;
+  --grey: #ffffff;
+  --red: #ffff00;
+  --risk-critical: #ffff00;
+  --on-chip: #000000;
+
+  --risk-bg: #ffff00;
+  --on-risk: #000000;
+  --primary-bg: #ffff00;
+  --on-primary: #000000;
+  --danger-bg: #ffff00;
+  --on-danger: #000000;
+  --selected-bg: #ffff00;
+  --on-selected: #000000;
+
+  --led-bg: #000000;
+  --led-on: #ffff00;
+  --led-off: rgb(255 255 0 / 0.16);
+  --led-confirmed: #ffffff;
+  --led-glow: none;
+
+  --focus: #ffff00;
+  --focus-halo: #000000;
+  --spark-budget: #ffffff;
+  --overlay-line: 4;
+  --ov-amber: #ffff00;
+  --ov-green: #ffffff;
+  --ov-grey: #ffffff;
+  --ov-ocr: #ffff00;
+  --ov-on-chip: #000000;
+  --shadow: none;
+}

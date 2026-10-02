@@ -77,6 +77,42 @@ def load_routes(full: Path = ROOT / "data/routes.csv",
         return {row["base_route"] for row in csv.DictReader(stream) if row["base_route"]}
 
 
+
+def load_route_metadata(zip_path: Path = ROOT / "data/mtc-gtfs.zip",
+                        full: Path = ROOT / "data/routes.csv",
+                        fallback: Path = ROOT / "data/routes_review1.csv") -> dict[str, dict]:
+    """Map base route to its raw variants and every unique "A TO B" long name.
+
+    Reads routes.txt from the GTFS ZIP when present; the route CSV keeps
+    only three sample long names per base.
+    """
+    grouped: dict[str, tuple[set[str], dict[str, str]]] = {}
+
+    def add(base, short, long_name):
+        names, longs = grouped.setdefault(base, (set(), {}))
+        if short:
+            names.add(short)
+        long_name = re.sub(r"\s+", " ", long_name or "").strip()
+        if long_name:
+            longs.setdefault(long_name.upper(), long_name)
+
+    if zip_path.exists():
+        with ZipFile(zip_path) as archive, archive.open("routes.txt") as stream:
+            for row in csv.DictReader(io.TextIOWrapper(stream, encoding="utf-8-sig")):
+                short = row.get("route_short_name", "").strip()
+                if row.get("route_type", "").strip() == "3" and base_route(short):
+                    add(base_route(short), short, row.get("route_long_name"))
+    else:
+        path = full if full.exists() else fallback
+        with path.open(encoding="utf-8-sig", newline="") as stream:
+            for row in csv.DictReader(stream):
+                for short in (row.get("raw_short_names") or row["base_route"]).split(" | "):
+                    add(row["base_route"], short.strip(), None)
+                for long_name in (row.get("sample_long_names") or "").split(" | "):
+                    add(row["base_route"], None, long_name)
+    return {base: {"route": base, "variants": sorted(names), "long_names": sorted(longs.values())}
+            for base, (names, longs) in grouped.items()}
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--zip", type=Path, default=ROOT / "data/mtc-gtfs.zip")
