@@ -1,0 +1,649 @@
+base_route,raw_short_names,sample_long_names
+1,1 | 1CT,THIRUVANMIYUR TO THIRUVOTRIYUR B.T | THIRUVOTRIYUR B.T TO THIRUVANMIYUR | Thiruvanmiyur TO Tondairpet
+101,101 | 101 CT | 101 CT1 | 101 CT11 | 101 CT12 | 101 CT2 | 101 CT3 | 101 CT5 | 101 CT6 | 101 CT7 | 101 CT9 | 101 R | 101 R1 | 101CT | 101CT1,Anna Nagar East TO  M.G.R.Koyambedu | Annanagar East TO M.G.R.Koyambedu | Annanagar East TO Poonamallee
+101E,101E,Poonamallee TO Tondiarpet | Tondiarpet TO Poonamallee
+101X,101X | 101X CT | 101X CT1 | 101X CT10 | 101X CT11 | 101X CT12 | 101X CT13 | 101X CT14 | 101X CT2 | 101X CT3 | 101X CT4 | 101X CT6 | 101X CT7 | 101X CT8 | 101X CT9,Island ground  TO  M.G.R.Koyambedu | M.G.R.Koyambedu  TO  Island ground | M.G.R.Koyambedu Bus Terminus TO Poonamallee Bus Terminus
+102,102 | 102 CT | 102 CT1 | 102 CT10 | 102 CT11 | 102 CT12 | 102 CT13 | 102 CT14 | 102 CT15 | 102 CT16 | 102 CT2 | 102 CT3 | 102 CT4 | 102 CT6 | 102 CT7 | 102 CT8 | 102 CT9 | 102 R | 102CT | 102CT CT | 102CT CT1 | 102CT CT10 | 102CT CT11 | 102CT CT12 | 102CT CT2 | 102CT CT3 | 102CT CT4 | 102CT CT5 | 102CT CT6 | 102CT CT7 | 102CT CT8 | 102CT R1 | 102CT11,Adyar (Depot) TO Thiruvanmiyur | Adyar B.S TO Siruseri I.T.Park | Adyar B.T TO Island ground
+102A,102A,Pudupakkam Rd.Jn TO Thiruvanmiyur | Thiruvanmiyur TO Pudupakkam Rd.Jn
+102C,102C | 102C CT2 | 102C CT3 | 102C CT4 | 102C CT6 | 102C CT7 | 102C CT8 | 102C R | 102C R2,Broadway TO Semmancheri S.C.B | Island ground TO  Santhome | Island ground TO  Semmancheri
+102E,102E | 102E CT1 | 102E CT2,Perumbakkam Bus Terminus TO  Thiruvanmiyur | Siruseri To Thiruvanmiyur | Thiruvanmiyur  TO  Perumbakkam Bus Terminus
+102K,102K | 102K CT | 102K CT1 | 102K CT10 | 102K CT11 | 102K CT13 | 102K CT14 | 102K CT16 | 102K CT17 | 102K CT18 | 102K CT19 | 102K CT2 | 102K CT20 | 102K CT21 | 102K CT22 | 102K CT23 | 102K CT24 | 102K CT25 | 102K CT26 | 102K CT27 | 102K CT28 | 102K CT29 | 102K CT3 | 102K CT30 | 102K CT31 | 102K CT34 | 102K CT4 | 102K CT5 | 102K CT7 | 102K CT8 | 102K CT9 | 102K R1 | 102K R2,Adyar B.T TO Ezhil Nagar | Adyar TO Kannagi Nagar S.C.B | Adyar TO Nandanam Ymca
+102M,102M,Adyar B.T TO Manamathi | Manamathi TO Adyar B.T
+102P,102P CT1 | 102P CT11 | 102P CT12 | 102P CT15 | 102P CT16 | 102P CT19 | 102P CT2 | 102P CT20 | 102P CT21 | 102P CT22 | 102P CT23 | 102P CT24 | 102P CT25 | 102P CT26 | 102P CT27 | 102P CT28 | 102P CT29 | 102P CT30 | 102P CT31 | 102P CT32 | 102P CT33 | 102P CT34 | 102P CT4 | 102P CT5 | 102P CT6 | 102P CT7 | 102P CT8 | 102P CT9 | 102P R2 | 102P R4,Adyar B.S TO  Island ground | Adyar Depot TO Perumpakkam S.C.B | Alwarpet TO  Island ground
+102S,102S | 102S CT1 | 102S CT2 | 102S CT3 | 102S R1 | 102S R2,Island ground Terminus TO  Kelambakkam Bus Terminal | Island ground Terminus TO  Okk.Thoraipakm Sec.Colony | Kannagi Nagar Depot TO  Island ground Terminus
+102X,102X | 102X CT | 102X CT1 | 102X CT10 | 102X CT2 | 102X CT3 | 102X CT4 | 102X CT5 | 102X CT6 | 102X CT7 | 102X CT8 | 102X R | 102X R2 | 102X R4,Adyar Depot TO  Island ground | Adyar TO Thiruporur | Island ground TO  Adyar
+104,104 | 104 CT | 104 CT1 | 104 CT2 | 104 R | 104 R1,Ambattur I.E TO Tambaram West | Ambattur Industrial TO Redhills Bus Terminus | Madhavaram B.S To  Redhills B.S
+104A,104A,Avadi B.T TO Kilambakkam B.T | Avadi B.T TO M.G.R.Koyambedu | Avadi B.T TO Tambaram West
+104C,104C | 104C CT | 104C CT1 | 104C CT11 | 104C CT12 | 104C CT2 | 104C R | 104C R1 | 104C R2,Ambattur Industrial Estate TO  Kilambakkam | Anna Nagar West TO M.G.R.Koyambedu | Guduvanchery TO Koyambedu
+104CX,104CX | 104CX R,Anna Nagar West Depot TO M.G.R.Koyambedu | Guduvancheri Bus Terminus TO Tambaram West Bus Stand | Guduvanchery TO M.G.R.Koyambedu
+104F,104F,Ambattur I.E TO Kilambakkam B.T | Kilambakkam B.T TO Ambattur I.E | Kilambakkam B.T TO Madhavaram B.T
+104G,104G,Ambattur I.E TO Kilambakkam B.T | Kilambakkam B.T TO Ambattur I.E | Kilambakkam B.T TO M.K.B.Nagar
+104K,104K,Kilambakkam B.T TO Redhills | Redhills B.S TO Tambaram West | Redhills TO Kilambakkam B.T
+104M,104M,Kilambakkam B.T TO M.M.B.T | M.G.R.Koyambedu TO M.M.B.T | M.M.B.T TO Kilambakkam B.T
+104P,104P,Kilambakkam B.T TO Perambur B.T | Perambur B.T TO Kilambakkam B.T
+104T,104T,Kilambakkam B.T TO T.V.K.Nagar | Otteri TO T.V.K.Nagar | T.V.K.Nagar TO Kilambakkam B.T
+105,105 | 105 CT,Siruseri I.T Park TO Tambaram West | Tambaram West Bus Stand TO Chrompet TO 1 Depot | Tambaram West Bus Stand TO Chrompet TO 2 Depot
+105A,105A | 105A CT,Chrompet TO 2 Depot TO Tambaram West Bus Stand | Karanai TO Tambaram West | Siruseri I.T Park TO Tambaram West
+109,109 | 109 CT | 109 CT1 | 109 CT2 | 109 CT3 | 109 R | 109 R1 | 109Ct,Adyar B.T TO Kovalam | Besant Nagar TO Kovalam | Central Depot TO  Island ground
+109A,109A | 109A CT,Adyar  B.S TO Thiruvidhanthai | Island ground TO Thiruvidanthai | Thiruvidanthai TO Island ground
+109C,109C,Adyar Depot TO Kovalam | Kovalam TO Adyar Depot | Kovalam TO Thiruvanmiyur
+109T,109T | 109T CT | 109T CT2 | 109T CT4,Kovalam B.S TO Thangal Tollgate | Kovalam TO Thiruvotriyur B.T | Thangal Tollgate TO Thiruvotiyur B.T
+109X,109X | 109X CT | 109X R,Island ground TO Thiruporur | Island ground TO Thiruvanmiyur | Thiruporur TO Island ground
+10A,10A | 10A CT | 10A CT1 | 10A R | 10A R1,K.K.Nagar TO Saidapet West | Royapuram TO Saidapet West | Saidapet West TO  Royapuram
+10E,10E | 10E CT | 10E CT1 | 10E CT2 | 10E R | 10E R1,Ekkattuthangal TO  Royapuram | K.K Nagar Depot TO Saidapet West Bus Stand | M.G.R.Central TO Saidapet West
+11,11 | 11 CT | 11 CT1 | 11 CT4 | 11 R,L.F.C TO Thiyagaraya Nagar | M.G.R.Central TO Thiyagaraya Nagar | Royapuram TO Thiyagarayanagar
+111,111 | 111 CT | 111Et,K.K.Nagar TO Kilambakkam B.T | K.K.Nagar TO Tambaram West | K.K.Nagar TO Thiruverkadu
+113,113 | 113 CT,Guindy Tvk Estate TO Redhills | M.G.R.Koyambedu TO Redhills | Moolakadai TO Redhills
+113A,113A,Guindy B.S TO Teachers Colony | Teachers Colony TO Guindy B.S
+114,114 | 114 CT | 114 CT1 | 114 CT2 | 114 CT3 | 114 CT5 | 114 CT6 | 114 CT7 | 114 CT8 | 114 CT9 | 114 CUT | 114 R1 | 114 R2 | 114 R4 | 114Et,Anna Nagar West Depot TO M.G.R.Koyambedu | Anna Nagar West TO M.G.R.Koyambedu | M.G.R Koyambedu TO Moolakadai
+114A,114A,Ayanavaram B.T TO Redhills | M.G.R.Koyambedu TO Ayanavaram | Redhills TO Ayanavaram B.T
+114C,114C | 114CCt,Gnayaru TO Koyambedu Market | Gnayaru TO M.G.R.Koyambedu | Koyambedu Market TO Gnayaru
+114D,114D | 114D CT,Arani TO M.G.R.Koyambedu | Arani TO Redhills | M.G.R.Koyambedu TO Arani
+114E,114E | 114E CT,Koyambedu Market TO New Erumaivetti Palayam | New Erumaivetti Palayam TO Koyambedu Market | New Erumaivetti Palayam TO Redhills
+114G,114G,Gnayaru TO M.G.R.Koyambedu | Gnayaru TO Moolakadai | M.G.R.Koyambedu TO Gnayaru
+114P,114P | 114P CT | 114P CT1,Anna Nagar West  Depot TO M.G.R.Koyambedu | Anna Nagar West TO Redhills | M.G.R.Koyambedu TO Anna Nagar West Depot
+114S,114S,Koyambedu Market TO Seemavaram | Moolakadai TO Seemavaram | Redhills TO Seemavaram
+118,118 | 118 CT | 118Et,Chrompet TO 2 Depot TO Tambaram West Bus Stand | Kalivanthapattu TO Tambaram West | Keerapakkam TO Tambaram West
+118G,118G,Kavanoor Koot Road TO Tambaram West | Tambaram West TO Kavanoor Koot Road
+118N,118N,Neelamangalam TO Tambaram West | Tambaram West TO Neelamangalam
+118P,118P | 118P CT,Maraimalai Nagar I.E. TO Tambaram West | Parameshwari Nagar TO Tambaram West Bus Stand | Tambaram West Bus Stand TO Parameshwari Nagar
+118T,118T,Dhargas Nagar TO Tambaram West | Tambaram West TO Dhargas Nagar
+119,119 | 119 CT | 119 CT1 | 119 CT2 | 119 CT4 | 119 CT5 | 119 CT7 | 119 CT8 | 119 R | 119 R1,Adyar Depot TO  Guindy Bus | Adyar Depot TO Semmancheri S.C.B | Cement Road TO Semmancheri S.C.B
+119G,119G CT2 | 119G CT4 | 119G R,Guindy Tvk Estate TO Perumpakkam S.C.B | Perumpakkam S.C.B TO Guindy Tvk Estate | Perumpakkam S.C.B TO Velachery B.T
+11G,11G CT1 | 11G CT2 | 11G R | 11G R1,K.K.Nagar TO  Royapuram | K.K.Nagar TO MGR CHENNAI CENTRAL | MGR CHENNAI CENTRAL TO  K.K.Nagar
+11H,11H,Iyyapanthangal to Bradway
+11M,11M | 11M CT | 11M CT1 | 11M CT2 | 11M CT3 | 11M CT4 | 11M CT6 | 11M CT7 | 11M CT8 | 11M CT9 | 11M R | 11M R1,Government Girls School TO  Royapuram | Government Girls TO  Iyyappanthangal | Iyyappanthangal  B.S TO  Royapuram terminus
+120,120 | 120 CT1 | 120 CT2 | 120 R | 120 R1 | 120Ct CT | 120Ct CT1 | 120Ct R | 120Ct R1,Avadi B.T TO Ayanavaram B.T | Avadi B.T TO Royapuram | Avadi TO Royapuram
+120A,120A,Ambattur I.E TO Arakkambakkam | Ambattur Industrial Estate TO Avadi Bus Terminus | Arakkambakkam TO Ambattur I.E
+120E,120E CT | 120E CT1 | 120E CT2 | 120E CT3 | 120E R | 120E R1,Ambattur I.E TO Kilkondaiyur | Avadi B.T TO Kilkondaiyur | Kilkondaiyur TO  Royapuram
+120F,120F | 120F CT | 120F CT1 | 120F R,Ambattur I.E TO Oragadam | Ambatture Oragadam TO Avadi Bus Terminus | Avadi B.T TO Oragadam
+120G,120G | 120G CT | 120G CT1 | 120G CT2 | 120G CT3 | 120G R,Ambattur I.E TO M.G.R.Koyambedu | Ambattur I.E TO Menambedu | M.G.R.Koyambedu TO Ambattur I.E
+120K,120K CT | 120K CT1 | 120K R | 120K R1 | 120KEt CT | 120KEt CT1 | 120KEt R | 120KEt R1,Avadi B.T TO Kadhavoor | Avadi B.T TO Kilkondaiyur | Kadhavoor TO  Royapuram
+121,121 | 121 CT | 121 R | 121 R1 | 121 ct1 | 121Ct | 121Ct CT,Anna Nagar West Depot TO M.G.R.Koyambedu | Anna Nagar West TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar West
+121A,121A | 121A CT,Annanagar East TO M.G.R.Koyambedu | Koyambedu Market TO Manali | M.G.R.Koyambedu TO Annanagar East
+121C,121C | 121C CT | 121C CT1,Anna Nagar West Depot TO M.G.R.Koyambedu | Annanagar East TO M.G.R.Koyambedu | Ennore TO M.G.R.Koyambedu
+121D,121D | 121D CT | 121D CT1,Annanagar East TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Annanagar East | M.G.R.Koyambedu TO Manali New Town
+121G,121G | 121G CT | 121G CT1,Anna Nagar  Depot TO M.G.R.Koyambedu | K.Kannadasan Nagar TO M.G.R.Koyambedu | K.Kannadasan Nagar TO Madhavaram Depot
+121M,121M | 121M CT | 121MEt | 121MEt CT,K.Kannadasan Nagar TO M.K.B.Nagar | K.Kannadasan Nagar TO Vazhuthigaimedu | Kaviarasu Kannadasan Nagar TO Moolakadai
+129C,129C | 129C CT,Besant Nagar TO Perambur B.T | Nanganallur TO Perambur B.T | Perambur B.T TO Besant Nagar
+12B,12B | 12B CT | 12B CT1,Foreshore Estate TO Saligramam Bus Stand | Foreshore Estate TO Vadapalani | Luz TO Vadapalani
+12G,12G | 12G R | 12G R1,Anna Square TO K.K.Nagar | K.K.Nagar TO Anna Square | Lady Willingdon College Of Education TO K K Nagar
+12M,12M,Iyyappanthangal TO Mandaveli | Mandaveli TO Iyyappanthangal
+12X,12X,Foreshore Estate TO Koyambedu Market | Foreshore Estate TO M.G.R.Koyambedu | Koyambedu Market TO Foreshore Estate
+13,13 | 13 CT | 13 R,Island ground TO Thiyagarayanagar | Thiyagarayanagar TO Island ground | Thyagaraya Nagar TO Triplicane
+142,142 | 142 CT | 142 CT1 | 142 CT2 | 142 CT3 | 142 R | 142 R1,Broadway TO Vinayagapuram | Island ground TO Vinayagapuram | Padiyanallur Depot TO Redhills Bus Terminus
+142B,142B | 142B  CT | 142B CT | 142B CT1 | 142B R,Island ground TO Perambur | Island ground TO Periyar Nagar | Island ground TO Thanikachalam nagar
+142P,142P,Perambur B.T TO Puthagaram | Puthagaram TO Perambur B.T
+147A,147A | 147A CT,Anna Nagar West TO J.J.Nagar East | J.J.Nagar East TO Anna Nagar West | J.J.Nagar East TO Thyagaraya Nagar
+147B,147B | 147B  CT | 147B CT,Anna Nagar West TO J.J.Nagar West | Anna Nagar West TO Thyagaraya Nagar | J.J.Nagar West TO Anna Nagar West
+147C,147C | 147C CT1 | 147C CT10 | 147C CT2 | 147C CT3 | 147C CT4 | 147C CT5 | 147C CT6 | 147C CT7 | 147C CT9 | 147CCt,Ambattur I.E TO Ambattur O.T | Ambattur I.E TO Kilambakkam B.T | Ambattur I.E TO Thyagaraya Nagar
+147V,147V | 147V CT,Ambattur I.E TO Thyagaraya Nagar | Thyagaraya Nagar TO Venkatachalam Nagar | Venkatachalam Nagar TO Ambattur I.E
+14A,14A,M.G.R.Koyambedu Bus Terminus TO Vallalar Nagar BT | Vallalar Nagar BT TO M.G.R.Koyambedu Bus Terminus
+15,15 | 15 CT1 | 15 CT2 | 15 CT3 | 15 CT8 | 15 R | 15 R1 | 15 ct4 | 15ct,Anna Nagar West TO M.G.R.Koyambedu | Arumbakkam TO Island ground | Island Ground TO  M.G.R.Koyambedu
+150,150 R | 150 R1,Avadi B.T TO  Royapuram | Royapuram TO Avadi B.T
+153,153,Anna Nagar Roundtana TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar East Depot | M.G.R.Koyambedu TO Anna Nagar Roundtana
+153A,153A CT1 | 153A CT2 | 153A CT3 | 153A CT4 | 153A CT6 | 153A CT7 | 153A R | 153A R1,Annanagar East TO M.G.R.Koyambedu | K.K.Nagar TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Annanagar East
+153C,153C CT1 | 153C R1 | 153C R2,Iyyappanthangal Bus Terminus TO  Poonamallee Bus Terminus | Pattabiram Terminus TO  Poonamallee Bus Terminus | Poonamallee Bus Terminus TO Pattabiram Terminus
+153P,153P,Anna Nagar West Depot TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar West Depot | M.G.R.Koyambedu TO Perambakkam
+153T,153T,M.G.R.Koyambedu TO Poonamallee B.T | M.G.R.Koyambedu TO Thiruvallur | Poonamallee B.T TO Thiruvallur
+154,154 | 154 CT | 154 CT1 | 154 CT2 | 154 CT3 | 154 CT4 | 154 CT5 | 154 CT6 | 154 CT7 | 154 CT8 | 154 CT9 | 154 R | 154 R1,Dlf  TO  Thiyagarayanagar | Iyyapanthangal TO  Thiyagarayanagar | Iyyapanthangal to  Poonamallee
+154 C12,154 C12,Thiyagarayanagar TO Royapuram
+154B,154B | 154B CT,M.G.R.Koyambedu TO  Nanganallur | Nanganallur TO  M.G.R.Koyambedu | Nanganallur TO Poonamallee B.T
+154E,154E,Ekkattuthangal TO Vellavedu | Saidapet TO Vellavedu | Vellavedu TO Ekkattuthangal
+154P,154P,Pattur TO Thyagaraya Nagar | Thyagaraya Nagar TO Pattur
+155A,155A | 155A CT | 155A CT1 | 155A R,Chrompet TO 1 Depot (Towards Depot) TO Nehru Nagar Pozhichalur (Towards Sivan Kovil Pozhichalur) | Nehru Nagar Pozhichalur (Towards Sivan Kovil Pozhichalur) TO Chrompet-1 Depot (Towards Depot) | Nehru Nagar TO Pazhanthandalam
+157,157 | 157 CT | 157 CT1 | 157 CT3 | 157 CT4 | 157 CT5 | 157 CT6 | 157 R | 157 R1,Padiyanallur TO Redhills | Redhills Bus Terminus TO  Vallalar Nagar | Redhills Bus Terminus TO Tondiarpet
+157E,157E,Ennore TO Redhills | Redhills TO Ennore
+157T,157T,Redhills TO Tondairpet | Tondairpet TO Redhills
+159,159 | 159  R3 | 159 CT | 159 CT1 | 159 CT2 | 159 CT3 | 159 CT4 | 159 CT5 | 159 CT6 | 159 CT7 | 159 R1 | 159 R5,Annanagar East TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Annanagar East | M.G.R.Koyambedu TO Thiruvottiyur
+159B,159B,M.G.R.Koyambedu TO Tondiarpet | Tondairpet TO M.G.R.Koyambedu
+159E,159E,Ennore TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Ennore
+159K,159K | 159K CT,Annanagar East TO M.G.R.Koyambedu | Kargil Nagar TO M.G.R.Koyambedu | Kargil Nagar TO Thiruvotriyur B.T
+15B,15BEt | 15BEt CT | 15BEt CT1 | 15BEt CT3 | 15BEt R | 15BEt R1,Island ground TO M.G.R.Koyambedu | M.G.R.Koyambedu TO  Island ground | M.G.R.Koyambedu TO Odeanmani
+15C,15C,Anna Nagar West TO M.G.R.Koyambedu | Avadi TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar
+15F,15F | 15F CT1 | 15F CT2 | 15F CT3 | 15F CT4 | 15F CT6 | 15F CT7 | 15F CT8 | 15F R,Island ground TO Vadapalani | Kilambakkam TO  Vadapalani | M.G.R.CENTRAL METRO  TO  Secretariat
+15G,15G | 15G CT | 15G CT1 | 15G R | 15G R1,Anna Nagar West Depot TO M.G.R.Koyambedu | Anna Nagar West TO M.G.R.Koyambedu | Island ground TO M.G.R.Koyambedu
+164,164 CT | 164 CT1 | 164 CT2 | 164 CT3 | 164 R1 | 164 R2,M.K.B.Nagar TO Minjur B.S | M.K.B.Nagar TO Perambur Bus Terminus | Minjur B.S TO M.K.B.Nagar
+164E,164E,Manali Bus Terminus TO Perambur Bus Terminus | Manali Bus Terminus TO Vyasarpadi | Perambur Bus Terminus TO Manali Bus Terminus
+166,166,Iyyappanthangal Bus Depot TO Pazhanthandalam | Iyyappanthangal Bus Depot TO Tambaram Railway Station | Pazhanthandalam TO Iyyappanthangal Bus Depot
+166K,166K,Iyyappanthangal TO Kilambakkam B.S | Kilambakkam B.S TO Iyyappanthangal | Kilambakkam B.T TO Kovur
+16J,16J | 16J CT | 16J CT1 | 16J R | 16J R1,Anna Nagar West Depot TO M.G.R.Koyambedu | Iyyappanthangal TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar West Depot
+16K,16K | 16K CT | 16K CT1 | 16K CT2 | 16K R | 16K R1,Anna Nagar West Depot TO M.G.R.Koyambedu | Kundrathur B.T TO Vadapalani | Kundrathur TO M.G.R.Koyambedu
+170A,170A,M.M.B.T TO Madhavaram Depot | M.M.B.T TO Tambaram West | Madhavaram Depot TO M.M.B.T
+170C,170C | 170C CT | 170C CT1 | 170C CT2 | 170C CT3 | 170C R | 170C R1,Alandur (Depot) TO Guindy Tvk Estate | Guindy Bus Terminus To M.K.B.Nagar | Guindy Tvk Estate TO Alandur (Depot)
+170CE,170CE,Guindy Bus Terminus TO Manali Bus Terminus | Manali Bus Terminus TO Moolakadai | Manali TO Guindy Tvk Estate
+170K,170K,Guindy Tvk Estate TO Peravallur Kumaran Nagar | Perambur B.T TO Peravallur Kumaran Nagar | Peravallur Kumaran Nagar TO Guindy Tvk Estate
+170T,170T,Kaviarasu Kannadasan Nagar TO Tambaram West | M.G.R.Koyambedu TO Tambaram West | Tambaram West TO Kaviarasu Kannadasan Nagar
+170TX,170Tx,Kaviarasu Kannadasan  Nagar TO Kilambakkam B.S | Kaviarasu Kannadasan Nagar TO M.G.R.Koyambedu | Kaviarasu Kannadasan Nagar TO Moolakadai
+17D,17D | 17D CT | 17D CT1 | 17D CT2 | 17D R | 17D R1,Ethiraj College TO K.K.Nagar | Island ground TO  K.K.Nagar | K.K.Nagar TO  Island ground
+17D E,17D E,M.G.R.Koyambedu TO Island ground
+17E,17E | 17E CT | 17E R,Royapuram TO Saligramam | Saligramam TO Royapuram | Saligramam TO Secretariat
+17K,17K CT | 17K CT1 | 17K R | 17K R1,Dasarathapuram TO Royapuram | Dasarathapuram TO Vadapalani | Royapuram TO Dasarathapuram
+18,18R | 18R CT | 18R CT1 | 18R CT2 | 18R CT3 | 18R CT5 | 18R R | 18R R1,Cement Road TO Nanganallur | Nanganallur TO Cement Road | Nanganallur TO Ngo Colony
+188,188Et R,Kundrathur Bus Terminus TO Royapuram terminus | Royapuram terminus TO Kundrathur Bus Terminus
+188A,188A,Kundrathur B.T TO Thyagaraya Nagar | Kundrathur TO Thyagaraya Nagar | Thyagaraya Nagar TO Kundrathur
+188C,188C R,Kundrathur Bus Terminus TO  Royapuram terminus | Royapuram terminus TO Kundrathur Bus Terminus
+188K,188K,Iyyappanthangal TO Katrambakkam | Iyyappanthangal TO Thyagaraya Nagar | Katrambakkam TO Iyyappanthangal
+18A,18A | 18A CT | 18A CT1 | 18A CT11 | 18A CT12 | 18A CT13 | 18A CT14 | 18A CT15 | 18A CT2 | 18A CT3 | 18A CT4 | 18A CT7 | 18A CT9 | 18A Ct | 18A R | 18A R1 | 18ACT | 18ACT CT | 18ACT CT1 | 18ACT CT2 | 18ACT CT3 | 18ACT CT4 | 18ACT CT5 | 18ACT CT6 | 18ACT CT7 | 18ACT R | 18ACT R1 | 18AEt,Cement Road TO Chennai Airport | Central Depot TO  Royapuram | Chennai Airport TO Kilambakkam B.S
+18B,18B | 18B CT | 18B CT1 | 18B CT2 | 18B CT3 | 18B CT4,Kilambakkam TO Kotturpuram | Kilambakkam TO Little Mount | Kotturpuram TO Kilambakkam
+18D,18D | 18D CT | 18D CT1 | 18D CT2 | 18D CT3 | 18D CT4,Keelkattalai TO Saidapet Depot | Keelkattalai to Royapuram | Madipakkam B.T TO N.G.O.Colony
+18E,18E | 18E CT | 18E CT1 | 18E CT3 | 18E CT7 | 18E R | 18E R1,Alandur TO Ramapuram | Island ground TO Ramapuram | Ngo Colony TO Ramapuram
+18H,18H,Naduveerapattu TO Tambaram West | Tambaram West TO Naduveerapattu
+18K,18K | 18K CT | 18K R | 18K R1 | 18K ct,Kk Nagar TO Saidapet West | M.G.R.Central TO Saidapet West | Royapuram TO Saidapet West
+18M,18M,Tambaram Depot TO  Vadapalani Depot | Vadapalani Depot TO  Tambaram Depot
+18N,18N CT | 18N CT2 | 18N CT3 | 18N CT4 | 18N CT5 | 18N CT6 | 18N CT7 | 18N CT8,Guduvancheri Bus TO Nanganallur Bus | Kilambakkam  TO Nanganallur | Kilambakkam TO  Velachery
+18P,18P | 18P CT | 18P CT3 | 18P R | 18P R1,Cement Road TO Keelkattalai | Keelkattalai TO Cement Road | Ngo Colony TO  Royapuram
+18RX,18RX CT | 18RX R,Keelkattalai TO Royapuram terminus | Ngo Colony TO Royapuram terminus | Royapuram TO Keelkattalai
+18S,18S,Kilambakkam B.S TO Ngo Colony | Ngo Colony TO Kilambakkam B.S
+18X,18X | 18X CT | 18X R | 18X R1,Oonamancheri TO Royapuram | Oonamancheri TO Tambaram West | Royapuram TO Oonamancheri
+19,19 | 19 CT | 19 CT1 | 19 CT2 | 19 CT3 | 19 CT4 | 19 CT5 | 19 CT6 | 19 CT7 | 19 R,Adyar TO Thiruporur | Adyar TO Thiyagaraya Nagar | Kannagi Nagar S.C.B TO Thiruporur
+19A,19A | 19A CT | 19A CT1 | 19A R | 19A R2,Adyar B.S TO Semmancheri B.S | Adyar B.S TO Thiyagarayanagar | Semmancheri B.S TO Adyar B.S
+19AX,19AX,Perumbakkam Scb to Thiyagarayanagar Terminus | Thiyagarayanagar Terminus to Perumbakkam Scb
+19B,19B | 19BEt | 19BEt CT | 19BEt CT1,Kelambakkam TO Saidapet | Perumpakkam S.C.B TO Saidapet | Saidapet TO Kelambakkam
+19C,19C,Adyar B.T TO Okk.Thoraipakm Sec.Colony | Okk.Thoraipakm Sec.Colony TO Adyar B.T | Okk.Thoraipakm Sec.Colony TO Thyagaraya Nagar
+19D,19D | 19D CT | 19D CT1,Adyar B.T TO Perumpakkam S.C.B | Adyar B.T TO Semmancheri S.C.B | Adyar Old Depot TO Besant Nagar Terminus
+19T,19T | 19T CT,Adyar (Depot) TO Kovalam | Adyar B.S TO Kovalam | Kovalam TO Adyar (Depot)
+1C,1C | 1C CT | 1C CT1 | 1C CT2 | 1C CT3 | 1C CT4 | 1C CT5 | 1C CT7 | 1C CT9 | 1C R | 1C R1,Ennore Bus Depot TO Thiruvanmiyur Bus | Ennore Bus Depot TO Thiruvanmiyur Bus Stand | Ennore TO Thiruvanmiyur
+1D,1D,Ennore TO Thiruvanmiyur | Thiruvanmiyur TO Ennore
+20,20 | 20 CT | 20 R | 20 ct,Ayanavaram TO Villivakkam | Island ground TO Ayanavaram Bus | Island ground TO Villivakkam
+202,202 | 202 CT2 | 202 CT3 | 202 CT4 | 202 CT5 | 202 R | 202 R1 | 202 R5 | 202 R6,Avadi B.T TO Tambaram West | Avadi Bus Terminus TO   Poonamallee B.T | Avadi Bus Terminus TO Tambaram West Bus Stand
+202A,202A | 202A R | 202A R1,Avadi B.T TO Tambaram West | Avadi TO  Tambaram Sanatorium B.T | Tambaram Sanatorium TO  Avadi
+202X,202X,Avadi B.T TO Kilambakkam B.T | Avadi Bus Terminus TO Tambaram West Bus Stand | Kilambakkam B.T TO Avadi B.T
+206,206,Avadi B.T TO Kilambakkam B.T | Kilambakkam B.T TO Avadi B.T
+20A,20A | 20A CT | 20A CT1 | 20A CT2 | 20A R | 20A R1,Ayanavaram B.T TO J.J.Nagar West | Island TO J.J.Nagar West | Island TO Villivakkam
+20D,20D CT | 20D CT1 | 20D R,Ayanavaram B.T TO Sidco Nagar | Island TO Sidco Nagar | Sidco Nagar TO  Island
+20P,20P,Ambattur I.E TO Poonamallee B.T | Poonamallee B.T TO Ambattur I.E
+21,21 | 21 CT1 | 21 CT2 | 21 CT3 | 21 CT4 | 21 CT5 | 21 CT6 | 21 CT7 | 21 CT8 | 21 R | 21 R1,Collector Office TO Mandaveli Bus Terminus | Foreshore Estate Bus Stop TO  Collector Office | Foreshore Estate TO Royapuram
+21C,21C CT1 | 21C CT3 | 21C CT4 | 21C CT5 | 21C CT6 | 21C CT7 | 21C CT8 | 21C R,Adyar B.S TO Kannagi Nagar Bus Stand S.C.B | Kannagi Nagar Bus Stand S.C.B TO Adyar B.S | Kannagi Nagar S.C.B TO Mylapore Tank
+21E,21EEt | 21EEt CT | 21EEt CT1 | 21EEt CT2 | 21EEt CT3 | 21EEt CT4 | 21EEt R,Bai Kadai Moulivakkam TO Thiruvanmiyur Depot | Island ground TO Iyappanthangal | Island ground TO Ramapuram
+21G,21G | 21G CT | 21G CT1 | 21G CT11 | 21G CT12 | 21G CT2 | 21G CT3 | 21G CT5 | 21G CT6 | 21G CT8 | 21G Cut1 | 21G R | 21G R2 | 21G R3 | 21G R5 | 21G ct1 | 21G ct2 | 21G ct7 | 21G ct8,Besant Nagar TO Kilambakkam | Besant Nagar Terminus TO  Tambaram West | Cement Road TO Kilambakkam B.T
+21L,21L CT | 21L CT1 | 21L CT2 | 21L R,Island ground TO Adyar Depot | Island ground TO Madipakkam | Madipakkam Bus Stand TO Island ground
+21P,21P CT1 | 21P CT2 | 21P R | 21P R1,Island ground Terminus TO  Ngo Colony | Island ground Terminus TO Puzhuthivakkam | NGO Colony TO  Island ground Terminus
+22,22 | 22 CT,Anna Square TO Ayanavaram | Anna Square TO Korattur Bus Terminus | Ayanavaram TO Anna Square
+221,221 | 221 CT1 | 221 CT2 | 221 CT6 | 221 CT7,Kelambakkam TO M.G.R.Central | Kelambakkam TO Saidapet | M.G.R.Central TO Kelambakkam
+221 RE1,221 RE1,M.G.R.Central TO Thiruporur | Thiruporur TO M.G.R.Central
+23C,23C | 23C CT | 23C CT1 | 23C CT3 | 23C CT4 | 23C CT5 | 23C CT6 | 23C CT7 | 23C CT9 | 23C R3,Ayanavaram B.T TO Besant Nagar | Ayanavaram B.T TO Perumpakkam S.C.B | Ayanavaram B.T TO Saidapet
+23V,23V | 23V CT,Ayanavaram B.T TO Velachery B.T | Velachery B.T TO Ayanavaram B.T | Velachery B.T TO Villivakkam
+242,242 | 242 CT | 242 CT1 | 242 CT10 | 242 CT11 | 242 CT12 | 242 CT2 | 242 CT3 | 242 CT4 | 242 CT5 | 242 CT6 | 242 CT7 | 242 CT8 | 242 CT9 | 242 R | 242 R1,Central Depot to  Island ground | Island ground TO  Central Depot | Island ground TO Moolakadai
+24A,24A | 24A CT | 24A CT1 | 24A CT3 | 24A CT4 | 24A CT6 | 24A R1,Anna Nagar  TO  Korattur | Anna Nagar West TO L.F.C | Anna Nagar West TO M.G.R.Koyambedu
+24AX,24AX | 24AX CT | 24AX CT6,Anna Nagar West TO Teachers Colony | Monahan School To  Teachers Colony | Teachers Colony TO Anna Nagar  B.S
+25,25 | 25 CT | 25 CT1 | 25 CT2 | 25 CT3 | 25 CT4 | 25 CT5 | 25 CT6 | 25 CT7 | 25 CT8 | 25 R | 25 R1,Anna Square Bus Terminus TO  M.G.R.Koyambedu | Anna Square TO Iyyappanthangal | Anna Square TO Poonamalle
+25K,25K | 25K CT | 25K CT1 | 25K CT2 | 25K CT3 | 25K CT4 | 25K CT5 | 25K CT6,Anna Square Bus Terminus one to Iyyappanthangal Bus Terminus | Anna Square Bus Terminus one to M.G.R.Koyambedu Bus Terminus | Anna Square Bus Terminus one to Poonamallee Bus Terminus
+26,26 | 26 CT | 26 CT1 | 26 CT15 | 26 CT16 | 26 CT2 | 26 CT3 | 26 CT4 | 26 CT5 | 26 CT6 | 26 CT7 | 26 CT8 | 26 CT9 | 26 R | 26 R1 | 26 R2 | 26R CT | 26R R,Central Depot TO  Royapuram terminus | Gemini TO Iyyappanthangal | Iyyappanthangal TO  Royapuram
+266,266,Avadi B.T TO Tambaram West | Avadi Bus Terminus TO Poonamallee | Poonamallee TO Avadi Bus Terminus
+26B,26B | 26B R,Iyyappanthangal TO Mangadu | Mangadu TO Iyappanthangal | Mangadu TO Royapuram
+26G,26G CT | 26G R,Ramapuram TO Royapuram | Ramapuram TO Vadapalani B.S | Royapuram TO Ramapuram
+26K,26K CT1 | 26K CT2 | 26K R,Kovur TO Royapuram terminus | Kundrathur Bus Terminus TO Royapuram terminus | Royapuram terminus TO  Kovur
+26M,26M | 26M R,Iyyappanthangal TO Mugalivakkam | Mugalivakkam TO Royapuram terminus | Royapuram terminus TO Mugalivakkam
+27B,27B | 27B CT | 27B CT1 | 27B CT2 | 27B CT3 | 27B CT4 | 27B CT7 | 27B CT8 | 27B CT9 | 27B R | 27B R1,Ambattur I.E TO M.G.R.Koyambedu | Anna Nagar West Depot TO M.G.R.Koyambedu | Anna Nagar West TO M.G.R.Koyambedu
+27D,27D,Ayanavaram B.T TO Villivakkam | Ayanavaram Depot TO  Icf | Foreshore Estate TO Icf
+28A,28A | 28A CT1 | 28A CT2 | 28A CT3 | 28A CT4 | 28A R1 | 28A R2,Egmore North R.S TO Manali New Town | Manali New Town TO Egmore North R.S | Manali New Town TO Thangal Tollgate
+28B,28B | 28B CT | 28B CT1 | 28B CT2 | 28B CT3 | 28B CT4 | 28B R | 28B R1,Central Depot TO Egmore R.S | Egmore North R.S TO Ennore | Egmore North R.S TO Rajashanmugam Nagar
+29,29Et | 29Et CT | 29Et CT1,Mandaveli TO Vinayagapuram | Perambur Bus Terminus TO Perambur Depot | Perambur Bus Terminus TO Queen Marys College
+297,297,Kilambakkam B.T TO Thiruvallur | Thiruvallur TO Kilambakkam B.T
+29A,29A | 29A CT | 29AEt | 29AEt CT,Anna Square TO Perambur B.T | Anna Square TO Periyar Nagar | Anna Square TO Secretariat
+29AEX,29AEX,Anna Square TO Peravallur Kumaran Nagar | Perambur B.T TO Peravallur Kumaran Nagar | Peravallur Kumaran Nagar TO Anna Square
+29B,29B | 29B CT,Gemini TO Perambur B.T | L.F.C TO Madhavaram Milk Colony | L.F.C TO Saidapet
+29C,29C | 29C CT | 29C CT1 | 29C CT3 | 29C R | 29C R1 | 29CEt | 29CEt CT | 29CEt CT1,Adyar B.S TO Kilambakkam B.S | Adyar B.S TO Perambur | Besant Nagar TO Perambur B.T
+29CEX,29CEX | 29CEX CT,Besant Nagar TO Srinivasa Nagar | Perambur B.T TO Srinivasa Nagar | Perambur Bus Terminus TO Perambur Depot
+29D,29D,Mathur M.M.D.A. TO Moolakadai | Mathur M.M.D.A. TO Vivekananda House | Moolakadai TO Vivekananda House
+29E,29E | 29E CT | 29E R,Annanagar East TO M.G.R.Koyambedu B.T | M.G.R.Koyambedu B.T TO Annanagar East | M.G.R.Koyambedu TO Perambur B.T
+29N,29NEt | 29NEt CT | 29NEt CT1,Perambur Bus Terminus TO Perambur Depot | Perambur Depot TO Perambur Bus Terminus | Perambur Railway Station TO Peravallur Kumaran Nagar
+2A,2A R | 2A R1,Anna Square TO K.Kannadasan Nagar | K.Kannadasan Nagar TO Anna Square
+2B,2B | 2B CT | 2B CT1,Kannadasan Nagar TO Kaviarasu Kannadasan Nagar Bus Stand | Kaviarasu Kannadasan Nagar Bus Stand TO Kannadasan Nagar | Kaviarasu Kannadasan Nagar Bus Stand TO Vyasarpadi Depot
+3,3 | 3 CT | 3 CT1 | 3 CT2 | 3 CT3 | 3 CT4 | 3 CT5 | 3 CT6 | 3 CT7 | 3 CT8 | 3 ct4 | 3Ct,Adyar TO Thiruvanmiyur | Guindy B.S TO  Thiruvanmiyur B.S | Guindy R.S TO Tidel Park
+31A,31A,Agaramthen TO Tambaram West | Tambaram West TO Agaramthen
+31B,31B,Kandigai Junction TO Tambaram West | Tambaram West TO Kandigai Junction
+31G,31G,Medavakkam Rd.Jn TO Tambaram West | Tambaram West TO Medavakkam Rd.Jn
+31M,31M,Madurapakkam TO Tambaram West | Tambaram West TO Madurapakkam
+31P,31P,Ponmar TO Tambaram West | Tambaram West TO Ponmar
+32A,32A | 32A CT | 32A CT1 | 32A R | 32A R1,Foreshore Estate TO Thangal Tollgate | Thangal Tollgate TO Foreshore Estate | Thangal Tollgate TO Vivekananda House
+32B,32B CT1 | 32B CT2 | 32B CT3 | 32B CT4 | 32B CT5 | 32B CT7 | 32B CT8 | 32B CT9 | 32B R | 32B R1,Korukkupet R.S TO Tondiarpet | Korukkupet R.S TO Vivekananda House | Korukkupet TO  Mgr Central
+33B,33B CT1 | 33B CT2 | 33B CT4 | 33B R | 33BCT3,Island ground Terminus TO  Mannadi | Island ground Terminus TO Kaviarasu Kannadasan Nagar Bus Stand | Kaviarasu Kannadasan Nagar Bus Stand TO Island ground Terminus
+33C,33C R,Island ground TO Kaviarasu Kannadasan Nagar | Kaviarasu Kannadasan Nagar TO Island ground
+33L,33L | 33L CT | 33L R,Island Ground TO Kodungaiyur Parvathi Naga | Kodungaiyur Parvathi Naga TO Island ground Terminus | Kodungaiyur Parvathi Nagar TO M.K.B.Nagar
+34,34,Ambattur I.E TO Thiruvotriyur B.T | Thiruvotriyur B.T TO Ambattur I.E
+35,35 | 35 CT | 35 CT1 | 35 CT2 | 35 CT6 | 35 R,Ayanavaram B.T TO Korattur | Ayanavaram TO Island ground | Island ground TO Ayanavaram
+35C,35C | 35C CT,Ayanavaram B.T TO Korattur | Ayanavaram Bus  TO Island ground | Island ground TO Ayanavaram Bus
+36K,36K | 36K CT,Redhills TO Thangal Tollgate | Redhills TO Thiruvotriyur B.T | Thangal Tollgate TO Redhills
+36M,36M | 36M CT,Thiruvotriyur B.T TO Vichoor | Tondiarpet TO Vichoor | Vallalar Nagar TO Vichoor
+36V,36V,Redhills B.S TO Thangal Tollgate | Redhills TO Thiruvotriyur B.T | Thangal Tollgate TO Redhills B.S
+37,37 | 37 CT | 37 CT1 | 37 CT4 | 37 CT5 | 37 R | 37 R1 | 37Ct,Basin Bridge Depot TO Vallalar Nagar | Dasarathapuram TO Vadapalani | Dasarathapuram TO Vallalar Nagar
+37B,37B,T.V.K Nagar to Vadapalani | Vadapalani to T.V.K Nagar
+37D,37D R,Kalaignar Nagar TO  Vallalar Nagar | Vallalar Nagar TO  Kalaignar Nagar
+37E,37E | 37ECt,Basin Bridge R.S TO Kaviarasu Kannadasan  B.S | Iyyappanthangal TO K.Kannadasan Nagar | K.Kannadasan Nagar TO Iyyappanthangal
+37G,37G,Iyyappanthangal TO Vallalar Nagar | Vallalar Nagar TO Iyyappanthangal
+38A,38A CT | 38A CT1 | 38A CT2 | 38A CT3 | 38A R | 38A R1,Island ground  TO Madhavaram | Island ground TO Manali | Madhavaram TO  Island ground
+38C,38C | 38C CT | 38C CT1 | 38C CT2,Otteri TO T.V.K.Nagar | Perambur Depot TO T.V.K.Nagar | T.V.K.Nagar  TO  Vyasarpadi Depot
+38D,38D | 38D CT,Egmore North Rs TO Tondiarpet | Kodungaiyur Parvathi Nagar TO Thiruvotriyur B.T | Thiruvotriyur B.T TO Egmore North R.S
+38G,38G | 38G CT | 38G CT1 | 38G R,Island ground TO Padiyanallur | Island ground TO Vazhuthalambedu | Koyambedu Market TO Vazhuthigaimedu
+38H,38H | 38H CT1 | 38H CT2 | 38H CT3 | 38H R | 38H R1,Island ground  TO Madhavaram Village | Madhavaram  TO Madhavaram Village | Madhavaram Village TO  Island ground
+4,4 | 4 CT | 4 CT1 | 4 CT2 | 4 CT3 | 4 CT5 | 4 CT6 | 4 CT7 | 4 R,Basin Bridge Depot TO M.G.R.Central | Egmore TO Ennore | Ennore TO Egmore
+40A,40A | 40A CT | 40A R | 40A R1,Ambattur Industrial Estate TO  Anna Square | Ambattur Industrial Estate TO  Pattabiram | Anna Square TO  Ambattur Industrial Estate
+40H,40H | 40H CT | 40H R | 40H R1,Ambattur Industrial Estate TO  Anna Square | Ambattur Industrial Estate TO  Pattabiram | Anna Square TO  Ambattur Industrial Estate
+40L,40L | 40L CT | 40L CT1,Ambattur I.E TO J.J.Nagar West | Anna Nagar West TO J.J.Nagar West | Anna Square TO Foreshore Estate
+40N,40N,Anna Nagar West TO J.J.Nagar East | Anna Square TO J.J.Nagar East | J.J.Nagar East TO Anna Nagar West
+41D,41D | 41D CT | 41D CT2 | 41D CT3 | 41D CT4 | 41D CT5 | 41D R | 41D R1,Ambattur I.E TO Ambattur O.T | Ambattur Industrial Estate  TO  Mandaveli | Ambattur O.T TO Ambattur I.E
+42,42 CT | 42 R,G.K.M Colony TO Island ground | Island ground TO G.K.M Colony | Island ground TO Periyar Nagar
+42B,42B | 42B CT | 42B CT1 | 42B CT2 | 42B CT4 | 42B CT6 | 42B R | 42B R1,Agaram TO  Island ground | Island ground  TO Poompuhar | Otteri TO Poompuhar
+42C,42C CT | 42C CT1 | 42C CT2 | 42C CT3 | 42C R | 42C R1,Island ground  TO Perambur B.T | Island ground TO Teachers Colony | Perambur B.T TO Island ground
+42D,42D | 42D CT | 42D CT1,Island ground TO Srinivasa Nagar | Otteri TO Srinivasa Nagar | Periyar Nagar TO Srinivasa Nagar
+42M,42M CT | 42M CT1 | 42M R | 42M R1,Island ground TO M.M.B.T | M.M.B.T TO  Island ground | M.M.B.T TO Perambur B.T
+44,44 | 44 CT | 44 CT1 | 44CT | 44CT R | 44CT1 | 44Ct | 44Ct CT | 44Ct R,I.O.C  TO Secretariat | I.O.C TO Island ground | I.O.C TO Tondiarpet
+44C,44C CT | 44C CT1 | 44C R,Island ground TO Manali | Island ground TO TONDIARPET | Manali TO Island ground
+45A,45A | 45A CT | 45ACt,Keelkattalai TO Thyagaraya Nagar | Madipakkam B.T TO N.G.O.Colony | Madipakkam B.T TO Vivekananda House
+45B,45B | 45B CT | 45B CT1 | 45B CT2 | 45B R | 45BEt | 45BEt CT | 45BEt CT1 | 45BEt CT2,Alandur (Depot) TO Guindy Tvk Estate | Anna Square TO  Guindy | Anna Square TO Cement Road
+46,46 | 46 CT | 46Et,Anna Nagar West TO M.G.R.Koyambedu | Ayanavaram B.T TO M.G.R.Koyambedu | Ayanavaram B.T TO T.V.K.Nagar
+46G,46G | 46G CT | 46G CT1 | 46G CT2 | 46G CT3 | 46G CT4,Anna Nagar Depot TO M.G.R.Koyambedu | Annanagar East TO M.G.R.Koyambedu | Koyambedu Market TO M.K.B.Nagar
+47,47 | 47 CT,Adyar (Depot) TO Besant Nagar | Ayanavaram B.T TO Villivakkam | Besant Nagar TO Villivakkam
+47A,47A | 47A CT2 | 47A CT3 | 47A R | 47A R1 | 47A R2,Ayanavaram B.T TO Villivakkam | Ayanavaram Signal TO Icf Junction | I.C.F TO Thiruvanmiyur
+47C,47C,Ambattur I.E TO Ambattur O.T | Ambattur O.T TO Ambattur I.E | Ambattur O.T TO Kotturpuram
+47CX,47CX,Ambattur I.E TO Ayappakkam | Ayappakkam TO Ambattur I.E | Ayappakkam TO Thyagaraya Nagar
+47D,47D | 47D CT | 47DCt,Ambattur I.E TO Avadi B.T | Ambattur I.E TO Kilambakkam B.T | Ambattur I.E TO Thiruvanmiyur
+47T,47T,Ayanavaram  TO  Icf | Icf  TO  Ayanavaram | Icf TO Thiyagaraya Nagar Depot
+48A,48A | 48AEt,Ambattur I.E TO Madhavaram B.T | J.J.Nagar West TO Madhavaram B.T | Koyambedu Market TO Madhavaram B.T
+48B,48B | 48B CT | 48B CT1 | 48B CT5 | 48B CT6,Ambattur I.E TO Pudur | Ayanavaram B.T TO Vallalar Nagar | Ayanavaram Depot  TO  Pudur
+48BX,48BX | 48BX CT,Basin Bridge Depot TO Vallalar Nagar | Oragadam TO Vallalar Nagar | Pudur TO Vallalar Nagar
+48C,48C | 48C CT,Ayanavaram B.T TO Vallalar Nagar | Ayanavaram TO M.G.R.Koyambedu | Basin Bridge Depot TO Vallalar Nagar
+48K,48K,Ambattur I.E TO Madanakuppam | Ambattur Industrial Estate TO Kallikuppam Tea Kadai Bus Stop | Kallikuppam TO Ambattur I.E
+48P,48P,Ayanavaram B.T TO Vallalar Nagar | Puthagaram TO Vallalar Nagar | Vallalar Nagar TO Ayanavaram B.T
+49,49 CT | 49 CT1 | 49 CT2 | 49 CT3 | 49 R1,Iyyappanthangal TO Thiruvanmiyur | Mugalivakkam TO Royapuram | Royapuram TO Iyyapanthangal
+49A,49A | 49A CT,Iyyappanthangal TO Thyagaraya Nagar | M.G.R.Koyambedu Bus Terminus to Thiyagarayanagar Terminus | Poonamallee B.T TO Thyagaraya Nagar
+49F,49F | 49F CT | 49F CT1 | 49F CT2,Guindy Bus Terminus TO Mandaveli Bus Terminus | Iyappanthangal TO Mandaveli | M.G.R.Koyambedu Bus Terminus to Poonamallee Bus Terminus
+49K,49K | 49K CT,Foreshore Estate TO Porur | Iyyappanthangal TO Mandaveli | Mandaveli TO Iyyappanthangal
+49X,49X,Poonamallee Depot TO  Poonamallee Terminus | Poonamallee TO  Poonamallee Depot | Poonamallee TO  Thiruvanmiyur Depot
+4M,4M CT1 | 4M CT2 | 4M R,Ennore Bus Terminus TO  Island ground Terminus | Island ground Terminus TO  Ennore Bus Terminus | Island ground Terminus TO Minjur Bus Terminus
+50,50 CT | 50 CT1 | 50 CT2 | 50 CT4 | 50 R | 50 R1 | 50Et CT | 50Et CT1 | 50Et CT3,Basin Bridge TO Island ground | Island ground TO  Basin Bridge | Island ground TO Thiruverkadu
+500,500 | 500Et CT | 500Et CT3 | 500Et R | 500Et R1 | 500R,Chengalpet TO Chitlapakkam | Chengalpet TO Tambaram West | Chitlapakkam TO Chengalpet
+500A,500A | 500A CT,Chengalpet TO Hasthinapuram | Hasthinapuram (Towards Hasthinapuram) TO Chrompet-1 Depot (Towards Depot) | Hasthinapuram TO Chengalpet
+500D,500D,Chengalpet TO Durga Nagar | Durga Nagar TO Chengalpet | Durga Nagar TO Nehru Nagar
+500E,500E | 500E R,Echankaranai TO Tambaram West | Mahendra City TO Tambaram West | Tambaram West TO Echankaranai
+500P,500P,Chengalpet TO Depot Chrompet-Ii | Chengalpet TO Nehru Nagar | Chengalpet TO Pallavaram
+500W,500W,Chengalpet TO Saidapet West | Saidapet West TO Chengalpet | Saidapet West TO Tambaram West
+505,505 | 505 CT,Avadi B.T TO Redhills | Avadi B.T TO Thiruvallur | Padiyanallur TO Redhills
+505K,505K,Avadi B.T TO Redhills | Redhills TO Thamaraipakkam Rd.Jn | Redhills TO Thiruvallur
+50ET RE,50Et RE,Ayyappan Madam TO Island ground
+50ET RE1,50Et RE1,Ayyappan Madam TO Island ground
+50ET RE2,50Et RE2,Island ground TO Ayyappan Madam
+50M,50M | 50M CT,Island ground TO  Thiruverkadu | M.G.R.Koyambedu Bus Terminus to Thiruverkadu Bus Terminus | Poonamallee B.T TO Thiruverkadu
+51,51 | 51 CT1 | 51 CT10 | 51 CT14 | 51 CT15 | 51 CT2 | 51 CT20 | 51 CT21 | 51 CT22 | 51 CT24 | 51 CT27 | 51 CT29 | 51 CT4 | 51 CT5 | 51 CT6 | 51 CT7 | 51 CT8 | 51 CT9 | 51 R,Cement Road TO Tambaram West | Chrompet TO 2 Depot TO Tambaram West Bus Stand | Kilambakkam Bus Terminus TO Velachery
+512,512 | 512 CT,Kavarapettai TO Madurapakkam | Madurapakkam TO Kavarapettai | Madurapakkam TO Redhills
+514,514 | 514Et | 514Et CT,Anna Nagar West TO M.G.R.Koyambedu | Enambakkam TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar West
+515,515 | 515 CT | 515 CT1 | 515CT,Adyar Depot To  Mamallapuram | Kelambakkam Bus Terminal  TO Tambaram | Kilambakkam B.S TO Mamallapuram
+515A,515A | 515A cut,Kovalam TO Tambaram West | Mamallapuram TO Thiruporur | Sulerikadu TO Tambaram West
+515B,515B,M.G.R.Koyambedu TO Tambaram West | Tambaram West TO M.G.R.Koyambedu | Tambaram West TO Thiruporur
+515K,515K,Kilambakkam B.T TO Kovalam | Kovalam TO Kilambakkam B.T
+515M,515M,Kelambakkam TO Kilambakkam B.T | Kilambakkam B.T TO Kelambakkam | Kilambakkam Bus Terminus TO Mamallapuram
+515T,515T,Kilambakkam B.T TO Thiruporur | Thiruporur TO Kilambakkam B.T
+517K,517K | 517K CT,Chrompet-1 Depot TO Pallavaram | Kovalam TO Pallavaram | Pallavaram TO Kovalam
+519T,519T,Adyar B.T TO Thaiyur Koman Nagar | Thaiyur Koman Nagar TO Adyar B.T
+51A,51A | 51A CT | 51A CT1 | 51A CT5,Balaji Nagar (Bharath Engineering College) TO Thyagaraya Nagar | Chrompet-2 Depot TO Tambaram East | Kilambakkam B.T TO Thyagaraya Nagar
+51AX,51AX | 51AX R | 51AX R1 | 51AX ct1 | 51AX ct2,Kilambakkam B.T TO Tambaram West | Kilambakkam B.T TO Thyagaraya Nagar | Kilambakkam Bus Terminus TO Thyagaraya Nagar Bus Depot
+51B,51B | 51B CT1 | 51B CT12 | 51B CT2 | 51B R | 51B R4 | 51B R6,Karanai TO Medavakkam Junction | Karanai TO Saidapet | Karanai TO Velachery B.T
+51C,51C,Saidapet West Bus Stand TO Vandalur | Vandalur TO Saidapet West Bus Stand | Vandalur TO Velachery
+51D,51D | 51D R,Royapuram terminus TO Tambaram West Bus Stand | Saidapet TO Tambaram West | Tambaram West Bus Stand  TO Royapuram terminus
+51J,51J CT1 | 51J CT2 | 51J CT4 | 51J CT7 | 51J R1 | 51J R3,Mambakkam Kootroad TO Royapuram | Mambakkam Kootroad TO Saidapet | Mambakkam TO Medavakkam
+51M,51M | 51M CT,Madipakkam B.T TO Thyagaraya Nagar | N.G.O.Colony TO Madipakkam B.T | Thiruvanmiyur TO Thyagaraya Nagar
+51T,51T,Madurapakkam TO Tambaram West | Madurapakkam TO Thyagaraya Nagar | Tambaram West TO Madurapakkam
+51X,51X | 51X CT | 51X CT1,Kilambakkam B.S TO Saidapet | Kilambakkam B.T TO Medavakkam Rd.Jn | Kilambakkam B.T TO Tambaram West
+52,52 CT | 52 CT1 | 52 CT2 | 52 CT3 | 52 R1 | 52 R2,Hasthinapuram TO Pozhichalur | Koyambedu Market TO Pozhichalur | Pozhichalur TO Hasthinapuram
+523,523 | 523 CT,Mullipakkam TO Sholinganallur | Mullipakkam TO Thiruporur | Mullipakkam TO Thiruvanmiyur
+523A,523A | 523A CT,Devi Karumariamman Temple TO Thiruvanmiyur | Karumbakkam TO Thiruporur | Karumbakkam TO Thiruvanmiyur
+525,525 | 525 CT | 525 CT2 | 525 R1 | 525 R2,Iyyappanthangal TO Vadapalani | Poonamallee B.T TO Sunguvarchathiram | Sunguvarchathiram TO Poonamallee B.T
+52B,52B | 52B CT | 52B R,Chrompet TO 1 Depot (Towards Depot) TO Hasthinapuram (Towards Hasthinapuram) | Hasthinapuram TO Chrompet TO 1 Depot | Hasthinapuram TO Pozhichalur
+52C,52C | 52C CT,Chrompet TO 1 Depot TO Hasthinapuram | Hasthinapuram TO Chrompet TO 1 Depot | Hasthinapuram TO Thyagaraya Nagar
+52G,52G CT | 52G CT1 | 52G R,Cowl Bazaar TO Koyambedu Market | Cowl Bazaar TO Nehru Nagar | Cowl Bazaar TO Royapuram
+52H,52H | 52H CT,Chrompet TO 1 Depot TO Hasthinapuram | Hasthinapuram TO Chrompet-1 Depot | Hasthinapuram TO Pozhichalur
+52K,52K CT | 52K CT1 | 52K CT3 | 52K CT4 | 52K R | 52K R1,Nanganallur TO Royapuram | Nanganallur TO Saidapet | Royapuram TO Nanganallur
+53,53 CT | 53 CT1 | 53 CT2 | 53 R | 53 R1,M.G.R.Koyambedu  TO  Royapuram | M.G.R.Koyambedu TO Poonamallee B.T | Poonamallee B.T TO M.G.R.Koyambedu
+53A,53A | 53A CT2 | 53A CT3 | 53A CT4 | 53A CT5,M.G.R.Koyambedu Bus Terminus to Sriperumbudur Bus Terminal | M.G.R.Koyambedu Bus Terminus to Thirumazhisai Bus Stand | M.G.R.Koyambedu Bus Terminus to Vellavedu
+53E,53E | 53E CT | 53E CT1 | 53E R | 53E R1,Kundrathur TO  Royapuram | M.G.R.Koyambedu Bus Terminus to Kundrathur Bus Terminus | Poonamallee B.T TO Kundrathur B.T
+53G,53G | 53G CT2 | 53G CT3,Iyyapanthangal Depot  to  Padurmedu | Padurmedu TO  Iyyapanthangal | Padurmedu TO Poonamallee B.T
+53P,53P | 53P CT1 | 53P CT2 | 53P R,M.G.R.Koyambedu Bus Terminus to Pattur | M.G.R.Koyambedu TO Royapuram | Pattur TO Poonamallee B.T
+54,54 | 54 CT | 54 CT1,Central Depot TO Royapuram | Island ground TO  M.G.R.Koyambedu | Iyyappanthangal TO Poonamallee B.T
+547,547 | 547 CT | 547 CT1 | 547 R,Padiyanallur Depot TO Redhills | Periyapalayam TO Redhills | Redhills TO Padiyanallur
+547A,547A | 547A CT1 | 547A CT2,M.K.B.Nagar TO Vallalar Nagar | Periyapalayam Bus Stand TO Vallalar Nagr | Periyapalayam TO Redhills
+549,549 | 549 CT | 549 CT1,M.G.R.Koyambedu Bus Terminus to Sriperumbudur Bus Terminal | Poonamallee B.T TO Sriperumbudur | Poonamallee B.T TO Thiruvanmiyur
+54B,54B | 54B CT | 54B CT1,Iyyappanthangal B.S TO Thyagaraya Nagar B.S | Iyyappanthangal TO Saidapet | Porur TO Saidapet
+54C,54C,Annambedu TO Poonamallee | M.G.R.Koyambedu Bus Terminus to Poonamallee Bus Terminus | Pattabiram TO Poonamallee B.T
+54E,54E | 54E CT,Dms TO Meppur | Meppur TO Dms | Meppur TO Poonamallee B.T
+54G,54G CT | 54G CT1 | 54G R,Kuthambakkam TO Royapuram | M.G.R.Koyambedu TO  Royapuram | Royapuram TO Kuthambakkam
+54K,54K | 54K CT | 54K CT6,M.G.R.Koyambedu TO  Poonamallee | Nemam TO Poonamallee B.T | Nemam TO Saidapet
+54L,54L CT | 54L CT1 | 54L CT2 | 54L CT5 | 54L R,M.G.R.Koyambedu TO  Royapuram | Poonamallee Bus Terminus to M.G.R.Koyambedu Bus Terminus | Poonamallee TO Royapuram
+54P,54P | 54P CT | 54P CT1,M.G.R.Koyambedu TO  Thiyagaraya Nagar | Mangadu TO Thyagaraya Nagar | Poonamallee B.T TO Thyagaraya Nagar
+54S,54S | 54S CT | 54S CT1 | 54S CT2 | 54S CT3 | 54S CT4,M.G.R.Koyambedu Bus Terminus to Vadakku Malaiambakkam | Poonamallee B.T TO Vadakku Malaiambakkam | Poonamallee TO Saidapet
+54T,54T | 54T CT | 54T CT1 | 54T CT4,Chembarambakkam TO Poonamallee  B.S | Chembarambakkam TO Thyagaraya Nagar | Chembarambakkam to M.G.R.Koyambedu Bus Terminus
+54V,54V | 54V CT1 | 54V CT2 | 54VCt,Iyappanthangal TO  Veppambaattu | Iyyappanthangal Bus Depot TO Veppambaattu | Poonamallee B.T TO Veppampattu R.S
+55,55Et,Mannivakkam K.K.Nagar TO Tambaram West | Mannivakkam Rd.Jn. TO Tambaram West | Tambaram West TO Mannivakkam K.K.Nagar
+552K,552K | 552K CT | 552K CT1 | 552K CT2 | 552K CT3,Keelkattalai TO Kelambakkam | Keelkattalai TO Thiruporur | Kelambakkam Bus Terminal TO Keelkattalai
+553K,553K | 553K R,Katrambakkam TO M.G.R.Koyambedu | Katrambakkam TO Poonamallee B.T | M.G.R.Koyambedu TO Katrambakkam
+553W,553W,K.K Nagar Depot TO Saidapet West Bus Stand | Saidapet West Bus Stand TO K.K Nagar Depot | Saidapet West TO Sriperumbudur
+554B,554B | 554B CT,Ekkattuthangal TO Sunguvarchathiram | K.K Nagar Depot TO Saidapet | Kovalam Bus Stand TO Ekkattuthangal Or Ambal Nagar
+555G,555G,Guduvanchery TO Kilambakkam B.T | Guduvanchery TO Sholinganallur | Kilambakkam B.T TO Guduvanchery
+555M,555M,Nehru Nagar TO Tambaram West | Tambaram West TO Nehru Nagar | Tambaram West TO Thiruporur
+555N,555N | 555N CT,Chrompet TO 1 Depot TO Tambaram West | Guduvanchery TO Thiruporur | Tambaram West TO Chrompet TO 1 Depot
+555P,555P,Padappai TO Sholinganallur | Sholinganallur TO Padappai | Sholinganallur TO Tambaram West
+555S,555S | 555S CT | 555S CT1 | 555S CT4 | 555S CT6 | 555S CT7 | 555S CT9,Kilambakkam  to  Tambaram West | Kilambakkam B.T TO Perumpakkam S.C.B | Kilambakkam B.T TO Sholinganallur
+556,556 | 556 CT | 556 CT1,Kattupalli TO Ponneri | Pazhaverkadu TO Ponneri | Ponneri B.S TO Thangal Tollgate
+557,557,Gummidipoondi TO M.M.B.T | Gummidipoondi TO Redhills | M.M.B.T TO Gummidipoondi
+557AE,557AE | 557AE CT,Annamalaichery TO Gummidipoondi Terminal | Annamalaichery TO Redhills Bus Terminus | Gummidipoondi Terminal TO Annamalaichery
+557C,557C,Gummidipoondi TO Kallur | Kallur TO Gummidipoondi | Kallur TO Redhills
+557M,557M,Gummidipoondi TO Redhills | Madurapakkam TO Redhills | Padiyanallur TO Redhills
+558A,558A,Minjur TO Redhills | Ponneri TO Redhills | Redhills TO Minjur
+558B,558B,Avurivakkam TO Redhills | Pazhaverkadu TO Redhills | Ponneri TO Redhills
+558C,558C,Padiyanallur TO Redhills | Ponneri TO Redhills | Pudhucherymedu TO Redhills
+558L,558L,M.G.R.Koyambedu TO Minjur | M.G.R.Koyambedu TO Redhills | Minjur TO M.G.R.Koyambedu
+558P,558P,Padiyanallur TO Redhills | Perumbedukuppam TO Ponneri | Perumbedukuppam TO Redhills
+55A,55A,Nehru Nagar TO Pallavaram | Pallavaram TO Nehru Nagar | Pallavaram TO Pazhanthandalam
+55B,55B,Pazhanthandalam TO Tambaram West | Tambaram West TO Pazhanthandalam
+55C,55C | 55C R,Pungeri TO Tambaram West | Sonallur TO Tambaram West | Tambaram West TO Pungeri
+55D,55D | 55DEt,Kandigai TO Tambaram West | Keerapakkam TO Tambaram West | Kumizhi TO Tambaram West
+55G,55G,Oonamancheri TO Tambaram West | Tambaram West TO Oonamancheri | Tambaram West TO Venkampakkam Village
+55H,55H,Chennai Airport Metro TO Keerappakkam Tnuhdb | Keerappakam Tnuhdb TO Chennai Airport Metro | Keerappakkam Tnuhdb TO Kilambakkam Depot
+55K,55K | 55K CT | 55K CT1 | 55K CT2 | 55K CT3 | 55K CT4 | 55K CT5,Airport Metro TO Keerapakkam | Airport Metro TO Kilambakkam B.S | Guduvancheri B.S TO Keerapakkam
+55M,55M,Melkottaiyur TO Tambaram West | Tambaram West TO Melkottaiyur
+55N,55N,Keerappakkam To  Tambaram West | Tambaram West To Keerappakkam
+55P,55P,Kilambakkam TO Tambaram | Mannivakkam TO Tambaram | Tambaram TO Kilambakkam
+55V,55V,Kilambakkam B.T TO Tambaram West | Tambaram West TO Kilambakkam B.T
+55X,55X | 55X CT1 | 55X CT2,Mannivakkam Tank TONehru Nagar | Mannivakkam W.Tank TO Tambaram West | Nehru Nagar TO  Mannivakkam Tank
+56,56CT,Ennore TO Tondairpet | Tondiarpet TO Ennore
+565,565,Avadi TO Sriperumbudur | Sriperumbudur TO Avadi
+566,566,Kilambakkam TO Kundrathur | Kundrathur TO Kilambakkam | Kundrathur TO Thiruporur
+566B,566B,Iyyappanthangal TO Tambaram West | Kovalam TO Pattur | Kovalam TO Tambaram West
+568B,568B,Adyar Depot TO Thiruporur | Thiruporur TO Adyar (Depot) | Thiruporur TO Velachery B.T
+56A,56A R | 56A R1 | 56ACt | 56ACt R | 56ACt R1,Ennore TO Thangal Tollgate | Ennore TO Tondiarpet | Ennore TO Vallalar Nagar
+56C,56C CT | 56C CT1 | 56C CT3 | 56C CT4 | 56C CT5 | 56C R | 56C R2,Ennore TO  Island ground | Island groun TO  Jothi Nagar | Island ground  TO  Ennore
+56D,56D | 56D CT | 56D CT2 | 56D CT5 | 56D CT6 | 56D CT7 | 56D R | 56D R1 | 56DET CT7 | 56DEt CT | 56DEt CT2 | 56DEt CT4 | 56DEt CT5 | 56DEt CT6 | 56DEt R | 56DEt R1,Azeezee Nagar TO Island ground | Island ground  TO Mathur Bus Stand | Island ground  TO Thangal Tollgate
+56F,56F CT | 56F CT1 | 56F R | 56F R1,Ennore Bus Terminus TO Island ground Terminus | Ernavoor Gate TO Island ground Terminus | Island ground Terminus TO Ennore Bus Terminus
+56J,56J CT1 | 56J CT2 | 56J CT5 | 56J CT8 | 56J R | 56J R1,Island ground  TO Thangal Tollgate | Island ground TO Manali New Town | Manali New Town TO  Island ground
+56K,56K CT1 | 56K CT3 | 56K R | 56K R1,Ennore TO  Kargil Nagar | Island ground TO Kargil Nagar | Kargil Nagar TO  Ennore
+56P,56P CT | 56P CT1 | 56P CT10 | 56P CT11 | 56P CT12 | 56P CT13 | 56P CT14 | 56P CT4 | 56P CT5 | 56P CT6 | 56P CT7 | 56P CT8 | 56P CT9 | 56P R | 56P R1 | 56P R2,Broadway TO Tondiarpet | Island ground  TO  Manali New Town | Island ground TO  Minjur Bus Terminus (
+56T,56T,Athipettu R.S TO Thangal Tollgate | Thangal Tollgate TO Athipettu R.S
+57,57 | 57 CT | 57 CT2 | 57 CT3 | 57 R1 | 57 R2,Moolakadai TO Redhills | Moolakadai TO Vallalar Nagar | Redhills B.S TO Moolakadai
+570,570 | 570 CT | 570 CT1 | 570 CT2 | 570 CT3 | 570 CT4 | 570 CT5 | 570 CT6 | 570Et,Anna Nagar West Depot TO M.G.R.Koyambedu | Anna Nagar West TO M.G.R.Koyambedu | Guindy B.S To  Siruseri
+570P,570P | 570P CT | 570P CT1,Anna Nagar West TO M.G.R.Koyambedu | Kelambakkam TO M.G.R.Koyambedu | Kelambakkam TO Perumpakkam S.C.B
+570V,570V,Kelambakkam TO Vadapalani | Vadapalani TO Kelambakkam
+572,572,Avadi B.T TO Thiruvallur | Thiruvallur TO Avadi B.T
+572A,572A,Avadi B.T TO M.G.R.Koyambedu | Avadi B.T TO Thiruvallur Collector Office | M.G.R.Koyambedu TO Avadi B.T
+572K,572K | 572K CT | 572K CT2,Ambattur Industrial Estate TO Thiruvallur | Avadi B.T TO Kizhanoor | Avadi B.T TO Thiruvallur
+578,578 | 578 CT | 578 CT1 | 578 CT3 | 578Et | 578Et CT | 578Et CT1 | 578Et CT2,Iyyappanthangal TO Kunnam | Iyyappanthangal TO Sunguvarchathiram | Kunnam TO Poonamallee B.T
+578A,578A,Kundrathur B.T TO Sriperumbudur | Sriperumbudur TO Kundrathur B.T
+578M,578M,Iyyappanthangal  TO  MEPPEDU | MEPPEDU TO  Iyappanthangal | Mappedu TO  Poonamallee Bus Terminus
+578P,578P | 578P CT | 578P CT1 | 578PCt,Elambakkam TO Iyyapanthangal Depot | Elambakkam TO Poonamallee | Elambakkam to Poonamallee Bus Terminus
+578PC,578PC,Kelambakkam TO Poonamallee | Poonamallee TO Kelambakkam | Poonamallee TO Sunguvarchatram
+579A,579A,Nehru Nagar TO Walajabad | Oragadam TO Tambaram Sanatorium | Tambaram Sanatorium TO Oragadam
+579C,579C,Oragadam TO Tambaram Sanatorium | Tambaram Sanatorium Bus Stand TO Oragadam | Tambaram Sanatorium TO Walajabad
+579K,579K,Kilambakkam B.T TO Tambaram West | Kilambakkam B.T TO Walajabad | Tambaram New B.S TO Walajabad Bus Stand
+57A,57A,Angadu TO Vallalar Nagar | Budur Hospital TO Redhills Market | Redhills TO Angadu
+57B,57B,Pothur TO Redhills | Redhills TO Pothur | Redhills TO Upparapalayam
+57C,57CCt,Gnayaru TO Redhills | Redhills TO Gnayaru
+57D,57D | 57D CT | 57D CT1 | 57D CT2 | 57D R,Island ground TO Moolakadai | Island ground TO Poochi Athipet | KOYAMBEDU MARKET TO POOCHIATHIPEDU
+57E,57E,Redhills TO Vichoor | Vichoor TO Redhills
+57F,57F | 57F CT | 57F CT1 | 57F CT10 | 57F CT11 | 57F CT2 | 57F CT20 | 57F CT21 | 57F CT22 | 57F CT3 | 57F CT4 | 57F CT5 | 57F CT6 | 57F CT7 | 57F CT8 | 57F CT9 | 57F R,Island ground TO  Mkb Nagar East | Island ground TO Karanodai | Island ground TO Moolakadai
+57G,57G,Moolakadai TO Vazhuthigaimedu | Redhills TO Vazhuthigaimedu | Vazhuthigaimedu TO Moolakadai
+57H,57H | 57H CT | 57H CT1 | 57H CT2 | 57H CT3 | 57H CT4 | 57H CT5 | 57H CT6 | 57H CT7 | 57H R,Island ground TO New Erumai Vetti Palayam | Island ground TO Red Hills | Koyambedu Market TO Redhills
+57J,57J,Gnayaru TO Island ground | Island ground TO Gnayaru | Island ground TO Red Hills
+57M,57M,Alamathi TO Island ground | Alamathi TO Redhills | Island Ground  TO Alamathi
+57P,57P R,Vallalar Nagar TO  Pudukuppam
+57X,57X | 57X CT | 57X CT1 | 57X CT2 | 57X CT3 | 57X CT4 | 57X R | 57X R1,M.K.B.Nagar TO Vallalar Nagar | Padianallur TO Redhills | Periyapalayam TO Redhills
+580,580 | 580 R | 580 R1,Arani TO Avadi B.T | Avadi B.T TO Arani | Avadi B.T TO Kallur
+580A,580A,Avadi B.T TO M.G.R.Koyambedu | Avadi B.T TO Mel Sembedu | M.G.R.Koyambedu TO Avadi B.T
+580M,580M,Avadi B.T TO Malanthur | Malanthur TO Avadi B.T | Malanthur TO Thiruninravur
+583,583 | 583 CT | 583 CT1 | 583 CT2 | 583 CT5 | 583 R1 | 583 R2,M.G.R.Koyambedu Bus Terminus to Sriperumbudur Bus Terminal | Oragadam Hr.Sec.School TO Tambaram Sanatorium | Poonamallee B.T TO Sriperumbudur
+583A,583A | 583A CT | 583A CT1 | 583A CT2 | 583A CT4 | 583A R | 583A R1,Kottaiyur TO Poonamallee B.T | Kottaiyur TO Sriperumbudur | M.G.R.Koyambedu Bus Terminus to Poonamallee Bus Terminus
+583C,583C,Manimangalam TO Tambaram Sanatorium | Sriperumbudur TO Tambaram Sanatorium | Tambaram Sanatorium TO Manimangalam
+583D,583D,Sriperumbudur TO Tambaram Sanatorium | Tambaram Sanatorium TO Sriperumbudur
+583K,583K | 583K CT,Kelambakkam Bus Terminal TO Kilambakkam Bus Terminus | Kilambakkam B.T TO Nehru Nagar | Kilambakkam B.T TO Padappai
+588,588 | 588 CT,Adyar (Depot) TO Thiruvanmiyur | Kovalam TO Thiruvanmiyur | Mamallapuram TO Thiruvanmiyur
+58V,58V,M.G.R.Koyambedu TO Redhills | Moolakadai TO M.G.R.Koyambedu | Redhills Market TO Moolakadai
+59,59,M.G.R.Koyambedu TO Thiruverkadu Terminus | Thiruverkadu TO Vallalar Nagar | Thiruverkadu Terminus TO M.G.R.Koyambedu
+591,591 | 591 CT2 | 591 CT3,Manimangalam TO Poonamallee | Perambakkam TO Poonamallee B.T | Poonamallee B.T TO Om Mangalam Village
+591C,591C,Perambakkam L.N.Koil TO Poonamallee B.T | Poonamallee B.T TO Perambakkam L.N.Koil
+592,592,Padiyanallur TO Redhills | Redhills TO Padiyanallur | Redhills TO Uthukottai
+592V,592V | 592V CT4,Padiyanallur TO Redhills | Redhills TO Padiyanallur | Redhills TO Vengal
+593,593Ct,Chennang Karanai TO Redhills | Padiyanallur TO Redhills | Redhills TO Chennang Karanai
+595,595 | 595 CT1 | 595 CT2 | 595 R | 595 R1,Minjur TO Pazhaverkadu | Pazhaverkadu TO Minjur | Pazhaverkadu TO Thangal Tollgate
+597,597 | 597 CT | 597 CT1 | 597 CT10 | 597 CT11 | 597 CT12 | 597 CT2 | 597 CT5 | 597 CT6 | 597 CT7 | 597 CT8 | 597 CT9 | 597 R | 597 R1,Iyappanthangal TO Thiruvallur | K.K.Nagar TO  Poonamallee | K.K.Nagar TO Thyagaraya Nagar
+597A,597A | 597A CT | 597A CT2 | 597A CT3 | 597A CT4 | 597A R | 597A R1,Iyyappanthangal Bus Depot TO Thiruvallur Terminal | M.G.R.Koyambedu Bus Terminus TO Poonamallee Bus Terminus | Poonamallee B.T TO Thiruvallur Collector Office
+597C,597C | 597CEt | 597CEt CT1 | 597CEt CT2 | 597CEt CT3 | 597CEt CT4 | 597CEt CT5 | 597CEt CT6,Avadi B.T TO Periya Colony | Avadi B.T TO Poonamallee B.T | Iyyapanthangal  TO  Thiruninravur
+597T,597T CT | 597T CT1 | 597T R | 597T R1,M.G.R.Koyambedu TO  Poonamallee | Poonamallee  TO  M.G.R.Koyambedu | Poonamallee TO  Thiruvallur
+5B,5B,Mylapore TO Thiyagarayanagar | Mylapore Tank TO Mandaveli Depot | Thyagaraya Nagar TO Mylapore Tank
+5C,5C | 5C CT | 5C CT1 | 5C CT10 | 5C CT2 | 5C CT3 | 5C CT7 | 5C R | 5C R1,Adyar B.T TO Taramani | Adyar TO  Egmore | Adyar TO  Royapuram
+5E,5E | 5E CT | 5E CT1,Besant Nagar TO Vadapalani | Island ground TO  M.G.R.Koyambedu | M.G.R.Koyambedu TO  Vadapalani
+5G,5G,Kannagi Nagar S.C.B TO Thyagaraya Nagar | Thyagaraya Nagar TO Kannagi Nagar S.C.B
+5S,5S,Kannagi Nagar S.C.B TO Saidapet | Kannagi Nagar S.C.B TO Velachery B.T | Saidapet TO Kannagi Nagar S.C.B
+6,6 R,Island ground TO Thiruvanmiyur | Thiruvanmiyur TO  Island ground
+60,60 CT | 60 CT1 | 60 CT2 | 60 CT3 | 60 R | 60 R1,Anakaputhur TO Broadway | Anakaputhur TO Chromepet | Anakaputhur TO Saidapet
+60A,60A | 60A CT | 60A R,Kundrathur TO Nehru Nagar | Kundrathur to Royapuram | Nehru Nagar TO Royapuram
+60D,60D | 60D CT | 60D CT1 | 60D R1 | 60D R2 | 60D R3 | 60D R4,Chrompet TO 1 Depot TO Hasthinapuram | Guduvanchery TO Hasthinapuram | Guduvanchery TO Pammal Kamarajapuram
+60E,60E R,Kundrathur Bus Terminus  TO Royapuram terminus | Royapuram terminus TO Kundrathur Bus Terminus
+60G,60G | 60G R1 | 60G R2,Chrompet-1 Depot TO Hasthinapuram | Hasthinapuram TO Chrompet TO 1 Depot | Hasthinapuram TO Pozhichalur
+60H,60H | 60H CT | 60H R | 60H R1 | 60H R3 | 60H R4,Guduvanchery TO Sankara Health Centre | Hasthinapuram TO Chrompet-1 | Hasthinapuram TO Guduvanchery
+61,61R,Avadi B.T TO Redhills | Padiyanallur TO Redhills | Redhills TO Avadi B.T
+61A,61A,Avadi B.T TO Melappedu | Melappedu TO Avadi B.T
+61C,61C,Avadi B.T TO Crpf Co Op Shop | Avadi B.T TO Ellaiamman Nagar | Crpf Co Op Shop TO Avadi B.T
+61E,61E,Avadi B.T TO Kilkondaiyur | Kilkondaiyur TO Avadi B.T | Kilkondaiyur TO Koyambedu Market
+61K,61K,Avadi B.T TO Kanniamman Nagar | Avadi B.T TO Veerapuram Govt School | Kanniamman Nagar TO Avadi B.T
+62,62 | 62 CT | 62 CT1 | 62 CT12 | 62 CT13 | 62 CT14 | 62 CT2 | 62 CT3 | 62 CT6 | 62 CT7 | 62 CT8 | 62Ct,Ambattur I.E TO Poonamallee B.T | Avadi B.T TO Poonamallee B.T | Avadi B.T TO Redhills
+62A,62A,Ambattur I.E TO Puzhal | Ambattur I.E TO Redhills | Puzhal TO Ambattur I.E
+62B,62B,Ambattur I.E TO J.J.Nagar West | J.J.Nagar West TO Ambattur I.E | J.J.Nagar West TO Redhills
+62M,62M | 62M CT | 62M CT1,M.G.R.Koyambedu Bus Terminus to Poonamallee Bus Terminus | M.M.B.T TO Madhavaram | M.M.B.T TO Poonamallee B.T
+63,63 | 63 CT | 63 R,Ambattur I.E TO Thiruverkadu | Ambattur I.E TO Villivakkam | Ambattur Industrial Estate TO Icf
+64C,64C CT | 64C CT1 | 64C CT2 | 64C CT3 | 64C CT4 | 64C R,Azeezee Nagar TO Island ground | Island ground TO Azeezee Nagar | Island ground TO Madhavaram
+64D,64D | 64D CT1 | 64D CT3 | 64D CT4 | 64D R,Broadway TO Kosappur | Island ground Terminus TO Kosappur Bus Stand | Island ground Terminus TO Moolakadai
+64K,64K CT | 64K CT1 | 64K R | 64KEt | 64KEt CT1 | 64KEt CT3 | 64KEt R,Island ground TO Kaviarasu Kannadasan Nagar | Island ground Terminus TO Kaviarasu Kannadasan Nagar Bus Stand | Island ground Terminus TO Kodungaiyur Parvathi Naga
+64M,64M,M.G.R.Central TO M.M.B.T | M.M.B.T TO M.G.R.Central | M.M.B.T TO Madhavaram Depot
+65A,65A | 65A CT | 65A CT1 | 65A CT2 | 65A CT3,M.G.R.Koyambedu Bus Terminus to Poonamallee Bus Terminus | Muthapudupet TO Thiyagarayanagar | Poonamallee B.T TO Thyagaraya Nagar
+65B,65B | 65B CT | 65B CT1,Ambattur I.E TO Poonamallee B.T | Iyyapanthangal  TO  Poonamallee | Muthapudupet TO Poonamallee
+65C,65CCt,Ambattur I.E TO Pakkam Village | Pakkam Village TO Ambattur I.E
+65D,65D,Avadi B.T TO Melkondaiyur | Melkondaiyur TO Avadi B.T
+65E,65E,Avadi B.T TO Poonamallee B.T | Poonamallee B.T TO Avadi B.T
+65G,65G,Avadi B.T TO Meyyur | Meyyur TO Avadi B.T | Meyyur TO Thamaraipakkam Rd.Jn
+65H,65H,Avadi B.T TO Redhills | Redhills TO Avadi B.T
+65K,65K,Avadi B.T TO Poonamallee B.T | Poonamallee B.T TO Avadi B.T
+66,66 | 66 CT | 66 CT3 | 66 CT5 | 66 CT6,Iyappanthangal  TO  Poonamallee | Kundrathur TO Tambaram West | Poonamallee B.T TO Tambaram West
+66A,66A,Hasthinapuram TO Kundrathur B.T | Kundrathur B.T TO Hasthinapuram
+66K,66K | 66K CT | 66K CT2 | 66K R | 66K R1,Kilambakkam B.T TO Kundrathur B.T | Kilambakkam B.T TO Tambaram West | Kilambakkam Bus Terminus TO Nehru Nagar
+66M,66M,Kundrathur B.S TO Malayambakkam | Malayambakkam TO Tambaram West | Tambaram West TO Kundrathur B.S
+66P,66P | 66P CT | 66P CT1 | 66P CT2 | 66P CT21 | 66P CT22 | 66P CT3 | 66P CT5 | 66P CT6 | 66P CT7 | 66P CT8 | 66P R | 66P R1 | 66P ct | 66P ct2,Airport TO Kilambakkam | Iyyappanthangal B.S TO Kilambakkam B.S | Iyyappanthangal Bus Depot to  Poonamallee Bus Terminus
+66PX,66PX,Guduvancheri B.S TO Kilambakkam B.S | Guduvancheri B.S TO Poonamallee B.S | Iyappanthangal TO  Poonamallee
+6D,6D | 6D CT | 6D CT1 | 6D CT2 | 6D R | 6D R1 | 6DET CT | 6DET CT1 | 6DEt CT2 | 6DEt CT4 | 6DEt R | 6DEt R1,Foreshore Estate TO Thangal Tollgate | Foreshore TO Sathuma Nagar | Kilambakkam B.S TO Thiruvanmiyur
+70,70 | 70 CT1 | 70 CT2 | 70 CT3 | 70 CT4 | 70 CT5 | 70 CT6 | 70 R | 70 R1,Avadi B.T TO Tambaram West | Avadi Bus Terminus TO Tambaram West Bus Stand | Avadi TO  M.G.R.Koyambedu
+70A,70A | 70A CT | 70A R | 70A R1 | 70ACt,Ambattur I.E TO Koyambedu Market | Ambattur I.E TO M.G.R.Koyambedu | Ambattur I.E TO Senthil Nagar
+70C,70C | 70C CT | 70C CT1 | 70C CT10 | 70C CT11 | 70C CT12 | 70C CT13 | 70C CT14 | 70C CT15 | 70C CT16 | 70C CT17 | 70C CT18 | 70C CT19 | 70C CT2 | 70C CT20 | 70C CT3 | 70C CT4 | 70C CT8 | 70C R | 70C R1 | 70CCt | 70CCt CT1 | 70CCt CT2 | 70CCt R | 70CCt R1,Cement Road TO Tambaram West | K K Nagar TO M.G.R.Koyambedu | K.K.Nagar B.S TO Ramapuram
+70E,70E | 70E CT,Ayanavaram B.T TO Kilambakkam B.T | Kilambakkam B.T TO Ayanavaram B.T | Kilambakkam B.T TO M.G.R.Koyambedu
+70F,70F,Kilambakkam B.T TO M.G.R.Koyambedu | Kilambakkam B.T TO Madhavaram B.T | M.G.R.Koyambedu TO Kilambakkam B.T
+70G,70G,Guduvanchery TO Vadapalani B.T | Tambaram West Bus Stand TO Vadapalani Bus Stand | Vadapalani B.T TO Guduvanchery
+70H,70H,Chrompet-2 Depot TO Hasthinapuram | Hasthinapuram TO Chrompet-2 Depot | Hasthinapuram TO M.G.R.Koyambedu
+70J,70J | 70J CT,Ambattur I.E TO J.J.Nagar West | Ambattur Industrial Estate Depot TO J J Nagar West Terminus | Guindy Tvk Estate TO J.J.Nagar West
+70K,70K,Avadi B.T TO Kilambakkam B.T | Kilambakkam B.T TO Avadi B.T | Kilambakkam B.T TO M.G.R.Koyambedu
+70L,70LCt,Ambattur I.E TO Korattur | Guindy Tvk Estate TO Korattur | Korattur TO Ambattur I.E
+70M,70M | 70M CT,Anna Nagar  B.S TO M.G.R.Koyambedu | Kilambakkam B.T TO M.G.R.Koyambedu | Kilambakkam B.T TO M.M.B.T
+70N,70N | 70N CT,Cement Road TO Nanganallur | M.G.R.Koyambedu TO Nanganallur | Nanganallur TO Cement Road
+70T,70T,Kilambakkam B.T TO M.G.R.Koyambedu | Kilambakkam B.T TO T.V.K.Nagar | M.G.R.Koyambedu TO Kilambakkam B.T
+70V,70V | 70V CT | 70V CT1 | 70V CT11 | 70V CT12 | 70V CT13 | 70V CT2 | 70V CT3 | 70V CT5 | 70V CT6 | 70V CT7 | 70V R | 70V R1,Airport TO Kilambakkam | Anna Nagar West TO M.G.R.Koyambedu | Cemetery Road TO M.G.R.Koyambedu
+71D,71D CT | 71D CT1 | 71D CT2 | 71D CT3 | 71D CT4 | 71D CT6,Avadi Bus Terminus TO Royapuram | Pudur TO  Royapuram | Royapuram TO Avadi Bus Terminus
+71E,71E | 71E CT1 | 71E CT2 | 71E R | 71E R1,Ambattur I.E TO Royapuram | Ambattur I.E TO Thirunindravoor | Avadi B.T TO Thirunindravoor
+71H,71H | 71H CT | 71H CT1 | 71H CT2 | 71H R,Ambattur I.E TO Kamaraj Nagar | Avadi B.T TO Kamaraj Nagar | Kamaraj Nagar TO Ambattur I.E
+71V,71V CT | 71V CT1 | 71V R | 71V R1,Avadi B.T TO Veppampattu E.Waran Nagar | Royapuram TO Veppampattu E.Waran Nagar | Veppampattu E.Waran Nagar TO  Royapuram
+72,72 | 72 CT | 72 CT1 | 72 CT10 | 72 CT11 | 72 CT2 | 72 CT3 | 72 CT4 | 72 CT5 | 72 CT6 | 72 CT7 | 72 CT8 | 72 CT9 | 72 R | 72 R1 | 72 ct | 72Ct,M.G.R.Koyambedu Bus Terminus to Thiruverkadu Bus Terminus | M.G.R.Koyambedu TO Thiyagaraya Nagar | M.G.R.Koyambedu TO Todd Hunter Nagar
+72M,72M | 72M CT | 72M CT4,M.G.R.Koyambedu Bus Terminus to Thiruverkadu Bus Terminus | Poonamallee B.T TO Thiruverkadu | Thiruverkadu Bus Terminus to M.G.R.Koyambedu Bus Terminus
+73,73 | 73Ct,Ambattur I.E TO Ayappakkam Tnhb | Avadi B.T TO M.G.R.Koyambedu | Ayappakkam Tnhb TO Ambattur I.E
+73A,73A,Avadi B.S TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Avadi B.S
+73C,73C,Ambattur I.E TO Ayappakkam | Ayappakkam TO Ambattur I.E
+76,76 | 76 CT | 76 CT1 | 76 CT2,Alandur Depot TO Velachery | Cement Road TO Kilambakkam B.S | Cement Road TO M.G.R.Koyambedu
+76B,76B,M.G.R.Koyambedu TO Medavakkam Rd.Jn | M.G.R.Koyambedu TO Ottiyampakkam | M.G.R.Koyambedu TO Vadapalani
+77,77 | 77 CT | 77 CT1 | 77 R | 77 R1 | 77Ct,Ambattur I.E TO Avadi B.T | Ambattur I.E TO M.G.R.Koyambedu | Ambattur I.E TO Venkatachalam Nagar
+77A,77A,Ambattur I.E TO Ayappakkam Tnhb | Ayappakkam Tnhb TO Ambattur I.E | Ayappakkam Tnhb TO M.G.R.Koyambedu
+77B,77B,Ambattur I.E TO Oragadam | M.G.R.Koyambedu TO Oragadam | Oragadam TO Ambattur I.E
+77E,77E,Avadi B.T TO Kanniamman Nagar | Avadi Bus Terminus TO M.G.R.Koyambedu | Kanniamman Nagar TO Avadi B.T
+77F,77FCt,Avadi B.T TO Vadathur | Vadathur TO Avadi B.T
+77K,77K,Ambattur I.E TO M.G.R.Koyambedu | Avadi B.T TO Ambattur I.E | Avadi B.T TO M.G.R.Koyambedu
+77M,77M,Ambattur I.E TO Madanakuppam | Koyambedu Market TO Madanakuppam | Koyambedu Market TO Puzhal
+77P,77P,Avadi B.T TO Poochiathipedu | Koyambedu Market TO Poochiathipedu | M.G.R.Koyambedu TO Poochiathipedu
+77T,77T,Ambattur I.E TO Thirumullaivoyal Colony | M.G.R.Koyambedu TO Thirumullaivoyal Colony | Thirumullaivoyal Colony TO Ambattur I.E
+77V,77V | 77VEt,Ambattur I.E TO Koyambakkam | Ambattur I.E TO M.G.R.Koyambedu | Ambattur I.E TO Veppampattu E.Waran Nagar
+78,78 | 78 CT | 78 CT1 | 78 CT2,Adyar (Depot) TO Thiruvanmiyur | Besant Nagar TO Thirumangalam | K.K.Nagar TO M.G.R.Koyambedu
+79A,79A,Navalur S.C.B TO Tambaram West | Tambaram West TO Navalur S.C.B
+79V,79V,Tambaram Sanatorium TO Venbakkam | Tambaram Sanatorium TO Walajabad | Tambaram West TO Venbakkam
+7E,7E CT | 7E CT2 | 7E CT3 | 7E CT4 | 7E R | 7E R1,Ambattur I.E TO Broadway | Ambattur I.E TO Nolambur Sakthi Nagar | Island ground  TO Nolambur Sakthi Nagar
+7H,7H CT | 7H CT1 | 7H CT2 | 7H CT3 | 7H CT5 | 7H R,Anna Nagar West TO Island ground | Anna Nagar West TO J.J.Nagar East | Doveton TO J.J.Nagar East
+7K,7K | 7K CT | 7K CT1 | 7K R | 7K R1,Anna Nagar West TO  Island ground | Island ground TO Anna Nagar West | Island ground TO Padikuppam
+7M,7M | 7M CT | 7M CT2 | 7M CT3 | 7M CT4 | 7M CT6 | 7M CT7 | 7M R | 7MEt CT | 7MEt CT1 | 7MEt R | 7MEt R1,Ambattur I.E TO  Island ground | Anna Nagar West TO J.J.Nagar West | Athipet I.C.F. Colony TO  Island ground
+7M RE,7M RE,J J Nagar West TO  Island ground
+88,88R,Amarambedu TO Saidapet | Iyyappanthangal TO Saidapet | Saidapet TO Amarambedu
+88C,88C | 88C CT | 88C CT1 | 88C R | 88CEt,Iyyappanthangal TO Thandalam Village | Iyyappanthangal TO Thyagaraya Nagar | Kundrathur TO Royapuram
+88D,88D | 88D R | 88D R1,K.K Nagar Depot TO Saidapet West Bus Stand | Kundrathur B.T TO Saidapet West | Saidapet West Bus Stand TO K.K Nagar Depot
+88K,88K CT | 88K CT1 | 88K CT3 | 88K CT4 | 88K CT5 | 88K CT6 | 88K R1 | 88KEt | 88KEt R,Kovur E B TO  Royapuram | Kundrathur B.S TO Thyagaraya Nagar | Kundrathur B.T TO Nallur
+88L,88L,Periya Colony TO Vadapalani | Vadapalani TO Periya Colony
+88M,88M,Somangalam TO Vadapalani | Vadapalani TO Somangalam
+89,89,Iyyappanthangal TO Somangalam | Kundrathur TO Somangalam | Porur TO Somangalam
+89A,89A,Iyyappanthangal TO Somangalam | Porur TO Somangalam | Somangalam TO Iyyappanthangal
+89T,89T | 89TCt,Kundrathur B.T TO Tambaram West | Kundrathur Bus Depot TO Kundrathur Depot | Kundrathur Depot TO Kundrathur Bus Depot
+8A,8ACT,Thangal Tollgate TO Vallalar Nagar | Tollgate TO Tondairpet TO 1 Depot | Tondairpet TO 1 Depot TO Tollgate
+8B,8B | 8B R,Ayanavaram B.T TO T.V.K.Nagar | Island ground TO T.V.K.Nagar | T.V.K.Nagar TO Ayanavaram B.T
+91,91 | 91 CT | 91 CT1 | 91 CT10 | 91 CT11 | 91 CT2 | 91 CT3 | 91 CT5 | 91 CT7 | 91 CT8 | 91 CT9 | 91 R | 91 R1 | 91R | 91R CT,Adyar TO Thiruvanmiyur | Central Depot TO  M.G.R.Central | Kilambakkam B.T TO N.G.O.Colony
+91A,91A | 91A CT,Chrompet TO 1 Depot TO Hasthinapuram | Chrompet-2 Depot TO Hasthinapuram | Hasthinapuram TO Thiruvanmiyur
+91K,91K | 91K CT,Kilambakkam B.T TO Thiruvanmiyur | Kilambakkam Bus Terminus TO Tambaram West Bus Stand | Tambaram West Bus Stand TO Kilambakkam Bus Terminus
+91V,91V | 91V  R | 91V CT1 | 91V CT2 | 91V CT3 | 91V R1 | 91V R9,Guduvancheri Bus Terminus TO Thiruvanmiyur  Bus Stand | Guduvanchery TO Kilambakkam B.S | Kilambakkam Bus Terminus TO Thiruvanmiyur Bus Stand
+95,95 | 95 CT | 95 CT1 | 95 R | 95 R2,Chrompet TO 1 Depot TO Tambaram Railway Station East | Sholinganallur TO Tambaram East | Tambaram East TO Sholinganallur
+95X,95X | 95X CT | 95X CT1 | 95X CT2 | 95X CT3 | 95X CT4 | 95X CT5 | 95X R | 95X R1 | 95XCt | 95XCt CT | 95XCt CT2 | 95XCt R | 95XCt R1,Chrompet TO 1 Depot TO Tambaram West | Kilambakkam  to  Semmancheri | Kilambakkam B.S TO Semmancheri B.S
+96,96 | 96 R | 96 R1,Adyar Gandhi Nagar TO  Tambaram West | Cement Road TO  Adyar Gandhi | Tambaram West  TO  Cement Road
+99,99 | 99 CT | 99 CT1 | 99 CT2 | 99 R,Adyar TO Shozhinganallur | Adyar TO Tambaram West | Adyar to  Perumbakkam
+99A,99A | 99A CT | 99A CT1 | 99A CT2 | 99A CT3,Kilambakkam B.T TO Perumpakkam S.C.B | Kilambakkam Bus Terminus TO Shozhanganallur | Perumbakkam College TO Tambaram West
+99C,99C,Chromepet TO Semmancheri | Semmancheri S.C.B TO Tambaram West | Semmancheri TO Chromepet
+99X,99X,Adyar B.T TO Kilambakkam B.T | Kilambakkam B.S TO Semmenchery | Kilambakkam B.T TO Adyar B.T
+9M,9M | 9M CT | 9MEt | 9MEt CT,A.G.S.Officer'S Colony TO N.G.O.Colony | A.G.S.Officer'S Colony TO Royapuram | A.G.S.Officer'S Colony TO Thyagaraya Nagar
+A1,A1 | A1 CT1 | A1 CT11 | A1 CT2 | A1 CT3 | A1 CT4 | A1 CT5 | A1 CT6 | A1 CT7 | A1 R | A1 R1 | A1Et | A1Et CT | A1Et CT1 | A1Et CT2 | A1Et CT3,Central Depot TO Mgr Central Station | Fort to Secretariat | Island TO  M.G.R.Koyambedu
+A45B,A45B | A45B CT | A45B CT1 | A45B CT2 | A45B R | A45B R1,Alandur (Depot) TO Guindy Tvk Estate | Anna Square TO Cement Road | Anna Square TO Guindy Tvk Estate
+A47,A47,Avadi B.T TO Thiruvanmiyur | Thiruvanmiyur TO Avadi B.T
+A51,A51 | A51 CT | A51 CT1 | A51 CT2 | A51 CT3 | A51 CT4 | A51 CT5 | A51 CT8 | A51 R1 | A51 R3,Central Depot TO  Royapuram | Nehru Nagar TO Royapuram | PADUVANCHERY TO TAMBARAM WEST
+A54C,A54C CT | A54C CT2 | A54C R | A54C R1,Avadi  TO  Poonamallee | Pattabiram TO  Poonamallee | Poonamallee TO  Avadi
+B18,B18,Tondairpet TO Kilambakkam | kilambakkam TO Tondairpet
+B70,B70Ct,Ambattur I.E TO Devik Eswari Nagar | Devik Eswari Nagar TO Ambattur I.E | Devik Eswari Nagar TO Guindy Tvk Estate
+C33,C33,Kannadasan Nagar TO Kaviarasu Kannadasan Nagar Bus Stand | Kaviarasu Kannadasan Nagar Bus Stand TO Kannadasan Nagar | Kaviarasu Kannadasan Nagar TO Madhavaram Depot
+C56C,C56C CT | C56C CT1 | C56C CT3 | C56C R | C56C R1 | C56CEt | C56CEt CT | C56CEt R,Air Nagar TO Ennore B.S | Air Nagar TO Island ground Terminus | Air Nagar TO Thiruvotriyur B.T
+C64,C64 | C64 CT | C64 CT1,Kannadasan Nagar TO Kaviarasu Kannadasan Nagar Bus Stand | Kaviarasu Kannadasan Nagar Bus Stand TO Kannadasan Nagar | Kaviarasu Kannadasan Nagar Bus Stand TO Vyasarpadi
+CU1,CU1,MGR CHENNAI CENTRAL TO  MGR CHENNAI CENTRAL
+CU2,CU2 | CU2 CT1 | CU2 CT2 | CU2 CT3,Central Depot  TO MGR CHENNAI CENTRAL | MGR CHENNAI CENTRAL  TO  Central Depot | MGR CHENNAI CENTRAL TO Mgr Central Railway Station
+D51,D51Et | D51Et R,Chithalapakkam TO Royapuram | Chithalapakkam Tnhb TO Saidapet | Royapuram to  Chithalapakka
+D70,D70 | D70 CT | D70 CT1 | D70Ct | D70Ct CT,Alandur (Depot) TO Guindy Tvk Estate | Ambattur I.E TO Guindy Tvk Estate | Ambattur I.E TO Velachery B.T
+D70X,D70X | D70X CT4,Ambattur I.E TO Guindy Tvk Estate | Ambattur I.E TO Velachery Mrts | Cement Road TO Velachery Mrts
+E18,E18 | E18 CT | E18 CT1 | E18 CT2 | E18 CT3 | E18 CT4 | E18 CT6 | E18 CT7 | E18 R | E18 R1,Cement Road TO Guduvanchery | Cement Road TO Kilambakkam B.T | Guduvancheri TO  Royapuram
+E51,E51 | E51 CT | E51 CT1 | E51 CT2 | E51 CT3 | E51 CT4 | E51 CT5 | E51 CT6 | E51 R,Acharavakkam TO Velachery B.T | Medavakkam TO Ottiyambakkam | Ottiyambakkam TO Medavakkam
+F70,F70,Guindy Tvk Estate TO Pattabiram | K.K Nagar Depot TO Guindy Bus Terminus | Pattabiram TO Guindy Tvk Estate
+G18,G18 | G18 CT,Cement Road TO Kilambakkam B.T | Guduvanchery TO Thyagaraya Nagar | Kilambakkam B.T TO Thyagaraya Nagar
+J51,J51 | J51 CT,N.G.O.Colony TO Venkadamangalam | Tambaram West TO Velachery B.T | Velachery B.T TO Tambaram West
+J66,J66,Poonamallee B.T TO Tambaram West | Tambaram West TO Poonamallee B.T
+M1,M1 | M1 CT | M1 CT1 | M1 CT2 | M1 CT3 | M1 CT7 | M1 R,Cement Road TO Keelkattalai | Keelkattalai TO Cement Road | Keelkattalai TO Saidapet
+M18,M18,Kilambakkam B.T TO Tambaram West | Tambaram West TO Kilambakkam B.T
+M18C,M18C | M18C CT,Keelkattalai TO N.G.O.Colony | Keelkattalai TO Thyagaraya Nagar | N.G.O.Colony TO Keelkattalai
+M18G,M18G,Guduvanchery TO Hasthinapuram | Hasthinapuram TO Guduvanchery
+M18N,M18N,Cement Road TO Nanganallur | Guduvanchery TO Nanganallur | Guindy Tvk Estate TO Kilambakkam B.T
+M19B,M19B,Adyar B.T TO Kannagi Nagar S.C.B | Adyar B.T TO Thyagaraya Nagar | Kannagi Nagar S.C.B TO Adyar B.T
+M1A,M1A | M1A CT | M1A CT1 | M1A CT3 | M1A CT5 | M1A CT6 | M1A R,Cement Road TO Keelkattalai | Keelkattalai TO  Saidapet | Keelkattalai TO Cement Road
+M27,M27,M.G.R.Koyambedu TO Thyagaraya Nagar | M.G.R.Koyambedu TO Vadapalani | Thyagaraya Nagar TO M.G.R.Koyambedu
+M51,M51 | M51R | M51R CT | M51R CT1 | M51R CT2 | M51R CT6 | M51R CT8 | M51R R,Cement Road TO Keelkattalai | Cement Road TO Prathyangira Devi Temple | Keelkattalai TO  Ngo Colony
+M51D,M51D | M51DCT | M51DCt,Kelambakkam TO Saidapet | Pudupakkam TO Saidapet | Pudupakkam TO Saidapet BS
+M51V,M51V | M51V CT1 | M51V CT2,Kolathur TO Medavakkam Junction | Kolathur TO Saidapet | Kolathur TO Saidapet (Depot)
+M51VC,M51VC,Chithalapakkam Tnhb TO Saidapet | Kolathur TO Medavakkam Rd.Jn | Kolathur TO Saidapet
+M52,M52Et,Chromepet TO Pozhichalur | Guduvanchery TO Chromepet | Guduvanchery TO Pallavaram
+M60,M60,Iyyappanthangal TO N.Bakkam Kalaignar Nagar | N.Bakkam Kalaignar Nagar TO Iyyappanthangal | N.Bakkam Kalaignar Nagar TO Thyagaraya Nagar
+M70,M70 CT | M70 CT1 | M70 CT2 | M70 CT3 | M70 CT7 | M70 CT8 | M70 CT9 | M70 R | M70 R1,Guindy TO  Thiruvanmiyur | K.K.Nagar TO  Thiruvanmiyur | K.K.Nagar TO M.G.R.Koyambedu
+M88,M88 | M88 CT | M88 CT1 | M88 CT2 | M88 CT3 | M88 CT4 | M88 R | M88 R1 | M88 ct1 | M88Et,Amarambedu East TO Vadapalani | Iyyappanthangal TO Kundrathur B.T | Iyyappanthangal TO Nandambakkam Village
+M88T,M88T,Amarambedu East TO Iyyappanthangal | Amarambedu East TO Vadapalani | Iyyappanthangal TO Amarambedu East
+MAA1,MAA1 | MAA1 CT | MAA1 CT2 | MAA1 CT3 | MAA1 R,AIRPORT TO KILAMBAKKAM | Airport TO  Perumbakkam | Airport TO Cement Road
+MAA2,MAA2 | MAA2 CT | MAA2 CT1 | MAA2 CT2 | MAA2 CT3 | MAA2 R | MAA2 R1,Airport TO Cement Road | Airport TO Siruseri It Park | Cement Road TO Airport
+N45B,N45B | N45B CT | N45B CT1 | N45B R,Cement Road TO Keelkattalai | Island ground TO Keelkattalai | Island ground TO Ngo Colony
+P570S,P570S CT | P570S CT1 | P570S CT2 | P570S CT3 | P570S R | P570S R1,M.G.R.Koyambedu Bus Terminus TO Poonamallee Depot EV | M.G.R.Koyambedu TO  Siruseri It Park | Perumbakkam Depot TO Siruseri It Park
+P91,P91 | P91 CT | P91 CT1 | P91 CT3 | P91 CT4,Kilambakkam  TO  Poonamallee | Kilambakkam TO  Thiruvanmiyur | Perumbakkam TO  Thiruvanmiyur
+PP21,PP21,Broadway TO Kilambakkam | Kilambakkam TO Broadway
+S1,S1 | S1 CT | S1 CT1,Chromepet To Chrompet 1 Depot | Chromepet-I TO Thirisulam Sakhi Nagar | Pallavaram R.S TO Thirisulam Sakhi Nagar
+S100,S100,Airport Metro TO Nehru Nagar | Airport Metro TO Tambaram East | Nehru Nagar TO Airport Metro
+S11,S11 | S11 CT | S11 CT1 | S11 CT2 | S11 CT4,Cement Road TO Keelkattalai | Guindy R.S TO Keelkattalai | Guindy Race Course TO Cement Road
+S12,S12,Cement Road TO Guindy R.S | Guindy R.S TO Cement Road | Guindy R.S TO Velachery R.S
+S13,S13,Adambakkam TO Velachery B.T | Guindy R.S TO Velachery B.T | Velachery B.T TO Adambakkam
+S145,S145,Ayanavaram B.T TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Ayanavaram B.T
+S14M,S14M | S14M CT,Medavakkam Rd.Jn TO N.G.O.Colony | Medavakkam Rd.Jn TO Nehru Nagar | N.G.O.Colony TO Medavakkam Rd.Jn
+S15,S15,Madhya Kailash TO Thiruvanmiyur Depot | Madhyakailash TO Thiruvanmiyur R.S | Thiruvanmiyur Depot TO Madhya Kailash
+S165,S165 | S165 CT | S165 CT4,Iyyappanthangal TO Kovur Eb | Kovur E.B TO Nehru Nagar | Kovur Eb TO Iyyappanthangal
+S166,S166,Iyyappanthangal TO Manimedu(Akashnagar) | Manimedu(Akashnagar) TO Iyyappanthangal | Manimedu(Akashnagar) TO Porur
+S167,S167,Iyyappanthangal TO Pattur | Pallavaram TO Pattur | Pattur TO Iyyappanthangal
+S169,S169,Moolakadai TO Thangal Tollgate | Thangal Tollgate TO Moolakadai | Tondairpet TO 1 Depot TO Thangal Toll Gate
+S17,S17,Adyar B.T TO Mandaveli | Adyar Gandhi Nagar TO Guindy Rs | Guindy Rs TO Adyar Gandhi Nagar
+S18D,S18D | S18D CT | S18D CT1,Keelkattalai TO N.G.O.Colony | Keelkattalai TO Saidapet | N.G.O.Colony TO Keelkattalai
+S18K,S18K,K.K Nagar Depot TO Saidapet West Parsn Nagar | M.G.R.Central TO Saidapet West Parsn Nagar | Saidapet West Parsn Nagar TO M.G.R.Central
+S19,S19,Chromepet TO Keelkattalai | Keelkattalai TO Chromepet | Keelkattalai TO Kumaran Kundram
+S2,S2 R | S2 R1,Chromepet TO Medavakkam Jayachandran | Medavakkam Jayachandran TO Chromepet
+S20,S20,Ashok Nagar Metro R.S TO D.L.F. | D.L.F. TO Ashok Nagar Metro R.S
+S21C,S21C,M.G.R.Central TO Mylapore Tank | Mylapore Tank TO M.G.R.Central
+S22,S22,Iyyappanthangal TO Kovur | Iyyappanthangal TO Kumananchavadi | Kovur TO Iyyappanthangal
+S23,S23,Iyyappanthangal TO Porur | Poonamallee TO Porur | Porur TO Iyyappanthangal
+S24,s24,Iyyappanthangal TO Thiruverkadu | Thiruverkadu TO Iyyappanthangal
+S25,S25,Iyyappanthangal TO Valasaravakkam | Maduravoyal Market TO Valasaravakkam | Vadapalani TO Valasaravakkam
+S25A,S25A,Iyyappanthangal TO Maduravoyal Erikarai | Maduravoyal Erikarai TO Iyyappanthangal
+S26,S26 | S26 CT | S26 CT1,Adyar Gandhi Nagar TO  Ashok Pillar | Ashok Nagar Metro R.S TO Valasaravakkam | Ashok Nagar TO adyar st louis
+S27,S27,Guindy R.S TO Porur | Guindy TO Iyyappanthangal | Iyyappanthangal TO Guindy  Race Course
+S28,S28,Iyyappanthangal TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Iyyappanthangal
+S30,S30 | S30Ct,Ashok Pillar TO Saidapet | Guindy G.H TO Guindy Tvk Estate | Guindy Tvk Estate TO Guindy G.H
+S30K,S30K,Guindy Tvk Estate TO Kotturpuram R.S | Kotturpuram R.S TO Guindy Tvk Estate | Kotturpuram R.S TO Thyagaraya Nagar
+S31,S31,M.G.R.Koyambedu TO Vadapalani | Vadapalani TO M.G.R.Koyambedu
+S35,S35 | S35 CT,Ashok Pillar TO Defence Colony | Defence Colony TO Ashok Nagar Metro R.S | Defence Colony TO K.K Nagar Depot
+S36,S36,D.M.S. Metro TO Nungambakkam R.S | Nungambakkam R.S TO D.M.S. Metro | Nungambakkam R.S TO Thyagaraya Nagar
+S3X,S3X,Chromepet Esi TO Jothi Nagar Madambakkam | Jothi Nagar Madambakkam TO Chromepet Esi
+S4,S4 | S4 CT,Chromepet TO Medavakkam Jayachandran | Chrompet-1 Depot TO Medavakkam | Medavakkam Jayachandran TO Chromepet
+S40,S40,Indira Nagar TO Nehru Nagar | Indira Nagar TO Pallavaram | Nehru Nagar TO Indira Nagar
+S41,S41,Ambattur I.E TO Avadi B.T | Ambedkar Statue TO Avadi B.T | Avadi B.T TO Ambattur I.E
+S42,S42,Ambattur I.E TO Korattur | Korattur TO Ambattur I.E | Korattur TO Maduravoyal Market
+S43,S43 | S43 CT | S43 R,Ayanavaram B.S TO Pudur | Ayanavaram B.T TO Villivakkam | Icf TO Pudur
+S44,S44 | S44 ct,Otteri Police Station TO Perambur Bus Terminus | Otteri TO Perambur B.T | Perambur B.T TO Villivakkam
+S45,S45,Avadi B.T TO Poonamallee B.T | Poonamallee B.T TO Avadi B.T
+S46,S46,Ambattur O.T Bus Stand to Venkatachalam Nagar | Avadi Bus Terminus to Venkatachalam Nagar | Venkatachalam Nagar to Ambattur O.T Bus Stand
+S47,S47,Avadi B.T TO Mittanamallee G.H.S.S | Mittanamallee G.H.S.S TO Avadi B.T
+S47M,S47M,Avadi B.T TO C.R.P.F | C.R.P.F TO Avadi B.T
+S48,S48,Avadi B.T TO Siranjivi Nagar | Siranjivi Nagar TO Avadi B.T
+S49,S49,Avadi Bus Terminus to North Prakash nagar | North Prakash nagar to Avadi Bus Terminus
+S5,S5,Chinthathripet TO Fort Station | Fort Station TO M.G.R.Central | Fort Station TO Secretariat
+S50,S50,Avadi B.T TO Poonamallee B.T | Poonamallee B.T TO Avadi B.T
+S51,S51,Ambattur I.E TO Nolambur Sakthi Nagar | M.G.R.Koyambedu TO Nolambur Sakthi Nagar | Nolambur Sakthi Nagar TO Ambattur I.E
+S52,S52,Avadi B.T TO Thiruverkadu | Thiruverkadu TO Avadi B.T
+S53,S53,Ambattur I.E TO Maduravoyal Erikarai | Maduravoyal Erikarai TO Ambattur I.E
+S54TC,S54TC,Chembarambakkam TO Poonamallee Terminus | Chembarambakkam TO Porur | Poonamallee Terminus TO Chembarambakkam
+S55,S55,Ambattur I.E TO Thirumullaivoyal Sidco | Ambattur R.S TO Thirumullaivoyal Sidco | Thirumullaivoyal Sidco TO Ambattur I.E
+S55W,S55W,Tambaram West TO Tambaram | Tambaram West TO Tambaram West
+S56,S56 CT | S56 CT1 | S56 R | S56 R1,Manali B.S TO Tondiarpet | Manali TO Thiruvotriyur B.T | Thiruvotriyur B.T TO Manali
+S58,S58,Ambattur I.E TO Thirumullaivoyal Colony | Thirumullaivoyal Colony TO Ambattur I.E
+S59,S59 | S59 CT | S59 CT1,Iyappanthangal  TO   Mangadu | Mangadu  TO  Iyappanthangal | Mangadu TO Poonamallee B.T
+S6,S6,Tambaram West TO Vengambakkam / V.Rd Jn | Vengambakkam / V.Rd Jn TO Tambaram West
+S60,S60,Anna Nagar West TO M.G.R.Koyambedu | M.G.R.Koyambedu TO Anna Nagar West | M.G.R.Koyambedu TO Maduravoyal Erikarai
+S62,S62,Manali TO Moolakadai | Manali TO Perambur B.T | Moolakadai TO Manali
+S63,S63,Manali TO Moolakadai | Moolakadai TO Manali
+S64,S64,Azeezee Nagar TO Moolakadai | Azeezee Nagar TO Perambur B.T | Moolakadai TO Azeezee Nagar
+S66,S66,Kundrathur B.T TO Pallavaram | Pallavaram TO Kundrathur B.T
+S67,S67 | S67 CT,Ambattur O.T Bus Stand TO M.M.B.T | Ambattur O.T Bus Stand TO Moolakadai | M.M.B.T TO Ambattur O.T Bus Stand
+S69,S69 | S69 CT,Airport Metro TO Cement Road | Airport Metro TO Kundrathur B.T | Airport Metro TO Nehru Nagar
+S70K,S70K,Korattur Water Canal TO Thirumangalam Metro R.S | Thirumangalam Metro R.S TO Korattur Water Canal
+S73,S73,Ambattur I.E TO Thiruverkadu | Thiruverkadu TO Ambattur I.E
+S73T,S73T R | S73T R1,Ambattur Industrial Estate TO  Thiruverkadu | Thiruverkadu to  Ambattur Industrial Estate
+S74,S74 | S74 CT,Cement Road TO Keelkattalai | Keelkattalai TO Kumaran Kundram | Keelkattalai TO Pallavaram
+S75,S75 | S75 CT | S75 CT1 | S75 CT2 | S75 CT6 | S75 CT8 | S75 ct4 | S75 ct5,Ambattur Industrial Estate Depot TO Padi Lucas Tvs | Ambattur O.T  TO Padi Lucas T.V.S | Ambattur O.T TO Ambattur I.E
+S79,S79 | S79 CT,Alandur Gandhi Market TO Cement Road | Alandur Gandhi Market TO Pallavaram R.S | Cement Road TO Pallavaram R.S
+S80,S80 | S80 CT | S80 CT2 | S80 R1 | S80 R3,Chromepet-I TO Thendral Nagar | Nehru Nagar  TO  Thendral Nagar | Tambaram Sanatorium TO Thendral Nagar
+S81,S81,Chromepet TO Pozhichalur | Pozhichalur TO Chromepet
+S82,S82,Alandur Metro R.S TO Madipakkam B.T | Alandur Metro TO Kumaran Kundram | Kumaran Kundram TO Alandur Metro
+S83,S83,Alandur Metro R.S TO Gurunanak College | Alandur Metro TO Kumaran Kundram | Gurunanak College TO Alandur Metro R.S
+S84,S84,Alandur Metro R.S TO Porur | Alandur Metro TO  Kumaran Kundram | Kumaran Kundram TO Alandur Metro
+S86,S86,K.K.Nagar TO Thyagaraya Nagar | Ramapuram TO Thyagaraya Nagar | Thyagaraya Nagar TO K.K.Nagar
+S87,S87,K.K.Nagar TO M.G.R.Koyambedu | M.G.R.Koyambedu TO K.K.Nagar
+S88A,S88A,Iyyappanthangal TO Nandambakkam | Nandambakkam TO Iyyappanthangal | Nandambakkam Village TO Porur
+S90,S90,Gundumedu TO Tambaram West B.S | Mannivakkam TO Tambaram West | Tambaram West B.S TO Gundumedu
+S94,S94,Durga Nagar TO Kumaran Kundram | Durga Nagar TO Thirumudivakkam Sidco | Kumaran Kundram TO Durga Nagar
+S95,S95,Perungudi TO Velachery B.T | Thiruvanmiyur TO Velachery B.T | Velachery B.T TO Perungudi
+S97,S97,Guindy Metro TO K.K.Nagar | Guindy Metro TO Velachery B.T | K.K.Nagar TO Guindy Metro
+S98,S98,Little Mount TO Taramani | Taramani TO Little Mount | Taramani TO Thiruvanmiyur
+SC1,SC1 | SC1 CT | SC1 CT1 | SC1 R,I.O.C TO I.O.C | I.O.C TO Tondiarpet | Ioc TO Ioc
+SM1,SM1CT | SM1Ct,Cement Road TO Keelkattalai | Keelkattalai TO Cement Road | Keelkattalai TO Thiruvanmiyur
+T23C,T23C | T23C CT | T23C CT1 | T23C CT2 | T23C CT3,Adyar TO Thiruvanmiyur | Ayanavaram Depot TO Dms | Ayanavaram TO Saidapet
+T29,T29,Otteri TO T.V.K.Nagar | T.V.K.Nagar TO Otteri | T.V.K.Nagar TO Thiruvanmiyur
+T29C,T29C | T29C CT,M.K.B.Nagar TO Perambur Bus Terminus | Mandaveli TO Perambur Bus Terminus | Perambur B.T TO Sterling Road
+V51,V51 | V51 CT | V51 CT1 | V51 CT2 | V51 CT3 | V51 R | V51 R1 | V51CT,Chromepet TO Kilambakkam | Chromepet TO Thiyagaraya Nagar | Kilambakkam Bus Terminus TO Thiyagaraya Nagar
