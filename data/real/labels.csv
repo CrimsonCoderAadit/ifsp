@@ -1,0 +1,7 @@
+source,file,route_number,board_type,view,lighting,notes,suggested,confirmed
+commons,commons/MTC_Bus_21G.JPG,21G,led,three_quarter,day,Visible on LED and lower printed strip,1,0
+commons,commons/Chennai_bus.jpg,576,led,three_quarter,day,Route visible; absent from current GTFS catalogue,1,0
+commons,commons/MTC_Chennai_56.jpg,56,printed,front,day,Paper or printed destination board,1,0
+commons,commons/MTC_Chennai_56N.jpg,56N,printed,front,day,Printed destination board,1,0
+commons,commons/Front_profile_chennai_bus.JPG,,printed,front,day,Board glyph is ambiguous between D70 and 570; verify against original photo,1,0
+commons,commons/Metropolitan_Transport_Corporation_Chennai_bus_1.JPG,22,paper_placard,three_quarter,day,Route 22 visible on front board and paper side placards; verify,1,0

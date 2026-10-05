@@ -1,0 +1,225 @@
+model_name: yolo26n.pt
+confidence_threshold: 0.35
+iou_threshold: 0.5
+image_size: 640
+tracker: bytetrack.yaml
+allowed_classes:
+  - person
+  - bicycle
+  - car
+  - motorcycle
+  - bus
+  - truck
+bus_reader:
+  enabled: false
+  every_n: 5
+  threshold: 0.70
+  ttl: 30
+  include_trucks: false
+display: true
+display_max_width: 1200
+display_max_height: 675
+save_output: false
+log_csv: false
+draw_corridor: true
+stage1_reference_total_ms: 62.0
+risk_mode: ego_motion  # bbox, stage2, ego_motion; CLI also supports compare
+draw_motion_debug: false
+
+stereo:
+  dataset: widedepth  # primary validation dataset; robotcar remains available
+  opencv_threads: null  # auto: min(8, logical CPU count); tune for edge hardware
+  robotcar_ignore_hood:
+    enabled: true  # applies only to RobotCar raw-Bayer/LUT input
+    min_top_y: 0.78
+    min_width_ratio: 0.50
+  overlap:
+    x_min: 0.0
+    x_max: 1.0
+  min_depth_m: 0.5
+  max_depth_m: 80.0
+  min_depth_confidence: 0.2
+  sgbm:
+    minDisparity: 0
+    numDisparities: 128
+    blockSize: 5
+    P1: 0
+    P2: 0
+    disp12MaxDiff: 1
+    uniquenessRatio: 10
+    speckleWindowSize: 100
+    speckleRange: 2
+    preFilterCap: 31
+  object_depth:
+    roi_x_min: 0.2
+    roi_x_max: 0.8
+    roi_y_min: 0.4
+    roi_y_max: 0.9
+    trim_percent: 5
+    min_valid_pixels: 30
+    min_valid_ratio: 0.10
+    full_confidence_ratio: 0.65
+    relative_mad_scale: 0.12
+  depth_history:
+    max_samples: 7
+    stale_timeout_s: 2.0
+    max_tracks: 256
+    jump_threshold_m: 3.0
+    jump_fraction: 0.6
+    ema_alpha: 0.55
+  widedepth:
+    root_dir: data/widedepth_sample
+    loader_repo: third_party/WideDepth
+    task: stereo
+    crop_equirect: false
+    rotate_ccw: false
+    use_released_disparity: true
+    use_sgbm: true
+    sgbm_processing_scale: 0.25  # full FOV at quarter resolution; error reported in native px
+    save_preview_samples: 2
+    save_demo_video: true  # labeled MP4 contact sheet of independent samples
+    demo_fps: 2.0
+    run_central_crop_proxy: true
+    overlap:
+      x_min: 0.0
+      x_max: 1.0  # candidate region only; actual support comes from valid_mask
+    central_crop_proxy:
+      x_min: 0.25
+      x_max: 0.75  # image-column proxy, not calibrated 105-degree angular crop
+    object_disparity:
+      roi_x_min: 0.2
+      roi_x_max: 0.8
+      roi_y_min: 0.4
+      roi_y_max: 0.9
+      trim_percent: 5.0
+      min_valid_pixels: 5
+      min_valid_ratio: 0.0005
+    sgbm:
+      minDisparity: 0
+      numDisparities: 128
+      blockSize: 5
+      P1: 0
+      P2: 0
+      disp12MaxDiff: 1
+      uniquenessRatio: 10
+      speckleWindowSize: 100
+      speckleRange: 2
+      preFilterCap: 31
+
+ego_motion:
+  max_features: 140
+  min_features: 25
+  refresh_interval: 10
+  quality_level: 0.01
+  min_distance: 6.0
+  processing_width: 480
+  box_padding: 8
+  ransac_threshold: 2.5
+  min_inlier_ratio: 0.5
+  min_confidence: 0.3
+  expansion_threshold: 0.08
+  lateral_threshold: 0.03
+  rotation_threshold_deg_s: 7.0
+
+ego_risk:
+  background_alpha: 1.0
+  min_reliable_confidence: 0.45
+  raw_retention_floor: 0.35
+  raw_retention_path_weight: 0.45
+  residual_weight: 0.2
+  person_path_weight_scale: 0.80
+  person_motion_scale: 0.80
+  person_path_floor: 0.35
+  raw_high_threshold: 0.5
+  residual_low_threshold: 0.12
+
+history:
+  max_observations: 15
+  stale_timeout_s: 2.0
+  max_tracks: 256
+  area_ema_alpha: 0.4
+  center_ema_alpha: 0.45
+
+approach:
+  window_observations: 5
+  min_positive_intervals: 3
+  min_growth_rate: 0.08
+  rate_ema_alpha: 0.55
+  full_confidence_rate: 0.8
+
+corridor:
+  top_y: 0.38
+  top_half_width: 0.09
+  bottom_half_width: 0.38
+  center_x: 0.5
+  outside_falloff: 1.5
+
+direction:
+  left_max: 0.4
+  right_min: 0.6
+
+class_priors:
+  person: 0.4
+  bicycle: 0.5
+  car: 0.8
+  motorcycle: 0.85
+  bus: 0.85
+  truck: 0.9
+
+risk:
+  confidence_floor: 0.45
+  min_high_detection_confidence: 0.55
+  min_high_approach_confidence: 0.5
+  full_intensity_rate: 0.8
+  path_weight: 0.2
+  class_weight: 0.08
+  confidence_weight: 0.04
+  approach_weight: 0.38
+  approach_path_weight: 0.24
+  approach_class_weight: 0.06
+  medium_threshold: 0.3
+  high_threshold: 0.6
+  critical_threshold: 0.9
+
+stereo_dynamic:
+  history:
+    max_observations: 12
+    stale_timeout_s: 2.0
+    max_tracks: 256
+    disparity_ema_alpha: 0.65
+  radial_velocity:
+    minimum_valid_samples: 4
+    minimum_time_span_s: 0.18
+    minimum_mean_depth_confidence: 0.4
+    maximum_regression_error: 1.5
+    minimum_closing_speed_ms: 0.3
+    maximum_absolute_speed_ms: 35.0
+  disparity_dynamics:
+    minimum_valid_samples: 4
+    minimum_time_span_s: 0.18
+    minimum_mean_disparity_confidence: 0.4
+    maximum_regression_error_px: 3.0
+    minimum_closing_rate_px_s: 0.5
+  ttc:
+    minimum_closing_speed_ms: 0.5
+    minimum_depth_confidence: 0.5
+    minimum_velocity_confidence: 0.4
+    maximum_ttc_s: 15.0
+  fusion:
+    critical_ttc_s: 1.2  # exploratory bands, not validated safety thresholds
+    high_ttc_s: 2.5
+    medium_ttc_s: 4.0
+    high_path_relevance: 0.7
+    outside_path_floor: 0.20
+    minimum_velocity_confidence: 0.4
+    minimum_disparity_rate_confidence: 0.4
+    fast_closing_speed_ms: 5.0
+    strong_disparity_rate_px_s: 8.0
+    stationary_score_cap: 0.28
+    agreement_approach_rate: 0.2
+    disagreement_score_scale: 0.7
+  stability:
+    escalation_persistence: 1
+    deescalation_persistence: 3
+    cooldown_s: 0.15
+    stale_timeout_s: 2.0

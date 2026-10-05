@@ -1,549 +1,201 @@
-# Offline voice and transit assistant (Review 1)
+# Assistive navigation: Stages 1–5
 
-Python 3.10+. This project listens for a requested bus route, reads route boards
-from camera frames, and announces a matching bus. Person 1's risk events can
-interrupt bus information with urgent warnings. Models run locally after setup.
-The browser page is a debug console.
+A small baseline for video or webcam detection, ByteTrack IDs, temporal box growth, background optical flow, walking-path relevance, heuristic risk events, annotated output, and timing. Stage 4 primarily validates wide-view disparity with WideDepth; the legacy calibrated RobotCar path can attach metric stereo distance. It detects only person, bicycle, car, motorcycle, bus, and truck. **Risk levels are unvalidated image-space heuristics, not collision predictions.** WideDepth's equirectangular disparity is kept in pixels; metric velocity and TTC remain unavailable.
 
-```mermaid
-flowchart LR
-  Mic[Mic or typed command] --> STT[Vosk STT / intent parser]
-  Camera[Webcam, video or still] --> Detector[YOLO bus detector]
-  Detector --> OCR[Board crops + RapidOCR]
-  OCR --> Match[GTFS route matcher]
-  STT --> State[Per-session target + tracking state]
-  Match --> State
-  Risk[Person 1 risk event dict] --> Scheduler[Priority scheduler]
-  State --> Scheduler
-  Scheduler --> TTS[Piper TTS cache]
-  TTS --> Sink[Browser WebSink or CLI LocalSink]
+## Setup
+
+Use Python 3.10 or newer. From this directory:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -U pip
+python -m pip install -r requirements.txt
 ```
 
-## Setup and run
+Ultralytics installs a compatible PyTorch build through pip. If you already have a CUDA PyTorch installation, install its matching torchvision version first, then install these requirements without `-U` to preserve that build. On Raspberry Pi, install a PyTorch build compatible with the Pi and its Python version before installing these requirements. The default `yolo26n.pt` weights are downloaded automatically by Ultralytics on first use when available. Change `model_name` in `config/config.yaml` if your installed version does not support them or you have a local `.pt` file.
+
+This repository contains code, tests, configuration, selected experiment CSVs, and summaries. Local input videos, RobotCar/WideDepth dataset imagery, RobotCar distortion LUTs, model weights, and generated preview videos are excluded. To reproduce a video, provide your own input with `--source`; to reproduce the stereo experiments, obtain the corresponding datasets and camera model files from their original sources. The included CSVs are recorded results, so tests and monocular input can be used without downloading either stereo dataset.
+
+## Stage 5: temporal stereo hazard experiment
+
+Run the calibrated, time-ordered RobotCar sample from this directory:
+
+```powershell
+python main.py --stereo-dataset sample_small.tar --calibration dataset/robotcar_models --risk-mode stereo_dynamic --csv --save --stereo-debug --max-frames 49
+```
+
+The four-panel preview shows left detections and risk, right image, display-only disparity colors, and display-only metric-depth colors. Press `q` to exit; use `--no-display` to save without opening a window. Outputs are `experiments/stage5_robotcar_<timestamp>.csv`, `experiments/stage5_robotcar_summary_<timestamp>.md`, and `outputs/stage5_robotcar_<timestamp>.mp4`. The configured RobotCar hood mask applies only to the raw Bayer/LUT source; it prevents the ego vehicle's own hood from becoming a track hazard.
+
+Stage 5 fits multiple accepted depth observations for each ByteTrack ID. Negative radial relative velocity means distance to the camera is falling; it does **not** prove that the other object moves by itself. TTC is `distance / closing speed` only when metric depth and a confident closing velocity are available. TTC assumes current radial motion continues. It is **not collision probability**: lateral passing, turns, braking, and path changes matter. The configured 4.0, 2.5, and 1.2 second urgency bands are development values, **not validated safety thresholds**. Path relevance reduces urgency for objects away from the estimated walking corridor without forcing it to zero. The CSV records disagreement between 2D box growth and stereo trends. A high or low risk label is still a heuristic, not a verified hazard verdict.
+
+The current WideDepth 20-sample subset has no verified temporal cadence. Its backend explicitly declares no metric conversion for equirectangular object boxes and no temporal sequence. Thus the WideDepth run reports disparity validation only: **no m/s and no TTC**. A future verified sequence could enable pixel-disparity rates; those remain pixels per second, never metres per second. Outside configured stereo overlap, Stage 5 uses the existing ego-motion-aware 2D risk.
+
+Stable copies of the verified 49-frame run are `experiments/stage5_robotcar.csv` and `experiments/stage5_robotcar_summary.md`. The generated `outputs/video_stage5.mp4` is local to the original experiment and is not distributed here.
+
+## Stage 4 primary dataset: WideDepth outdoor train
+
+The run opens a four-panel preview and saves `outputs/widedepth_demo.mp4` when the dataset is available. Press `q` to stop. In PowerShell, play a generated demo with `Invoke-Item .\outputs\widedepth_demo.mp4`. Add `--no-display` for headless processing; the MP4 is still saved. These selected IDs are independent samples, so playback is a labeled contact sheet, not continuous tracked video. Panels show left YOLO detections, right stereo view, sparse released disparity, and SGBM disparity.
+
+The primary Stage 4 command is:
+
+```powershell
+python main.py --stereo-backend widedepth --max-frames 20
+```
+
+It uses the local 20-sample subset at `data/widedepth_sample/` and the official [WideDepth loader](https://github.com/IlyaInd/WideDepth) cloned at `third_party/WideDepth/`. `python main.py --no-display` also selects WideDepth through `stereo.dataset: widedepth` in the config. The old `--source` monocular route and `--stereo-dataset ... --calibration ...` calibrated route still work. `--widedepth-root` overrides the subset path.
+
+To recreate the bounded subset, first clone the official loader, then review the exact file budget and download:
+
+```powershell
+git clone --depth 1 https://github.com/IlyaInd/WideDepth.git third_party/WideDepth
+python scripts/download_widedepth_sample.py --count 20 --depth-count 3 --dry-run
+python scripts/download_widedepth_sample.py --count 20 --depth-count 3 --max-download-mb 150
+```
+
+The download script follows the repository's quickstart method of requesting exact files with `hf_hub_download`. The current subset contains **20 synchronized stereo IDs and 3 matching sparse-depth IDs**, 66 files / 122.4 MB. `data/widedepth_sample/sample_manifest.json` records the exact file names, sizes and dataset revision. The dataset is excluded from version control. Its [Hub dataset card](https://huggingface.co/datasets/IlyaInd/WideDepth-train) states CC BY-NC 4.0 terms.
+
+The official loader requirements are installed separately in `.venv_widedepth` from `third_party/WideDepth/requirements.txt`. This keeps its headless OpenCV `<5` requirement separate from the project's GUI-capable OpenCV installation. The integrated pipeline was also verified with the project's existing runtime. To check the official loader in that isolated environment:
+
+```powershell
+python -m venv .venv_widedepth
+.\.venv_widedepth\Scripts\python.exe -m pip install -r third_party\WideDepth\requirements.txt
+.\.venv_widedepth\Scripts\python.exe -c "import sys; sys.path.insert(0, 'third_party/WideDepth'); from widedepth import WideDepthTrainDataset; print(len(WideDepthTrainDataset('data/widedepth_sample', task='stereo')))"
+```
+
+The official stereo task loads `equirect_up`, `equirect_down_virt`, and `disp_equirect`; it returns RGB `uint8` images, float32 disparity **in pixels** (the loader divides encoded values by 100), and a Boolean valid mask (zero is invalid). The provided stereo pair is a **vertical** equirectangular pair, so the optional SGBM experiment rotates downsampled views counter-clockwise before matching. Native 2048×4096 geometry and target values are retained for dataset validation; SGBM operates at quarter resolution for runtime measurement, and comparison errors are rescaled to native pixels. The train release supplies sparse depth in metres for a **different fisheye frame**. Without an official alignment/conversion into the equirectangular stereo frame, WideDepth objects have disparity but `distance_m=None`.
+
+The run writes `experiments/stage4_widedepth.csv`, `experiments/stage4_widedepth_summary.md`, and left/right/ground-truth disparity/SGBM disparity/annotated PNGs in `outputs/`. The CSV has blank track IDs because the selected sample IDs have no verified temporal cadence; ByteTrack persistence and approach risk are not inferred across them. The `StereoOverlapRegion` separates a configurable candidate overlap from left-only and right-only areas; released `valid_mask` determines actual supported pixels. The experiment also compares full available image width with a **central image-column crop proxy** (`25%` to `75%` by default). This is not a calibrated 105-degree angular crop or a model of final camera overlap. WideDepth provides useful wide-view geometry and released disparity but uses vertical stereo, unlike the intended outward-angled horizontal camera pair. Its sparse labels and different rig do not make it a universal accuracy guarantee.
+
+The previous RobotCar sample used perspective stereo and had no released depth/disparity target for an accuracy check: 70.07% valid SGBM disparity and 580.53 ms mean SGBM time at 1280×960 in the saved 49-frame run. WideDepth provides sparse released disparity, so SGBM pixel error can be measured. Its SGBM experiment operates at quarter resolution on 2048×4096 wide-view images; its latency and valid-pixel percentage are **not directly comparable** with the full-resolution RobotCar numbers. The WideDepth sparse fisheye depth is only inspected in its own coordinate frame. WideDepth is closer to the planned cameras in field of view, while the stereo orientation and optical geometry still differ.
+
+## Run
+
+```powershell
+python main.py --source path/to/video.mp4
+python main.py --source 0
+python main.py --source path/to/video.mp4 --save
+python main.py --source path/to/video.mp4 --csv
+python main.py --source video.mp4 --no-display --save --csv --max-frames 120
+python main.py --source path/to/video.mp4 --no-display --max-frames 100
+python main.py --source video.mp4 --risk-mode compare --no-display --csv
+python main.py --source video.mp4 --risk-mode ego_motion --no-display --save --motion-debug --max-frames 100
+python -m unittest discover -s tests -v
+```
+
+Press `q` in the window or Ctrl+C to stop. `--save` writes an annotated MP4 into `outputs/` at the source FPS reported by OpenCV, or 30 FPS if the source does not report one. The output is saved at its nominal FPS; processing may run slower than real time. `--no-display` is useful on headless machines. Set `display` and `save_output` in `config/config.yaml` for persistent choices.
+
+`--csv` writes one row per tracked observation. It records the frame index, timestamp, raw and smoothed box area, approach and path scores, direction, risk score and level, and latencies. For files, timestamps are seconds from the video start, based on its FPS. For webcams, they are elapsed wall-clock seconds. `APPROACH EVENTS` and risk event counts in the exit report count track observations, not unique objects or alert transitions.
+
+`--risk-mode` selects `bbox` (box approach alone), `stage2` (the original corridor/class heuristic), `ego_motion` (Stage 3), or `compare` (all three on the same detections and track histories). With `compare --csv`, three mode-named CSVs are written. The saved video in compare mode uses the Stage 3 overlay. The original Stage 2 CSV is included as `experiments/stage2_baseline.csv`; its summary remains in `outputs/video_20261002_115959_summary.md`. Its 4,553 observations have mean score 0.2374, population variance 0.0425, and counts LOW 3,326 / MEDIUM 830 / HIGH 397 / CRITICAL 0. No Stage 2 thresholds were changed for Stage 3.
+
+The original Stage 3 paired comparison and timing notes are stored in `outputs/stage3_comparison.md`. The current pedestrian-tuned comparison is stored in `outputs/pedestrian_tuning.md`.
+
+## Saved experiment results
+
+The two comparable 396-frame result sets are included at stable paths:
+
+```text
+experiments/
+  stage2_baseline.csv
+  stage3_ego_motion.csv
+outputs/
+  stage3_comparison.md
+  pedestrian_tuning.md
+```
+
+`stage2_baseline.csv` is an exact copy of the preserved Stage 2 baseline. `stage3_ego_motion.csv` is an exact copy of the pedestrian-tuned Stage 3 run. The original generated videos are excluded from this repository. They were rendered from a local `video.mp4` and contained 396 frames at 2560 × 1440 and nominal 29.97 FPS. Use the commands above with your own source video to generate new annotated output.
+
+The preview shrinks large frames to fit within `display_max_width` and `display_max_height` while preserving the full scene and aspect ratio. Adjust those two values for your monitor. Saved video keeps the input resolution.
+
+## Measurements
+
+Acquisition measures `read()`. Inference measures `YOLO.track()`, including ByteTrack. Total processing measures read, tracking, drawing, and any display/write for each completed frame. The overlay shows source FPS, rolling end-to-end processing FPS, current detector/tracker latency, and active relevant tracks. The FPS overlay uses the preceding completed frames, so it is blank (`0.0`) on the first frame. The exit report shows end-to-end average FPS for the run, plus rolling acquisition and total frame means and rolling mean and p95 inference latency (last 120 frames). These measurements include first-frame startup work. A persistent ID is reported only when the same ID appears in consecutive frames.
+
+`DetectorTracker.track()` returns `Track` dataclasses with IDs, class, confidence, box corners, center, bottom center, width, height, and area. Detections without tracker IDs are omitted until ByteTrack assigns an ID.
+
+## Stage 2 heuristic
+
+Each ByteTrack ID has a bounded history (15 observations by default) that expires after a configurable timeout. Box area and center use an exponential moving average. Approach rate is the change in log smoothed area per video second over five observations, followed by light rate smoothing. A positive rate must persist across at least three intervals before `approaching` becomes true. Negative rates indicate apparent recession. This does not distinguish object motion from camera motion.
+
+The normalized trapezoid in `config/config.yaml` approximates a forward walking corridor. Each object's bottom-center gives continuous path relevance; its horizontally smoothed center gives LEFT, CENTER, or RIGHT image position. Risk combines path relevance, apparent approach, detection confidence, and a small class prior. HIGH and CRITICAL require sustained approach evidence and sufficient confidence. A stationary vehicle outside the corridor should stay LOW. Tune the YAML parameters for a different camera view; the current values are an initial baseline, not calibrated safety thresholds.
+
+The risk report separates history, approach, and corridor/risk computation time. These logic timings exclude visualization, file encoding, and CSV writing; end-to-end frame time includes them. CSV `total_frame_latency_ms` is sampled just before its rows are written, while the console's total frame metric also includes CSV writing. Mean and p95 total-frame latency in the exit report use the last 120 frames, while FPS uses all completed frames.
+
+## Stage 3 motion estimate
+
+At 480-pixel analysis width, OpenCV tracks up to 140 background corners with pyramidal Lucas–Kanade flow. The feature mask excludes detected objects with padding in both adjacent frames. Corners are refreshed every 10 frames or when too few remain. RANSAC fits a partial affine transform; the median inlier radial log change gives background expansion per second after compensating image-center translation. The result also reports image translation, rotation, inlier ratio, confidence, and a coarse motion state. It is **not** metric camera speed or full visual odometry. When features or confidence are insufficient, Stage 3 scoring falls back to Stage 2.
+
+For each tracked object, `raw_approach_rate` is the Stage 2 smoothed log bounding-box-area growth per second. `residual_approach_rate = raw_approach_rate - background_alpha × background_expansion_rate` when the background estimate is reliable. Both rates are logged. `background_alpha` defaults to 1.0 and is experimental: area growth and radial expansion are different image quantities, and a single scene-wide expansion cannot describe all depths. A low residual never declares an object safe; the raw closing signal still contributes, especially inside the corridor.
+
+Stage 3 starts from the Stage 2 base score, gates and thresholds. It blends a retained raw motion term with a confidence-weighted positive residual term. `raw_retention_floor`, `raw_retention_path_weight`, and `residual_weight` in `config/config.yaml` control that blend. The default residual weight is 0.2 so stable-background objects stay close to their Stage 2 scores, while background-shared growth is somewhat reduced outside the path. Scores and levels are heuristic; the three ablation modes have different score definitions and are useful for behavior comparison, not calibrated safety probabilities.
+
+The current `ego_motion` mode also applies a pedestrian-specific, continuous path gate to motion risk: `person_motion_scale × (person_path_floor + (1 - person_path_floor) × path_relevance)`. Its pedestrian path base term is scaled by `person_path_weight_scale`. This reduces frequent MEDIUM/HIGH pedestrian labels in crowded footage while retaining HIGH for a very fast, central pedestrian approach. Vehicle scoring and the historical `stage2` mode are unchanged. These three settings are in the `ego_risk` block; they are heuristic priorities, not measured collision likelihood.
+
+`--motion-debug` displays the motion state, expansion, feature count, inlier ratio, confidence, and at most 12 background flow vectors. Stage 3 CSV rows include raw and residual approach, ego-motion confidence/state, feature and inlier counts, and feature/flow/global-estimation latencies. The run report gives mode distributions plus mean and rolling p95 motion and total-frame latencies. Total-frame latency includes drawing, optional writing/display, and inference; GPU and I/O variation can dominate small CPU overhead differences.
+
+Known limits: sparse texture, blur, night scenes, large rotation, rolling shutter, crowds covering the background, feature contamination from moving objects, parallax at mixed depths, and box changes from occlusion or detector jitter. The motion mask only knows the six configured detector classes. Static walls are not tracked risk objects in this stage. No metric velocity, TTC, SLAM, or collision validation is included.
+
+## Stage 4 legacy calibrated stereo depth: RobotCar
+
+The existing `--source` video/webcam path still works. Stereo mode accepts either a single pair or a sequence of strictly matched image IDs. The supplied `sample_small.tar` is an **Oxford RobotCar** sample with 49 wide-stereo pairs. Its images are raw Bayer and require the corresponding [official camera models and distortion LUTs](https://github.com/ori-mrg/robotcar-dataset-sdk/tree/master/models). The code reads matching pairs directly from the archive, demosaics them, and applies the SDK LUTs. No KITTI data is needed. The [RobotCar documentation](https://robotcar-dataset.robots.ox.ac.uk/documentation/) describes the raw image format and microsecond timestamp IDs.
+
+From this directory, run the independent single-pair sanity check:
+
+```powershell
+python main.py --stereo-left dataset/robotcar_pair/left.png --stereo-right dataset/robotcar_pair/right.png --calibration dataset/robotcar_models --stereo-debug --no-display
+```
+
+It reports dimensions, focal length, baseline, valid disparity fraction, median disparity and scene depth; it saves disparity, depth and horizontal epipolar-line images in `outputs/`. No detector is loaded. For the full RobotCar sample with tracking, risk, CSV and an annotated four-panel video:
+
+```powershell
+python main.py --stereo-dataset sample_small.tar --calibration dataset/robotcar_models --risk-mode ego_motion --csv --save --stereo-debug --no-display
+```
+
+Remove `--stereo-debug` for a single annotated left-camera view. Omit `--no-display` to open a preview. `--risk-mode stage2` preserves the older risk baseline while adding distance to each event; stereo distance does not alter the Stage 2/3 risk score. The CSV is saved under `experiments/stage4_stereo_<timestamp>.csv`, the video under `outputs/stage4_stereo_<timestamp>.mp4`. Each object row includes raw/smoothed distance, confidence, valid ROI pixel ratio, existing approach and risk fields, and stereo/total timing. `RiskEvent.distance_m` is set only for a valid stereo estimate. `relative_velocity_ms` and `ttc_s` remain `None`.
+
+For another image sequence, use matching `left/` and `right/` files with identical stems:
+
+```powershell
+python main.py --stereo-dataset path/to/sequence --stereo-left-subdir left --stereo-right-subdir right --calibration path/to/calibration.npz --csv --no-display
+```
+
+The default subdirectories are `image_02/data` and `image_03/data` for already rectified KITTI color pairs. KITTI calibration accepts `P_rect_02`/`P_rect_03` or `P2`/`P3` projection matrices. Generic `.npz` calibration requires `K1`, `K2`, `D1`, `D2`, `R`, `T`, `translation_unit` (`m` or `mm`), and `rectified` (boolean). It may also contain `P1`, `P2`, `Q`, and `image_size`. Generic raw pairs are rectified with OpenCV; already rectified KITTI images are not remapped. For a generic calibrated camera, verify left/right order and horizontal epipolar alignment before treating its disparity as metric depth.
+
+StereoSGBM returns disparity in pixel units after OpenCV's fixed-point division by 16. Metric depth uses `focal_px × baseline_m / (disparity - principal_point_offset)`. Invalid/zero/negative disparities, nonfinite depths and values outside the configured 0.5–80 m range are unavailable. Each object's depth comes from a trimmed median in an inset lower-middle box ROI; the valid-pixel ratio and median absolute deviation determine confidence. A short per-ID history smooths valid depths and rejects isolated large jumps. These checks cannot prove depth accuracy. Reflective surfaces, textureless regions, occlusion boundaries, background within detection boxes and calibration errors can still yield wrong readings. This stage does not use depth for TTC, speed, or risk thresholds.
+
+For sequence processing, OpenCV threads are restored after loading Ultralytics, which otherwise sets them to one. `stereo.opencv_threads: null` chooses up to eight logical CPUs; set a positive count to benchmark a Pi or another edge device. Full-resolution SGBM can still be slower than real time. Output MP4 uses the source's nominal FPS even when processing takes longer.
+
+## Bus Finder integration (Review 1)
+
+The Rider path reads a bus route from Person 1's `DetectorTracker` output. `transit.BusReader` never creates a second YOLO. Video requires two matching OCR results in the last three reads of a track, and confirmed buses expire after 30 seconds. Single-image uploads use `DetectorTracker.detect()` on the same model instance. The web app has one Rider page and four endpoints: `/ws`, `/api/image`, `/api/current_bus`, and `/api/health` (plus `/` and static assets).
+
+Place the repos side by side. From `Camera-depth-risk-system-main/`, on macOS or Linux:
 
 ```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python scripts/download_models.py
-.venv/bin/python -m transit.gtfs_loader
-.venv/bin/python -m app.server
-# In a second terminal:
-.venv/bin/python -m cli.demo --image data/test_images/synthetic/000_21G_printed.jpg --detector passthrough --command "find bus 21G" --null-audio
-.venv/bin/python -m cli.mock_risk --null
-.venv/bin/python -m bench.benchmark --device-label laptop
-.venv/bin/python -m pytest -q
+python3.12 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt -r requirements-dev.txt
+python scripts/download_models.py --only vosk piper rapidocr gtfs
+python -m unittest discover -s tests
+python -m pytest tests/test_bus_reader.py tests/test_route_matcher.py tests/test_gtfs_loader.py tests/test_scheduler.py
+python main.py --source data/real/own/YOUR_VIDEO.mp4 --bus-reader --listen --web --save --csv --no-display
 ```
 
-Open [http://localhost:8000](http://localhost:8000) for the web console.
-Keep the venv at a short path. Piper's bundled espeak-ng cannot find its
-phoneme data when `<venv>/lib/python3.x/site-packages/piper/espeak-ng-data`
-is longer than about 160 characters, and the process exits during the first
-synthesis. From a fresh venv, pytest reports one skip: the optional
-Ultralytics backend test.
-Use `--device-label pi` on the Raspberry Pi. The benchmark writes
-`logs/latency.csv` with device labels in `notes`; it replaces that file on
-each run, so save each device's CSV before running the next benchmark.
-Use `.venv/bin/python -m cli.mock_risk` for audible local output.
+On Windows PowerShell:
 
-### Risk integration contract
-
-Person 1 sends a plain dictionary to `Assistant.handle_risk` or
-`AudioScheduler.submit`:
-
-```python
-{"type": "risk", "object": "car", "direction": "right",
- "risk": "HIGH", "timestamp": time.time(),
- "distance_m": 3.2, "ttc_s": 1.4}
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt -r requirements-dev.txt
+python scripts/download_models.py --only vosk piper rapidocr gtfs
+python -m unittest discover -s tests
+python -m pytest tests/test_bus_reader.py tests/test_route_matcher.py tests/test_gtfs_loader.py tests/test_scheduler.py
+python main.py --source data\real\own\YOUR_VIDEO.mp4 --bus-reader --listen --web --save --csv --no-display
 ```
 
-`type`, `object`, `direction`, `risk`, and `timestamp` are required.
-`risk` is LOW, MEDIUM, HIGH, or CRITICAL. Directions supported by speech are
-left, right, ahead/front, and behind/back. `distance_m` and `ttc_s` are
-optional; extra keys are ignored. Timestamp is wall-clock seconds by default.
-For monotonic camera timestamps, configure the scheduler's `event_clock`
-accordingly. HIGH and CRITICAL interrupt lower-priority speech.
+Open http://127.0.0.1:8001. `--listen` needs an input microphone; omit it for upload-only use. For the stand-alone page run `python -m uvicorn app.server:app --host 127.0.0.1 --port 8001`. Supply `yolo26n.pt` in this directory or let Ultralytics download it once. The setup script provisions Vosk, Piper, RapidOCR, and the GTFS feed into their configured locations. This checkout currently shares `models/` with the adjacent `voice-transit/models` directory by symlink; the same script provisions a local `models/` directory when moved elsewhere.
 
-### Backends
+Set `ROBOFLOW_API_KEY=...` in `.env` for the optional Roboflow datasets and install the optional `roboflow` package. Run `python scripts/fetch_datasets.py` and `python scripts/label_tool.py`, confirm labels, then `python scripts/evaluate_ocr.py` on dev and `python scripts/evaluate_ocr.py --test` once. See `data/real/README.md`, `DEMO_SCRIPT.md`, and `KNOWN_FAILURES.md` for data rights, the demo sequence, and current evidence limits. The responsive Rider screenshots from real Commons inputs are in `docs/rider-*.png`.
 
-`core/config.py` holds `SpeechConfig` and `PipelineConfig` defaults. Change
-`tts_backend` from `piper` to `pyttsx3`, or change the Piper/Vosk model paths
-there. `create_ocr_backend("rapidocr" | "tesseract" | "paddleocr")` selects
-OCR; the CLI exposes `--ocr`. `BusDetector("auto" | "onnx" | "ultralytics" |
-"passthrough")` selects detection; the CLI exposes `--detector`. The web
-server constructs defaults in `app/server.py`; its close-up board toggle
-uses passthrough explicitly. All model paths must exist locally.
-
-**Data credit:** ChennaiGTFS by Ithu Ungal Soththu is community-maintained
-and is not official MTC data.
-
-### Measurement protocol
-
-`python -m bench.benchmark --device-label laptop` writes one row per test to
-`logs/latency.csv` with columns `component,backend,test_case,latency_ms,
-success,notes,timestamp`. The device label is included in JSON `notes`.
-STT latency is the buffered finalization after the last 100 ms PCM chunk;
-the audio feed is processed without real-time pacing. Command accuracy
-compares parsed intent and route, not word error rate. Piper WAVs in
-`data/test_audio/` use their filename as expected command. Real WAVs go in
-`data/test_audio/real/` with an optional `labels.csv` containing
-`filename,command`; unlabelled clips get latency but no accuracy score.
-Real images need `data/test_images/real/labels.csv` rows with at least
-`filename,route`. OCR pipeline rows classify exact, fuzzy-correct, wrong, or
-none; separate variant rows measure each top/full crop and preprocessing
-variant with the same outcome classes. Synthetic close-up boards exercise OCR
-without bus detection.
-Detector timing uses 30 frames of the synthetic test video, so detection
-accuracy on real buses is not established. Scheduler spam uses a NullSink
-and counts actual played/cooldown-suppressed decisions at 30 submissions per
-second for five seconds. The LocalSink event-to-start metric ends at the
-software `play()` call; device buffer and acoustic delay are reported
-separately or remain unmeasured.
-
-### Chennai footage and software low-power profile
-
-Label real stills as described in [data/test_images/real/README.md](data/test_images/real/README.md).
-The benchmark uses an annotated bus bbox when present, or the highest-confidence
-YOLO bus detection otherwise. It prints a route-confusion report for each
-`failure_type` tag. The empty real directory is reported as N/A.
-
-```sh
-# Optional smaller-input / lower-rate assets:
-.venv/bin/python -m pip install ultralytics onnx
-.venv/bin/python scripts/download_models.py --only yolo_low piper_low
-.venv/bin/python -m cli.demo --video data/test_video.mp4 --low-power --null-audio --command "find bus 21G"
-.venv/bin/python -m app.server --low-power
-.venv/bin/python -m bench.benchmark --device-label laptop --low-power --output logs/latency_laptop_low_power.csv
-```
-
-`--low-power` uses a fixed 320×320 YOLO ONNX export, OCR every fifth
-observation per track at a 5 fps cap, and the 16 kHz Piper lessac-low voice.
-The standard export is 640×640 and remains the default. The low voice is a
-lower-rate [official Piper voice](https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/lessac/low);
-measure it rather than assuming it is faster. [ONNX Runtime's CPU package
-supports Linux ARM64](https://onnxruntime.ai/docs/get-started/with-python.html),
-but laptop numbers are not Raspberry Pi 4/5 measurements. On a 64-bit Pi,
-install the same requirements, provision these assets, run the benchmark with
-`--device-label pi`, and compare the saved CSVs. This environment has no Pi.
-
-`--approaching-only` is also available in the CLI and web server. It
-announces a confirmed target route only after three tracked boxes increase
-in relative area with at least 12% total growth. This is a heuristic based
-on detector boxes, not a speed or distance estimate. A stationary board
-close-up will intentionally stay silent when the flag is on.
-
-Laptop software comparison on 2026-10-02, using 30 synthetic-video frames:
-640px detector p50 **29.3 ms** versus 320px p50 **8.5 ms**.
-Piper medium/low model load was **719.5/716.9 ms**, first synthesis
-**117.7/116.6 ms**, and both ONNX files were **63,201,294 bytes**. Thus the
-low voice reduces output sample rate but did not materially reduce model
-size or synthesis latency here. Results are in
-`logs/latency_laptop_default.csv` and
-`logs/latency_laptop_low_power.csv`. Neither file is a Pi profile.
-
-### Optional Tamil OCR
-
-`create_ocr_backend("paddleocr")` keeps the same `OCRBackend.read(image)`
-interface and returns `OCRLine` values for Tamil/Latin destination text.
-The adapter selects PaddleOCR `lang="ta"` and `PP-OCRv5`, which
-[officially lists Tamil](https://www.paddleocr.ai/main/en/version3.x/pipeline_usage/OCR.html).
-It requires `paddleocr` plus **local** detection and Tamil recognition model
-directories under `models/paddleocr/det` and `models/paddleocr/rec`, each
-with `inference.yml` and `*.pdiparams`. Runtime refuses missing files rather
-than downloading models. The default RapidOCR route reader is unchanged;
-Tamil destination recognition does not transliterate Tamil-only route tokens
-into the GTFS route catalogue. The optional adapter is covered by a simulated
-engine test; actual Paddle inference and Tamil accuracy need provisioned
-weights and labelled Tamil footage.
-
-For YOLO ONNX export, install optional `ultralytics onnx` inside the venv and rerun
-`scripts/download_models.py --only yolo`. Export uses fixed 640px input and opset 17.
-The PT weights remain available for the optional Ultralytics backend.
-
-Downloads use temporary files, minimum sizes, Content-Length checks when supplied,
-and SHA256 receipts for subsequent cache checks. Failed tasks report separately
-and make the command exit nonzero. Use `--only vosk piper yolo rapidocr gtfs` to
-select tasks. To refresh the weekly GTFS feed, delete `data/mtc-gtfs.zip` and rerun
-the GTFS download and loader. Only `routes.txt` is opened by the loader.
-
-`load_routes()` prefers `data/routes.csv`; if absent it uses the 20-route
-`data/routes_review1.csv`. Out-of-shape bases remain exact-only aliases. Raw short
-names and up to three long names are retained per base in the generated CSV.
-
-`normalize_route()` preserves already-valid shapes: without a catalogue, `M7O`
-could be either a literal route or an OCR error. `match_route()` tries exact,
-unique contextual confusion corrections, then RapidFuzz (default threshold 85).
-Fuzzy matching never changes the digit block; tied results are rejected.
-`extract_route_candidates()` accepts strings, `{text, box}` dictionaries and
-RapidOCR `[box, text, confidence]` rows, returning ranked unique route strings.
-
-RapidOCR is explicitly configured for PP-OCRv4 mobile models using ONNX Runtime
-([upstream configuration](https://raw.githubusercontent.com/RapidAI/RapidOCR/main/python/rapidocr/config.yaml)).
-The setup script warms it once and writes a complete local-path configuration to
-`models/rapidocr/runtime_config.yaml`. The runtime adapter loads that file
-with `RapidOCR(config_path=...)` and uses local arrays. The PP-OCR models
-are Chinese/Latin models, not Tamil recognition models; Latin route tokens are
-the focus for Review 1.
-
-`core/config.py` sets `ORT_DISABLE_TELEMETRY=1` before ONNX Runtime loads.
-Without it, onnxruntime 1.30 on macOS starts a telemetry uploader that
-occasionally aborted Python at exit.
-
-Models and ZIPs are ignored by Git. Copy the entire `models/` directory and the
-route CSV when moving to another machine; the runtime OCR adapter rebases saved
-model paths to the local config directory. All dependencies belong in `.venv`.
-
-## Speech layer
-
-`SpeechSynthesizer(SpeechConfig())` loads one Piper voice at startup and returns
-`(mono_int16_array, sample_rate)`. Set `tts_backend="pyttsx3"` for the OS voice,
-or let Piper load failure select it automatically. The fallback uses espeak-ng
-if pyttsx3 cannot initialize and espeak is installed. `load_time_ms`,
-`last_synthesis_ms`, `cache_hits`, and `cache_misses` expose timings/counters.
-Repeated phrases reuse read-only PCM through a bounded LRU (default 128 phrases).
-Playback and interrupt scheduling are provided by `AudioScheduler`.
-
-`SpeechRecognizer` uses grammar-constrained Vosk, including command phrases,
-number words, letter names, and `[unk]`. Grammar phrases help the Indian-English
-model recognize short US Piper prompts. Vosk warns about a few letter-name
-spellings absent from its vocabulary; the parser accepts those spellings from
-other recognizers as well. Both classes accept injected backends for benchmarks.
-There is no model download in either constructor.
-
-```python
-from speech.stt import SpeechRecognizer
-from speech.intents import parse_intent
-
-recognizer = SpeechRecognizer()
-transcript = recognizer.transcribe(pcm_int16_bytes, sr=16000)
-intent = parse_intent(transcript)
-# Streaming: start(sr), feed(int16_bytes) -> partial, finish() -> Transcript
-```
-
-The default streaming rate is 16kHz mono PCM16, little-endian. Resample browser
-audio first with `resample_pcm()`. Keep one stream instance per client; the Vosk
-model is retained across utterances on an instance. `spoken_route_candidates()`
-handles groups such as "five seventy", digit sequences and letter names.
-Ambiguous spoken routes are resolved against the CSV; ties produce
-`FIND_BUS(target=None)` with `.prompt == "Which bus number?"`. STOP and CANCEL_BUS
-remain separate commands. Parsing never uses a cloud service or an LLM.
-
-For microphone capture:
-
-```sh
-.venv/bin/python -m speech.stt --mode ptt  # Enter to start, Enter to finish
-.venv/bin/python -m speech.stt --mode vad  # RMS detection, 700ms silence endpoint
-.venv/bin/python -m pytest -q
-.venv/bin/python -m pytest -q -m slow -s
-```
-
-The VAD mode retains 200ms of pre-roll and caps an utterance at 15 seconds; PTT
-waits for Enter. Audio device/PortAudio support is needed for a physical mic.
-On macOS the pyttsx3 driver runs on the main thread and may require execution
-outside an OS sandbox; empty audio is treated as an error. Linux/Pi needs the
-local espeak-ng voice packages for this fallback.
-
-Round-trip tests synthesize four prompts into `data/test_audio/*.wav`, resample
-the WAVs to 16kHz and assert batch and streaming intents with networking blocked.
-They skip when local model files/packages are absent and are marked `slow`.
-Measurements append to `logs/speech_latency.csv` and `logs/streaming_latency.csv`.
-Batch latency starts when the complete recorded utterance is available and
-includes all decoding. Streaming latency in the tests measures the final chunk
-plus finalization without realtime pacing. For live capture, pass a monotonic
-`end_of_speech_at` to `finish()`; VAD does this using its last voiced chunk, so
-its metric includes the silence endpoint delay. These synthetic tests are not
-a measurement of live microphone recognition accuracy or hardware latency.
-
-## Priority audio and the mock risk demo
-
-```sh
-.venv/bin/python -m pytest tests/test_scheduler.py -q -s
-.venv/bin/python -m cli.mock_risk         # audible bus -> HIGH car-right interrupt
-.venv/bin/python -m cli.mock_risk --null  # same control flow without speakers
-```
-
-`core.events.from_dict()` accepts risk, bus, and system event dictionaries and
-ignores extra fields. HIGH car-right says "Vehicle approaching right.";
-CRITICAL car-ahead says "Stop. Car ahead."; CRITICAL motorcycle-right says
-"Motorcycle right!". LOW/MEDIUM are optional awareness messages.
-
-```python
-import time
-from speech.tts import SpeechSynthesizer
-from speech.scheduler import AudioScheduler, SchedulerConfig
-
-tts = SpeechSynthesizer()
-with AudioScheduler(tts, config=SchedulerConfig()) as scheduler:
-    scheduler.submit({"type": "risk", "object": "car", "direction": "right",
-                      "risk": "HIGH", "timestamp": time.time()})
-    # scheduler.repeat() replays the last started message at CHAT priority.
-    # scheduler.stop() stops current speech and flushes BUS/INFO/CHAT queues.
-    scheduler.wait_idle()
-```
-
-Priorities are CRITICAL=0, HIGH=1, BUS=2, INFO=3, CHAT=4. HIGH/CRITICAL pre-empt
-strictly lower priorities; equal-priority messages retain FIFO order. An
-interrupted BUS restarts once if still within its TTL and still relevant. INFO
-and CHAT are discarded on interruption. TTL is checked at admission, while
-queued/synthesizing, and immediately before starting/resuming playback; it does
-not cut off a phrase already being spoken. A `is_relevant(item)` callback can
-reject a bus after tracking/target changes.
-
-Cooldowns start at actual playback, keyed by identity (risk object+direction,
-bus route). Defaults are CRITICAL 2s, HIGH 4s, BUS 6s, INFO 6s, CHAT 8s.
-Risk escalation bypasses cooldown and replaces queued lower-level alerts. Text
-dedupe also respects escalation/priority. STOP retains queued HIGH/CRITICAL
-alerts, which may play immediately afterward. Explicit REPEAT bypasses cooldown
-but waits behind safety messages.
-
-`submit()` only publishes metadata through a short lock; a dedicated worker
-owns scheduling and playback. Synthesis runs in separate urgent/normal executor
-queues and CSV writes have their own thread. Even cold/slow synthesis cannot
-block submission or playback interruption. Cache hits in `SpeechSynthesizer`
-also bypass its backend inference lock, so warmed warnings remain available
-while a cold bus phrase is being synthesized. New uncached warnings can still
-wait on backend synthesis; pre-warm expected warning phrases at startup (the
-mock demo does this). An in-flight model call cannot be forcibly killed, but
-its result is discarded after STOP, pre-emption or expiry.
-
-`AudioSink` exposes `play(pcm, sr, item_id)`, `stop()` and `is_playing`. `NullSink`
-supports fake durations/clocks. `LocalSink` keeps a stream open at the device's
-native sample rate, caches resampling, and swaps to silence on stop. It uses
-5ms callback blocks; physical interruption also includes the device's reported
-output latency. Device close happens only on scheduler shutdown. Tests verify
-the stream is reused and the next callback is silent; software timestamps do
-not measure acoustic output. The browser WebSink implements the same interface.
-
-Queue clocks use monotonic time. Integration event timestamps use wall time by
-default. Pass `event_clock=time.monotonic` for monotonic CV timestamps, or a
-video-position clock for recorded-video timestamps; preserve the original
-capture timestamp so stale buffered detections expire correctly. `AudioItem`
-uses monotonic `created_at` directly. Mixing these clock domains drops events
-incorrectly and must be avoided by the producer.
-
-Every decision is retained in `scheduler.decisions` (last 10,000 entries) and
-asynchronously appended to `logs/scheduler_decisions.csv`. `snapshot()["log"]`
-(the web state payload) collapses consecutive identical decision/text rows into
-one row with `count`, `first_timestamp` and `last_timestamp`; the CSV keeps
-every event. `clear_cooldowns(prefix)` forgets cooldowns by identity prefix. The demo uses `logs/mock_risk.csv`
-and prints its own decision sequence. Logging errors remain visible through
-`log_error` and `logging_error` without stopping audio; fatal worker errors set
-`last_error` and make `wait_idle()` raise. The regression suite covers repeats
-at simulated 30fps for five seconds, escalation, TTL before/after synthesis,
-relevance, dedupe, capacity, STOP races, concurrent producers, backend failures,
-and twenty consecutive pre-emption cycles.
-
-## Bus detection, OCR and the shared assistant
-
-```sh
-.venv/bin/python -m bench.make_synthetic_boards --count 24 --seconds 8
-.venv/bin/python -m cli.demo --image data/test_images/synthetic/000_21G_printed.jpg --detector passthrough --command "find bus 21G" --save-overlay data/test_images/synthetic/demo_overlay.jpg
-.venv/bin/python -m cli.demo --video data/test_video.mp4 --detector passthrough --command "find bus 21G" --mock-risk-at 4 --save-overlay data/test_overlay.mp4 --console-log logs/video_demo.log
-# Real bus video: default auto detector prefers local ONNX, then Ultralytics.
-.venv/bin/python -m cli.demo --video data/real_bus.mp4 --command "find bus 21G" --show --include-trucks
-```
-
-`--null-audio` runs without speakers. `--wav data/test_audio/find_21g.wav`
-uses Vosk; `--mic` accepts live speech. `--verbose` announces other valid routes
-at INFO priority. Generated and real image labels share these CSV columns:
-`filename,route,style,distortions,destination,width,height`; `distortions` is JSON.
-The generator renders printed/amber LED boards with seeded blur, motion, glare,
-perspective and JPEG artifacts. It uses Tamil destination text when a Tamil font
-is available, otherwise English. Put real images and labels in
-`data/test_images/real/`.
-
-`BusDetector.detect(frame_bgr)` returns `Detection(bbox, conf, cls, track_id)`;
-boxes are `(x1,y1,x2,y2)` in original frame pixels. ONNX preprocessing uses a
-640px letterbox and RGB/CHW normalization, reverses padding/scale and applies
-NMS. Class 5 is retained; class 7 is optional. IoU tracking preserves identities
-and expires missed tracks. `PassthroughBackend` is explicitly selected for board
-close-ups; it is not an automatic fallback for failed bus detection. Synthetic
-board demos exercise OCR/integration, not real-world detector accuracy.
-
-`OCRBackend.read(image)` returns `OCRLine(text, conf, box)` with quadrilateral
-boxes in that input's pixels. RapidOCR loads only provisioned local ONNX models;
-load failure can select Tesseract if its binary and `pytesseract` are installed.
-Tesseract uses PSM 7/11 with an A–Z/0–9 whitelist. Optional PaddleOCR requires
-locally provisioned detection and Tamil recognition model directories.
-Neither backend downloads models during runtime. `BoardReader` tries the top
-35% before the whole bus crop, with CLAHE/upscale, unsharp, Otsu and inverted
-variants, plus perspective correction when a quadrilateral contour is found.
-It stops on the first catalogue-valid route and records latency for each attempt;
-its attempt/time budget bounds repeated preprocessing calls. In board mode
-(`read(frame, bbox, board=True)`, used automatically with the passthrough
-detector) the whole frame is the sign, so only the full crop is tried. On the
-synthetic close-ups this is slower than trying the top crop first; see
-`KNOWN_FAILURES.md`.
-
-`Assistant` is the shared CLI/web orchestrator. `handle_transcript`,
-`handle_frame` and `handle_risk` accept plain inputs; `handle_frame` returns the
-latest JSON overlay immediately. A worker owns detection/OCR, with one active
-frame and one replaceable pending frame. FPS limiting and stale-frame rejection
-prevent backlog; OCR runs every third observation per track by default. Slow OCR
-never runs on the video/UI caller. Overlays include metrics, track boxes, OCR
-attempts, matched/confirmed routes and state. OCR boxes explicitly use
-`ocr_box_space="preprocessed_crop"`; each `ocr_lines[]` entry also carries
-`box_frame`, the same quadrilateral in original frame pixels (upscale undone,
-crop offset added, perspective warp inverted). Bus boxes use frame coordinates.
-`status` explains silence: `no_bus_in_view`, `reading_board`,
-`route_unreadable`, `route_not_in_gtfs` or `confirmed`; `status_text` holds
-the best raw OCR text for the two failure states. `handle_frame()` keeps its
-submission `status` (`queued`, `skipped_fps`, …) and reports the last
-processed frame's value as `overlay_status`.
-Use `wait_for_frame()` only for still-image demos or tests.
-
-Tracks confirm with 2 of the last 3 OCR reads, or immediately for exact matches
-with confidence >0.9. A target match queues a directional BUS announcement;
-other routes stay quiet by default. With no target, WHATS_AHEAD reports recent
-confirmed routes. Every FIND_BUS with a route, and every CANCEL_BUS, clears
-the scheduler's `bus:` cooldowns and the previous target's votes and
-confirmations, so a new search is announced immediately; until the board is
-read again, WHATS_AHEAD then reports no confirmed buses.
-BUS relevance is checked again before playback against the
-current target, visibility and recency. Risk dictionaries feed the independent
-priority scheduler. The CLI warms warning phrases and silently prepares the
-speaker before accepting events, so cold audio initialization cannot consume
-announcement TTLs. `sink_prepare_time_ms` records that startup cost.
-
-Run `.venv/bin/python -m pytest -q` for the complete suite. Model-dependent slow
-tests skip when local models are absent. Tests cover decoding/NMS, tracking,
-ROI fallback, temporal voting, directional speech, risk integration, OCR cadence,
-nonblocking frame submission, stale frames and offline ONNX inference.
-
-## Local browser debug console
-
-```sh
-.venv/bin/python -m app.server
-# http://localhost:8000 (use --port 8001 if occupied)
-.venv/bin/python tests/test_ws_flow.py --url ws://localhost:8000/ws
-```
-
-Startup loads routes, Vosk, Piper, RapidOCR and YOLO once and prints wall-clock
-load times. Every connection gets independent Vosk decoding, IoU tracking,
-target state and a Python priority scheduler, sharing the loaded model weights.
-The browser receives PCM encoded as WAV; `WebSink` waits for matching
-`playback_done` or WAV duration + 750ms grace. HIGH/CRITICAL pre-emption sends
-`stop_audio` and marks the next `speak` as interrupted. Disconnect shuts down
-that session's workers and speech queue. No browser speech/cloud API is used.
-
-Press **Start assistant** (browsers allow audio only after a gesture); it
-connects the WebSocket and plays a pre-rendered Piper “Ready.” clip. The top
-bar shows the connection (Connected / Reconnecting… with backoff / Offline
-with a Retry toast), the **Rider / Engineer** mode switch (key M) and the
-Dark / Light / High-contrast theme, remembered in `localStorage`. Press `?`
-for the shortcut list: Space talk, R repeat, S stop, A ahead, C cancel, H high
-contrast, 1/2/3 mock MEDIUM/HIGH/CRITICAL risk, P pause frames.
-
-Rider mode is what a user sees: the dot-matrix target-bus board with GTFS
-destinations (static when reduced motion is requested), the push-to-talk
-button with a level meter and live partial transcript, a large “Last spoken”
-caption, Repeat / Stop / What’s ahead? / Cancel buttons, and a full-width risk
-banner with a direction arrow and screen-edge glow that clears when the
-warning finishes. Engineer mode adds the 16:9 camera stage (route chips,
-`box_frame` OCR boxes, vote meters, an `overlay.status` strip), a source
-picker with bundled samples, the pipeline tracer (Mic → STT → Intent → Detect
-→ OCR → Normalise → GTFS match → Scheduler → TTS), a 30 s speech timeline,
-the risk pad, latency cards against editable budgets, the System card from
-`/api/health`, an OCR inspector and an event log with a raw WebSocket view.
-
-The AudioWorklet averages native-rate audio into 16kHz mono PCM16 packets;
-release flushes pending PCM before `audio_end`, and recordings stop at 30s.
-Use **Close-up board mode** for route-board photos; otherwise YOLO detects bus
-boxes. Frames are JPEG quality 0.7, at most 1280px wide, up to 5fps, one at a
-time until `frame_ack`. STT latency is audio-end receipt to final transcript
-on the server; the TTS card shows scheduler event-to-audio-start (`age_ms` of
-`played` rows) with synthesis time beneath it.
-
-The UI is vanilla ES modules under `app/static/js/` with plain CSS, no build
-step and no network fetches. Fonts are OFL Atkinson Hyperlegible Next/Mono
-and Doto, self-hosted in `app/static/fonts/` with their licences.
-`python scripts/prepare_web_assets.py` (network needed once) re-downloads and
-subsets the fonts, rebuilds `app/static/samples/` and renders
-`app/static/audio/ready.wav` with the local Piper voice. The server sends
-`Cache-Control: no-cache` for `/` and `/static/` so a browser never mixes
-module versions after an update.
-
-### UI screenshots and browser tests
-
-![Engineer mode, 1440 px, dark](docs/ui/1440x900-engineer-dark.jpg)
-
-| Rider, 375 px, dark | Rider, 1440 px, high contrast | Engineer, 1024 px, light |
-| --- | --- | --- |
-| ![](docs/ui/375x812-rider-dark.jpg) | ![](docs/ui/1440x900-rider-hc.jpg) | ![](docs/ui/1024x768-engineer-light.jpg) |
-
-All 18 combinations (3 widths × 2 modes × 3 themes) are in
-[docs/ui/screenshot-grid.jpg](docs/ui/screenshot-grid.jpg); the test run
-regenerates full-page PNGs in `logs/ui/`.
-
-```sh
-.venv/bin/python -m pip install -r requirements-dev.txt
-.venv/bin/python -m playwright install chromium   # once, needs network
-.venv/bin/python scripts/fetch_axe.py              # once: vendors axe-core 4.13.0 into tests/ui/vendor/
-.venv/bin/python -m pytest tests/ui -v             # about 45 s
-UI_RECORD_DEMO=1 .venv/bin/python -m pytest tests/ui -k record_demo   # writes logs/ui/demo.webm
-```
-
-`tests/ui` starts the real server (real models) on a free port and drives
-Chromium. Chromium's fake media devices play a padded copy of
-`data/test_audio/find_bus_twenty_one_g.wav` as the microphone, so
-Space-to-talk exercises the real AudioWorklet, WebSocket and Vosk path. The
-tests check: no horizontal scroll at 1440/1024/375 px in both modes and all
-themes; typed command plus a 21G sample lights all nine tracer stages and
-reaches `confirmed`; HIGH car-right pre-empts a playing bus message, shows the
-right-pointing banner and the bus replays; the 30 fps spam shows a `×N
-suppressed` badge with N > 50 and at most two spoken bars; a keyboard-only
-Tab walk reaches every control with a visible focus ring, and every
-shortcut works; axe-core (vendored, never loaded from a CDN) reports no
-serious or critical WCAG 2.x A/AA violations in any theme. The UI tests skip
-when Playwright or Chromium is not installed.
-
-`GET /api/routes?q=21`, `GET /api/metrics`, and `POST /api/image` are available.
-`GET /api/route/21G` returns `{route, variants, long_names}` with every unique
-"A TO B" long name from the GTFS feed; the state message's `target_bus` also
-carries `long_names`. `GET /api/health` reports each model's file and backend,
-any fallback reason, load times, the route count and the git commit (set
-`GIT_COMMIT` in Docker, where `.git` is excluded).
-The image endpoint accepts multipart `file`, optional `command`, and explicit
-`board=true` for close-ups; it returns `overlay` and `annotated_jpeg_b64`. It
-uses the same Assistant pipeline with a silent sink. Frames/images are limited
-to 4 MiB compressed and 8 megapixels decoded.
-
-WebSocket controls use JSON `type`: `text_command`, `audio_start`, `audio_end`,
-`mock_risk`, `playback_done` and `source_mode` (`mode: bus|board`). After
-`audio_start`, untagged binary messages are 16kHz mono little-endian PCM16.
-For JPEG binary messages send `{"type":"frame","id":1}` immediately before
-that binary message. Alternatively include `jpeg_b64` in the frame JSON.
-Responses include `ready`, `partial_transcript`, `transcript`, `intent`, `state`,
-`overlay`, `frame_ack`, `speak`, `stop_audio`, `metrics` and recoverable `error`.
-Risk controls carry the integration contract's object/direction/risk fields;
-the mock server assigns the current wall-clock timestamp.
-
-Mic/webcam and AudioWorklet require a secure context: localhost works over HTTP;
-a phone accessing a LAN IP needs HTTPS. Browser capture always requires the
-reviewer's permission. See [MDN getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
-and [MDN AudioWorklet](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet).
-
-```sh
-.venv/bin/python -m app.server --host 0.0.0.0 --https --cert-host 192.168.1.20
-# https://192.168.1.20:8000 on the phone; substitute the laptop's LAN IP.
-```
-
-The HTTPS flag generates a 30-day self-signed certificate using OpenSSL under
-`models/tls/` if absent. Install/trust that certificate on the test phone; simply
-bypassing a certificate warning may not enable capture in every browser. To
-change the LAN IP, regenerate or supply `--cert` and `--key`. This is a debug
-server with no login: bind only on the intended test network.
-
-```sh
-docker build -t ifsp-review1 .
-docker run --rm -p 8000:8000 ifsp-review1
-# Hugging Face Docker Spaces / a VM using port 7860:
-docker run --rm -e PORT=7860 -p 7860:7860 ifsp-review1
-```
-
-The slim Python image uses a venv, espeak-ng, Tesseract, OpenCV libraries and
-local model downloads/export during **build**. The resulting container needs no
-runtime internet or host audio device. Docker ignores local models, venv and
-logs. For Docker Spaces set its app port to 7860 and provide this Dockerfile;
-Python reads `PORT` (default 8000). Model/API adapters remain independent of
-FastAPI; the UI uses vanilla JS and static assets, with no build step or CDN.
-The server uses [FastAPI WebSockets](https://fastapi.tiangolo.com/advanced/websockets/).
+The pinned `requirements.txt` was installed successfully in a clean Python 3.12 macOS arm64 venv on 2026-10-05. Python 3.10/Windows compatibility is based on available package wheels; it has not been run on a teammate's Windows machine. The macOS test host had no audio output device, so the CLI scheduler used a silent sink while the WebSocket speech response still produced a valid Piper WAV.

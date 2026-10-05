@@ -74,6 +74,10 @@ def match_route(candidate: str, routes: Iterable[str],
     catalogue = {route.strip().upper() for route in routes}
     value = _compact(candidate)
     literal = candidate.strip().upper()
+    if (re.fullmatch(r"[A-Z]{2}\s?-?\d{1,2}\s?-?[A-Z]{0,3}\s?-?\d{1,4}", literal)
+            or re.fullmatch(r"[A-Z]{3,4}\s?\d{3,4}", literal)
+            or re.fullmatch(r"\d{4,}", value)):
+        return MatchResult(None, 0.0, "rejected_non_route")
     if literal in catalogue:
         return MatchResult(literal, 100.0, "exact")
     # Aliases with unusual shapes are exact-only. Do not strip punctuation

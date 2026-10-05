@@ -1,0 +1,1 @@
+"""Rider web interface."""

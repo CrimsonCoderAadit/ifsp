@@ -1,0 +1,8 @@
+source,scenario,detector_ms,ocr_ms,total_ms,stt_ms,piper_load_ms,tts_ms,websocket_roundtrip_ms,notes
+synthetic,150-frame video mean,23.05,,25.97,,,,,No bus tracks; local yolo11n model used for integration check
+recorded audio,Vosk phrase contains bus,,,,14.5,,,,Recorded 22050 Hz WAV; decoding elapsed after full buffer available
+recorded audio,Piper No bus identified,,,,,764.7,102.7,,Local model load and first synthesis
+real Commons,MTC_Bus_21G.JPG,,253.95,2087.5,,,,,Single real image; total includes model startup
+synthetic,150-frame video mean with yolo26n,23.01,,25.93,,,,,No bus tracks; silent sink because this host has no audio output device
+recorded audio,websocket 21G speech round-trip,,,,,,,1123,Includes first Vosk and Piper load; prerecorded utterance after real 21G upload
+synthetic,fresh Python 3.12 venv 150-frame video mean with yolo26n,21.72,,24.52,,,,,No bus tracks; saved annotated MP4; silent sink due no output device

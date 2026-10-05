@@ -27,7 +27,7 @@ class OCRBackend(Protocol):
 
 
 class RapidOCRBackend:
-    def __init__(self, config_path=ROOT / "models/rapidocr/runtime_config.yaml"):
+    def __init__(self, config_path=ROOT / "models/rapidocr/runtime_config.yaml", *, version="v5", size="mobile"):
         import yaml
         config_path = Path(config_path)
         if not config_path.is_file():
@@ -38,8 +38,17 @@ class RapidOCRBackend:
                   "Det.limit_type": "max", "Det.limit_side_len": 960}
         # Validate local files BEFORE constructing RapidOCR, preventing any
         # implicit runtime download. Rebase paths when copied to a Pi.
+        names = {}
+        if version == "v5":
+            from rapidocr import OCRVersion, ModelType, LangRec
+            names = {"Det": f"ch_PP-OCRv5_det_{size}.onnx",
+                     "Rec": f"ch_PP-OCRv5_rec_{size}.onnx"}
+            model_type = ModelType.MOBILE if size == "mobile" else ModelType.SERVER
+            params.update({"Det.ocr_version": OCRVersion.PPOCRV5, "Rec.ocr_version": OCRVersion.PPOCRV5,
+                           "Det.model_type": model_type, "Rec.model_type": model_type,
+                           "Rec.lang_type": LangRec.CH})
         for stage in ("Det", "Cls", "Rec"):
-            path = config_path.parent / Path(config[stage]["model_path"]).name
+            path = config_path.parent / names.get(stage, Path(config[stage]["model_path"]).name)
             if not path.is_file() or path.stat().st_size < 100_000:
                 raise FileNotFoundError(f"Local OCR model missing/incomplete: {path}")
             params[f"{stage}.model_path"] = str(path.resolve())
@@ -120,11 +129,20 @@ def create_ocr_backend(name="rapidocr"):
         return TesseractBackend()
     if name == "paddleocr":
         return PaddleOCRBackend()
-    if name != "rapidocr":
+    if name not in {"rapidocr", "rapidocr-v4", "rapidocr-v5-mobile", "rapidocr-v5-server"}:
         raise ValueError(f"Unknown OCR backend {name}")
     try:
-        return RapidOCRBackend()
+        version = "v4" if name in {"rapidocr", "rapidocr-v4"} else "v5"
+        size = "server" if name == "rapidocr-v5-server" else "mobile"
+        return RapidOCRBackend(version=version, size=size)
     except Exception as error:
+        if name == "rapidocr":
+            try:
+                backend = RapidOCRBackend(version="v4")
+                backend.fallback_reason = f"PP-OCRv5 unavailable: {error}"
+                return backend
+            except Exception:
+                pass
         try:
             backend = TesseractBackend()
             backend.fallback_reason = str(error)
